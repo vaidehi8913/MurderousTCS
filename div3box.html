@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+  <meta charset="utf-8">
+  <title>Div3 Machine</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  <style>
+    #container {
+      padding: 50px;
+      background-color: #FFF;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <script type="text/babel">
+
+    class SingleLight extends React.Component {
+      render () {
+        var lightStyle = {
+          height: 50,
+          width: 100,
+          backgroundColor: this.props.color,
+          display: "inline-block",
+          padding: 10,
+          marginLeft: 65,
+          marginRight: 65,
+          textAlign: "center",
+          fontFamily: "monospace",
+          fontSize: "xx-large"
+        };
+
+        return (
+          <div style={lightStyle}>
+            {this.props.message}
+          </div>
+        );
+      }
+    }
+
+    class Display extends React.Component {
+      render () {
+        var displayStyle = {
+          height: 60,
+          width: 360, 
+          marginLeft: 50,
+          textAlign: "right",
+          fontFamily: "monospace",
+          fontSize: "xx-large",
+          backgroundColor: "#00916d",
+          padding: 20
+        }
+
+        return (
+          <div style={displayStyle}>
+              {this.props.number}
+          </div>
+        )
+      }
+    }
+
+    class InputButtons extends React.Component {
+
+      render () {
+        var buttonStyle = {
+          fontSize: "1em",
+          width: 50,
+          height: 50,
+          fontFamily: "sans-serif",
+          color: "#333",
+          fontWeight: "bold",
+          lineHeight: "3px"
+        };
+
+        var buttonRowStyle = {
+          width: 500
+        };
+
+        var buttonColStyle = {
+          marginLeft: 175
+        };
+
+        return (
+          <div style={buttonColStyle}>
+            <div style={buttonRowStyle}> 
+              <button onClick={() => {this.props.newDigit(1)}} style={buttonStyle}> 1 </button>
+              <button onClick={() => {this.props.newDigit(2)}} style={buttonStyle}> 2 </button>
+              <button onClick={() => {this.props.newDigit(3)}} style={buttonStyle}> 3 </button>
+            </div>
+            <div style={buttonRowStyle}> 
+              <button onClick={() => {this.props.newDigit(4)}} style={buttonStyle}> 4 </button>
+              <button onClick={() => {this.props.newDigit(5)}} style={buttonStyle}> 5 </button>
+              <button onClick={() => {this.props.newDigit(6)}} style={buttonStyle}> 6 </button>
+            </div>
+            <div style={buttonRowStyle}> 
+              <button onClick={() => {this.props.newDigit(7)}} style={buttonStyle}> 7 </button>
+              <button onClick={() => {this.props.newDigit(8)}} style={buttonStyle}> 8 </button>
+              <button onClick={() => {this.props.newDigit(9)}} style={buttonStyle}> 9 </button>
+            </div>
+            <div style={buttonRowStyle}> 
+              <button onClick={this.props.deleteDigit} style={buttonStyle}> b </button>
+              <button onClick={() => {this.props.newDigit(0)}} style={buttonStyle}> 0 </button>
+              <button onClick={this.props.enterNumber} style={buttonStyle}> e </button>
+            </div>
+          </div>
+        );
+      }
+    }
+
+
+    class Box extends React.Component {
+        render () {
+          var boxStyle = {
+              height: 500,
+              width: 500,
+              padding: 0,
+              backgroundColor: "#B3B3B3",
+              borderColor: "#FFFFFF",
+              borderRadius: 10
+          };
+
+
+          var spacerStyle = {
+            height: 50
+          };
+
+          return (
+              <div style={boxStyle}>
+                <div style={spacerStyle}/>
+                <Display number={this.props.number}/>
+                <div style={spacerStyle}/>
+                <InputButtons newDigit={this.props.newDigit} deleteDigit={this.props.deleteDigit} enterNumber={this.props.enterNumber}/>
+              </div>
+          );
+        }
+    }
+
+    class Machine extends React.Component {
+      constructor(props) {
+        super(props);
+
+        this.state = {
+          number:9837812,
+          numberIsFinal: false
+        };
+
+        this.newDigit = this.newDigit.bind(this);
+        this.deleteDigit = this.deleteDigit.bind(this);
+        this.enterNumber = this.enterNumber.bind(this);
+      }
+
+      newDigit(i) {
+        if (this.state.numberIsFinal) {
+          this.setState({
+            number: i,
+            numberIsFinal: false
+          });
+        } else {
+          this.setState({
+            number: (this.state.number * 10) + i
+          });
+        }
+      }
+
+      deleteDigit() {
+        var m = this.state.number % 10;
+        var r = (this.state.number - m) / 10;
+
+        this.setState({
+          number: r
+        });
+      }
+
+      enterNumber() {
+        this.setState({
+          numberIsFinal: true
+        });
+      }
+
+      render () {
+
+        var darkNo = "#700013";
+        var brightNo = "#ff002b";
+        var darkYes = "#00660e";
+        var brightYes = "#00ff22";
+
+        var yesLight, noLight;
+
+        if (this.state.numberIsFinal) {
+          if (this.state.number % 3 == 0) {
+            yesLight = <SingleLight color={darkNo} message={"No!"} />
+            noLight = <SingleLight color={brightYes} message={"Yes!"} />
+          } else {
+            yesLight = <SingleLight color={brightNo} message={"No!"} />
+            noLight = <SingleLight color={darkYes} message={"Yes!"} />
+          }
+        } else {
+          yesLight = <SingleLight color={darkNo} message={"No!"} />
+          noLight = <SingleLight color={darkYes} message={"Yes!"} />
+        }
+
+        var lights = <div> 
+                      {yesLight}
+                      {noLight}
+                    </div> ;
+
+        var machineStyle = {
+          height: 550,
+          width: 500
+        };
+
+        return (
+          <div style={machineStyle}>
+            {lights}
+            <Box number={this.state.number} newDigit={this.newDigit} deleteDigit={this.deleteDigit} enterNumber={this.enterNumber}/>
+          </div>
+        );
+      }
+    }
+
+    ReactDOM.render(
+        <div>
+            <Machine/>
+        </div>,
+        document.querySelector("#container")
+    );
+  </script>
+</body>
+ 
+</html>
