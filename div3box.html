@@ -150,6 +150,7 @@
         this.newDigit = this.newDigit.bind(this);
         this.deleteDigit = this.deleteDigit.bind(this);
         this.enterNumber = this.enterNumber.bind(this);
+        this.keyboardDigit = this.keyboardDigit.bind(this);
       }
 
       newDigit(i) {
@@ -178,6 +179,40 @@
         this.setState({
           numberIsFinal: true
         });
+      }
+
+      keyboardDigit(e) {
+        if (e.key == '1') {
+          this.newDigit(1);
+        } else if (e.key == '2') {
+          this.newDigit(2);
+        } else if (e.key == '3') {
+          this.newDigit(3);
+        } else if (e.key == '4') {
+          this.newDigit(4);
+        } else if (e.key == '5') {
+          this.newDigit(5);
+        } else if (e.key == '6') {
+          this.newDigit(6);
+        } else if (e.key == '7') {
+          this.newDigit(7);
+        } else if (e.key == '8') {
+          this.newDigit(8);
+        } else if (e.key == '9') {
+          this.newDigit(9);
+        } else if (e.key == 'Enter') {
+          this.enterNumber();
+        } else if (e.key == 'Backspace') {
+          this.deleteDigit();
+        }
+      }
+
+      componentDidMount () {
+        window.addEventListener('keydown', this.keyboardDigit);
+      }
+
+      componentWillUnmount () {
+        window.removeEventListener('keydown', this.keyboardDigit);
       }
 
       render () {
@@ -213,7 +248,7 @@
         };
 
         return (
-          <div style={machineStyle}>
+          <div style={machineStyle} onKeyPress={this.keyboardDigit}>
             {lights}
             <Box number={this.state.number} newDigit={this.newDigit} deleteDigit={this.deleteDigit} enterNumber={this.enterNumber}/>
           </div>
