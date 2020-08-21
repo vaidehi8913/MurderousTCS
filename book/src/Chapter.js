@@ -1,8 +1,20 @@
 import React, { Component } from "react";
-import NavigationBar from "./NavigationBar";
-import ContentBox from "./ContentBox";
-import ExtrasBar from "./ExtrasBar";
+import NavigationBar from "./navigationbar/NavigationBar";
+import ContentBox from "./contentbox/ContentBox";
+import ExtrasBar from "./extrasbar/ExtrasBar";
  
+var CONTENT_WIDTH = 2000;
+
+/* The container for one chapter of our book.  This is everything
+   that will show up on the webpage, including the left navigation
+   bar, the center content box, and the right "extras" bar.
+
+   PROPS: none for now
+   
+   WISHLIST: eventually we need to pass in some JSON-like argument
+   that includes all of the chapter content.  Then we can use this
+   to format each chapter individually.  For now, we hardcode one
+   chapter.                                                         */
 class Chapter extends Component {
 
     constructor(props) {
@@ -32,8 +44,7 @@ class Chapter extends Component {
     }
 
     render() {
-        var contentWidth = 2000;
-        var sideBarWidth = (this.state.windowWidth - contentWidth) / 2;
+        var sideBarWidth = (this.state.windowWidth - CONTENT_WIDTH) / 2;
 
         var chapterStyle = {
             display: "flex",
@@ -43,7 +54,7 @@ class Chapter extends Component {
         return (
         <div style={chapterStyle} > 
             <NavigationBar width={sideBarWidth} />
-            <ContentBox width={contentWidth} />
+            <ContentBox width={CONTENT_WIDTH} />
             <ExtrasBar width={sideBarWidth} />
         </div>
         );
