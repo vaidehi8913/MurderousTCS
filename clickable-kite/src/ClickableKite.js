@@ -74,10 +74,10 @@ class ClickableKite extends Component {
                 <div style={kitePictureStyle} onClick={this.clickHandler}>
                     {condSpeechBubble}
                 </div>
-                {/*<h1>{"Panel clicks: " + this.state.panelClicks 
+                {<h1>{"Panel clicks: " + this.state.panelClicks 
                         + ", Image clicks: " + this.state.imageClicks
                         + ", X Position: " + this.state.xPosition 
-                        + ", Y Position: " + this.state.yPosition}</h1>*/}
+                        + ", Y Position: " + this.state.yPosition}</h1>}
             </div>
         );
     }
