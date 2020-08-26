@@ -1,0 +1,67 @@
+{
+    "key": "chapter1",
+    
+    "heading": {
+        "number": 1,
+        "title": "The Unanswerable Question"
+    },
+    
+    "content" : [
+        {
+            "key": "chap1image1",
+            "type": "image",
+            "source": "../images/001.png",
+            "description": "Vaidehi and Parmita are flying a kite, when the kite gets loose and floats into a nearby cave."
+        },
+
+        {
+            "key": "chap1image2",
+            "type": "image",
+            "source": "../images/002.png",
+            "description": "They enter the cave, to find it occupied by a crazy inventor, and his sidekick octopus. Vaidehi and Parmita sneak in to try to recover the kite that is stuck in the back of the laboratory, when the inventor notices them angrily."
+        },
+
+        {
+            "key": "chap1dialogue1",
+            "type": "dialogue",
+            "script": [
+                {
+                    "key": "chap1dialogue1line1",
+                    "chibi": "inventor image file goes here",
+                    "line": "Hey! Who on earth are you?"
+                },
+
+                {
+                    "key": "chap1dialogue1line2",
+                    "chibi": "Vaidehi image file goes here",
+                    "line": "I'm Vaidehi, and she's Parmita."
+                }
+            ]
+        },
+
+        {
+            "key": "chap1image3",
+            "type": "image",
+            "source": "../images/003.png",
+            "description": "Octopus scans Vaidehi and Parmita with its goggles."
+        },
+
+        {
+            "key": "chap1dialogue2",
+            "type": "dialogue",
+            "script": [
+                {
+                    "key": "chap1dialogue2line1",
+                    "chibi": "Inventor image file goes here",
+                    "line": "Never mind. I don't care! Why are you bothering us while I work on my greatest invention?"
+                },
+
+                {
+                    "key": "chap1dialogue2line2",
+                    "chibi": "Octopus image file goes here",
+                    "line": "I believe you mean \"our\" greatest invention, sir." 
+                }
+            ]
+        }
+    ]
+}

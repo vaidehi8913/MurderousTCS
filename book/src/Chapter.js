@@ -43,6 +43,11 @@ class Chapter extends Component {
         window.removeEventListener('resize', this.updateDimensions)
     }
 
+    fromJSON(jsonString) {
+        var chapterData = JSON.parse(jsonString);
+        return chapterData;
+    }
+
     render() {
         var sideBarWidth = (this.state.windowWidth - CONTENT_WIDTH) / 2;
 

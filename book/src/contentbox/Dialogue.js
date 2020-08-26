@@ -6,6 +6,7 @@ var CHIBI_SIZE = 400;
 var CHIBI_MARGIN = 20; // margin between chibi image and dialogue text
 var SPEAKER_MARGIN = 20; // bottom margin between one speaker and the next 
 var DIALOGUE_TEXT_TOP_OFFSET = 40; // gap between top of chibi image and top of dialogue text
+var DIALOGUE_FONT_SIZE = 48;
 
 /* This wraps and renders the Chibi sprite image
 
@@ -24,9 +25,10 @@ class ChibiSprite extends Component {
             height: "auto"
         }
 
+        /* TODO: set alt to be more descriptive */
         return (
             <div style={chibiSpriteStyle}>
-                <img src={this.props.imgSource} style={chibiImageStyle}/>
+                <img src={this.props.imgSource} style={chibiImageStyle} alt={"chibi"}/>
             </div>
         );
     }
@@ -43,10 +45,10 @@ class SpeakerLine extends Component {
         var speakerLineStyle = {
             marginLeft: CHIBI_MARGIN,
             marginTop: DIALOGUE_TEXT_TOP_OFFSET,
-            /*backgroundColor: "#3b55ff",*/
+            /* backgroundColor: "#3b55ff", // for debugging */
             width: this.props.parentWidth - CHIBI_MARGIN,
             fontFamily: "sans-serif",
-            fontSize: 48
+            fontSize: DIALOGUE_FONT_SIZE
         }
 
         return (
@@ -68,7 +70,7 @@ class SingleSpeaker extends Component {
     render () { 
         var singleSpeakerStyle = {
             marginBottom: SPEAKER_MARGIN,
-            /*backgroundColor: "#061a99",*/
+            /*backgroundColor: "#061a99", // for debugging */
             display: "flex",
             flexDirection: "row",
             alignItems: "flex-start"
@@ -108,7 +110,7 @@ class Dialogue extends Component {
 
     render () {
         var dialogueStyle = {
-            /*backgroundColor: "#328FA8",*/
+            /*backgroundColor: "#328FA8", // for debugging */
             width: this.state.width, 
             display: "flex",
             flexDirection: "column",
