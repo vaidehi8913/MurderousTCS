@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import kitePicture1 from "../images/kite_picture_1.jpg";
-import Dialogue from "./Dialogue";
+//import kitePicture1 from "../images/kite_picture_1.jpg";
+//import Dialogue from "./Dialogue";
 import chapter1Content from "../chapter-jsons/chapter1.json";
+import Dialogue from "./Dialogue";
 
 var CONTENT_MARGIN = 20;
 var CHAPTER_NUMBER_SIZE = 200;
@@ -11,11 +12,21 @@ var CHAPTER_TITLE_FONT_SIZE = 100;
    side margins. 
    
    PROPS
+   (doesn't work anymore)
    imgSource : image source for the comic image 
    description: description of image for hovering (currently not implemented)
+
+   OR
+   contentData: a JSON format object
 */
 class ComicImage extends Component {
-    render () {
+    constructor(props) {
+        super(props);
+
+        this.fromJSON = this.fromJSON.bind(this);
+    }
+    
+    fromJSON(contentData) {
         var comicImageStyle = {
             marginTop: this.props.margin, 
             marginBottom: this.props.margin,
@@ -23,21 +34,58 @@ class ComicImage extends Component {
             height: "auto"
         }
 
+        var imgSource = require ("images/" + contentData.source);
+        /* I have no idea why my previous 17 tries to get this image to render 
+            did not work.  Maybe I will never know.  I sure am glad this one 
+            worked though */
+
+        var imgDescription = contentData.description;
+
         return (
-            <img src={this.props.imgSource} style={comicImageStyle} alt={this.props.description}/>
+            <img src={imgSource} alt={imgDescription} style={comicImageStyle}/>
         );
+    }
+
+    render () {
+        /*var comicImageStyle = {
+            marginTop: this.props.margin, 
+            marginBottom: this.props.margin,
+            width: "100%",
+            height: "auto"
+        }
+
+        if (this.props.contentData == null) {
+            return (
+                <img src={this.props.imgSource} style={comicImageStyle} alt={this.props.description}/>
+            );
+        } else {*/
+            return (this.fromJSON(this.props.contentData));
+        //}
     }
 }
 
 /* Formatting for the chapter heading
 
     PROPS
+    (doesn't work anymore)
     number: chapter number
     title: chapter title
     parentWidth: width of the parent component (content box)
+    margin
+
+    OR
+    headingInfo: a JSON object with heading information
+    parentWidth: width of the parent component (content box)
+    margin
 */
 class ChapterHeading extends Component{
-    render () {
+    constructor(props) {
+        super(props);
+
+        this.fromJSON = this.fromJSON.bind(this);
+    }
+
+    fromJSON(headingInfo) {
         var chapterHeadingStyle = {
             display: "flex",
             flexDirection: "row"
@@ -60,16 +108,58 @@ class ChapterHeading extends Component{
             fontSize: CHAPTER_TITLE_FONT_SIZE
         }
 
-        return (
-            <div style={chapterHeadingStyle}>
-                <div style={chapterNumberStyle}>
-                    {this.props.number}
+        var chapterNumber = headingInfo.number;
+        var chapterTitle = headingInfo.title;
+
+        var headingObject =  <div style={chapterHeadingStyle}>
+                                <div style={chapterNumberStyle}>
+                                    {chapterNumber}
+                                </div>
+                                <div style={chapterTitleStyle}>
+                                    {chapterTitle}
+                                </div>
+                            </div>;
+
+        return (headingObject);
+    }
+
+    render () {
+        /*var chapterHeadingStyle = {
+            display: "flex",
+            flexDirection: "row"
+        }
+
+        var chapterNumberStyle = {
+            // backgroundColor: "#ffdc7a", // for debugging
+            width: CHAPTER_NUMBER_SIZE,
+            marginRight: this.props.margin,
+            textAlign: "center",
+            fontFamily: "sans-serif",
+            fontSize: CHAPTER_TITLE_FONT_SIZE
+        }
+
+        var chapterTitleStyle = {
+            // backgroundColor: "#fcba03", // for debugging 
+            width: ((this.props.parentWidth - this.props.margin) - CHAPTER_NUMBER_SIZE),
+            fontFamily: "sans-serif",
+            // fontVariant: "small-caps", // can play with this later
+            fontSize: CHAPTER_TITLE_FONT_SIZE
+        }
+
+        if (this.props.headingInfo == null) {
+            return (
+                <div style={chapterHeadingStyle}>
+                    <div style={chapterNumberStyle}>
+                        {this.props.number}
+                    </div>
+                    <div style={chapterTitleStyle}>
+                        {this.props.title}
+                    </div>
                 </div>
-                <div style={chapterTitleStyle}>
-                    {this.props.title}
-                </div>
-            </div>
-        )
+            );
+        } else { */
+            return (this.fromJSON(this.props.headingInfo));
+        //}
     }
 }
 
@@ -95,25 +185,23 @@ class ContentBox extends Component {
     fromContentData(contentData) {
         if (contentData.type === "image") {
 
-            var imagePath = require("images/" + contentData.source);
-            /* I have no idea why my previous 17 tries to get this image to render 
-               did not work.  Maybe I will never know.  I sure am glad this one 
-               worked though */
+            return <ComicImage contentData={contentData} key={contentData.key} />;
 
-            return <ComicImage imgSource={imagePath} description={contentData.description} key={contentData.key}/>;
-            /* eventually we should just pass the whole contentData right along */
         } else if (contentData.type === "dialogue") {
-            return <div key={contentData.key}/>;
+            //return <div key={contentData.key}/>;
             /* TO DO */
+            return <Dialogue dialogueInfo={contentData} 
+                             parentWidth={this.props.parentWidth}
+                             margin={CONTENT_MARGIN}/>;
         }
     }
 
     fromChapterData(chapterData) {
         var headingInfo = chapterData.heading;
-        var heading = <ChapterHeading number={headingInfo.number} 
-                                      title={headingInfo.title} 
+
+        var heading = <ChapterHeading headingInfo={headingInfo} 
                                       parentWidth={2000} 
-                                      margin={CONTENT_MARGIN} />;
+                                      margin={CONTENT_MARGIN} />
                                       /* TODO: fix hardcoded parentWidth */
 
         var contentInfo = chapterData.content;
@@ -137,13 +225,13 @@ class ContentBox extends Component {
 
 
     render () {
-        var contentBoxStyle = {
+        /*var contentBoxStyle = {
             backgroundColor: "#a8caff",
             width: this.props.width, 
             display: "flex",
             flexDirection: "column",
             justifyContent: "center"
-        };
+        };*/
 
         var formattedChapterData = this.fromChapterData(chapter1Content);
 
@@ -158,8 +246,6 @@ class ContentBox extends Component {
                 <Dialogue parentWidth={this.props.width} margin={CONTENT_MARGIN}/>
             </div>
         );*/
-
-        /*return(this.fromContentData(chapter1Content));*/
     }
 }
 

@@ -27,13 +27,15 @@
             "script": [
                 {
                     "key": "chap1dialogue1line1",
-                    "chibi": "inventor image file goes here",
+                    "chibiImage": "sprites/scientist_sprite.png",
+                    "chibiDescription": "angry inventor",
                     "line": "Hey! Who on earth are you?"
                 },
 
                 {
                     "key": "chap1dialogue1line2",
-                    "chibi": "Vaidehi image file goes here",
+                    "chibiImage": "sprites/octopus_sprite.png",
+                    "chibiDescription":"happy Vaidehi",
                     "line": "I'm Vaidehi, and she's Parmita."
                 }
             ]
@@ -52,13 +54,15 @@
             "script": [
                 {
                     "key": "chap1dialogue2line1",
-                    "chibi": "Inventor image file goes here",
+                    "chibiImage": "sprites/scientist_sprite.png",
+                    "chibiDescription":"indifferent inventor",
                     "line": "Never mind. I don't care! Why are you bothering us while I work on my greatest invention?"
                 },
 
                 {
                     "key": "chap1dialogue2line2",
-                    "chibi": "Octopus image file goes here",
+                    "chibiImage": "sprites/octopus_sprite.png",
+                    "chibiDescription": "indignant octopus",
                     "line": "I believe you mean \"our\" greatest invention, sir." 
                 }
             ]
