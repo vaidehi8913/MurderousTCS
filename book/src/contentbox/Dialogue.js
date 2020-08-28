@@ -47,7 +47,10 @@ class ChibiSprite extends Component {
 }
 
 /* This is the text associated with a single speaker (no chibi image)                                
-    
+
+    WISHLIST: This doesn't allow us to format text (bold, italicize, underline words)
+    Can we figure out how to render html tags from the input JSON string?
+
     PROPS
     parentWidth: width of the parent container (SingleSpeaker) 
     dialogueLineInfo: JSON object with info about the dialogueLine
