@@ -19,11 +19,6 @@ SHORT-TERM
         way I expected it to... We should look into 
         this.
 
-    Improvement: Enter Chapter 1 JSON in entirety
-        We should get some Chibi images loaded, and load up the rest of the dialogue.  Then we'll
-        basically have a proof-of-concept chapter 1!
-        Woooooooooooooo!
-
 
 MEDIUM-TERM 
     Improvement: Italics and Bold from JSON
@@ -73,3 +68,15 @@ LONG-TERM
         to their friends in the Content bar.  Also, 
         what is the input format going to look like 
         in the chapter JSON?
+
+    Improvement: Learn to use GitHub issues
+        That might be a better way to handle this 
+        to-do list :)
+
+
+DONE!!!
+    Improvement: Enter Chapter 1 JSON in entirety
+        August 28, 2020
+        We should get some Chibi images loaded, and load up the rest of the dialogue.  Then we'll
+        basically have a proof-of-concept chapter 1!
+        Woooooooooooooo!
