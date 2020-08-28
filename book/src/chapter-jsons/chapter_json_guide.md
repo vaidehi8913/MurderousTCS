@@ -60,7 +60,8 @@ below.
     render (grrrrr...)  
 
     If we want to put in abosolute paths later, we will have 
-    to work around this.
+    to work around this. (Maybe by concetenating it with the 
+    empty string or something?)
 
 
     DIALOGUE
