@@ -18,7 +18,9 @@ class ComicImage extends Component {
     render () {
         var comicImageStyle = {
             marginTop: this.props.margin, 
-            marginBottom: this.props.margin
+            marginBottom: this.props.margin,
+            width: "100%",
+            height: "auto"
         }
 
         return (
@@ -92,14 +94,13 @@ class ContentBox extends Component {
 
     fromContentData(contentData) {
         if (contentData.type === "image") {
-            /* TODO: fix this hardcoded picture */
-            var contentImg = require("../images/001.png");
 
-            console.log(contentData.source);
+            var imagePath = require("images/" + contentData.source);
+            /* I have no idea why my previous 17 tries to get this image to render 
+               did not work.  Maybe I will never know.  I sure am glad this one 
+               worked though */
 
-            /* YOU ARE HERE: why won't the image load from require(contentData.source) ? */
-
-            return <ComicImage src={contentImg} description={contentData.description} key={contentData.key}/>;
+            return <ComicImage imgSource={imagePath} description={contentData.description} key={contentData.key}/>;
             /* eventually we should just pass the whole contentData right along */
         } else if (contentData.type === "dialogue") {
             return <div key={contentData.key}/>;
