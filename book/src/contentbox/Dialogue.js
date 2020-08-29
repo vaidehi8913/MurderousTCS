@@ -29,7 +29,9 @@ class ChibiSprite extends Component {
             height: "auto"
         }
 
+        console.log("WOAHHHH");
         var chibiImageSource = require ("images/" + dialogueLineInfo.chibiImage);
+        console.log("HEYYYY");
 
         var chibiSpriteComponent = 
             <div style={chibiSpriteStyle}>
