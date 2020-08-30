@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import chapter1Content from "chapter-jsons/chapter1.json";
 import Dialogue from "contentbox/Dialogue";
-
-var CONTENT_MARGIN = 20;
-var CHAPTER_NUMBER_SIZE = 200;
-var CHAPTER_TITLE_FONT_SIZE = 100;
+import * as Constants from "Constants";
 
 /* Comic images have no 
    side margins. 
@@ -17,16 +14,16 @@ class ComicImage extends Component {
         super(props);
 
         this.fromJSON = this.fromJSON.bind(this);
-    }
-    
-    fromJSON(contentData) {
-        var comicImageStyle = {
+
+        this.comicImageStyle = {
             marginTop: this.props.margin, 
             marginBottom: this.props.margin,
             width: "100%",
             height: "auto"
-        }
-
+        };
+    }
+    
+    fromJSON(contentData) {
         var imgSource = require ("images/" + contentData.source);
         /* I have no idea why my previous 17 tries to get this image to render 
             did not work.  Maybe I will never know.  I sure am glad this one 
@@ -35,7 +32,7 @@ class ComicImage extends Component {
         var imgDescription = contentData.description;
 
         return (
-            <img src={imgSource} alt={imgDescription} style={comicImageStyle}/>
+            <img src={imgSource} alt={imgDescription} style={this.comicImageStyle}/>
         );
     }
 
@@ -56,39 +53,39 @@ class ChapterHeading extends Component{
         super(props);
 
         this.fromJSON = this.fromJSON.bind(this);
-    }
 
-    fromJSON(headingInfo) {
-        var chapterHeadingStyle = {
+        this.chapterHeadingStyle = {
             display: "flex",
             flexDirection: "row"
-        }
+        };
 
-        var chapterNumberStyle = {
-            // backgroundColor: "#ffdc7a", // for debugging 
-            width: CHAPTER_NUMBER_SIZE,
+        this.chapterNumberStyle = {
+            backgroundColor: (Constants.DEBUG > 1) ? "#ffdc7a" : "none", 
+            width: Constants.CHAPTER_NUMBER_SIZE,
             marginRight: this.props.margin,
             textAlign: "center",
             fontFamily: "sans-serif",
-            fontSize: CHAPTER_TITLE_FONT_SIZE
-        }
+            fontSize: Constants.CHAPTER_TITLE_FONT_SIZE
+        };
 
-        var chapterTitleStyle = {
-            // backgroundColor: "#fcba03", // for debugging 
-            width: ((this.props.parentWidth - this.props.margin) - CHAPTER_NUMBER_SIZE),
+        this.chapterTitleStyle = {
+            backgroundColor: (Constants.DEBUG > 1) ? "#fcba03" : "none",  
+            width: ((this.props.parentWidth - this.props.margin) - Constants.CHAPTER_NUMBER_SIZE),
             fontFamily: "sans-serif",
             // fontVariant: "small-caps", // can play with this later
-            fontSize: CHAPTER_TITLE_FONT_SIZE
+            fontSize: Constants.CHAPTER_TITLE_FONT_SIZE
         }
+    }
 
+    fromJSON(headingInfo) {
         var chapterNumber = headingInfo.number;
         var chapterTitle = headingInfo.title;
 
-        var headingObject =  <div style={chapterHeadingStyle}>
-                                <div style={chapterNumberStyle}>
+        var headingObject =  <div style={this.chapterHeadingStyle}>
+                                <div style={this.chapterNumberStyle}>
                                     {chapterNumber}
                                 </div>
-                                <div style={chapterTitleStyle}>
+                                <div style={this.chapterTitleStyle}>
                                     {chapterTitle}
                                 </div>
                             </div>;
@@ -118,6 +115,14 @@ class ContentBox extends Component {
         super(props);
 
         this.fromContentData = this.fromContentData.bind(this);
+
+        this.contentBoxStyle = {
+            backgroundColor: (Constants.DEBUG > 0) ? "#a8caff" : "none",
+            width: this.props.width, 
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center"
+        };
     }
 
     fromContentData(contentData) {
@@ -128,9 +133,8 @@ class ContentBox extends Component {
         } else if (contentData.type === "dialogue") {
 
             return <Dialogue dialogueInfo={contentData} 
-                             parentWidth={2000}
-                             margin={CONTENT_MARGIN}/>;
-                             /* TODO: fix hardcoded parentWidth */
+                             parentWidth={Constants.CONTENT_WIDTH}
+                             margin={Constants.CONTENT_MARGIN}/>;
         }
     }
 
@@ -138,23 +142,14 @@ class ContentBox extends Component {
         var headingInfo = chapterData.heading;
 
         var heading = <ChapterHeading headingInfo={headingInfo} 
-                                      parentWidth={2000} 
-                                      margin={CONTENT_MARGIN} />
-                                      /* TODO: fix hardcoded parentWidth */
+                                      parentWidth={Constants.CONTENT_WIDTH} 
+                                      margin={Constants.CONTENT_MARGIN} />;
 
         var contentInfo = chapterData.content;
         var contentComponents = contentInfo.map(this.fromContentData);
 
-        var contentBoxStyle = {
-            backgroundColor: "#a8caff",
-            width: this.props.width, 
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center"
-        };
-
         return(
-            <div style={contentBoxStyle}>
+            <div style={this.contentBoxStyle}>
                 {heading}
                 {contentComponents}
             </div>
@@ -163,7 +158,6 @@ class ContentBox extends Component {
 
 
     render () {
-
         var formattedChapterData = this.fromChapterData(chapter1Content);
 
         //console.log(formattedChapterData);

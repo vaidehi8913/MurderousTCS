@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import NavigationBar from "./navigationbar/NavigationBar";
 import ContentBox from "./contentbox/ContentBox";
 import ExtrasBar from "./extrasbar/ExtrasBar";
- 
-var CONTENT_WIDTH = 2000;
+import * as Constants from "Constants";
 
 /* The container for one chapter of our book.  This is everything
    that will show up on the webpage, including the left navigation
@@ -49,7 +48,7 @@ class Chapter extends Component {
     }
 
     render() {
-        var sideBarWidth = (this.state.windowWidth - CONTENT_WIDTH) / 2;
+        var sideBarWidth = (this.state.windowWidth - Constants.CONTENT_WIDTH) / 2;
 
         var chapterStyle = {
             display: "flex",
@@ -59,7 +58,7 @@ class Chapter extends Component {
         return (
         <div style={chapterStyle} > 
             <NavigationBar width={sideBarWidth} />
-            <ContentBox width={CONTENT_WIDTH} />
+            <ContentBox width={Constants.CONTENT_WIDTH} />
             <ExtrasBar width={sideBarWidth} />
         </div>
         );
