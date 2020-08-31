@@ -133,7 +133,6 @@ class ContentBox extends Component {
 
             return <Dialogue dialogueInfo={contentData} 
                              parentWidth={Constants.CONTENT_WIDTH}
-                             margin={Constants.CONTENT_MARGIN}
                              key={contentData.key}/>;
         }
     }
@@ -159,9 +158,6 @@ class ContentBox extends Component {
 
     render () {
         var formattedChapterData = this.fromChapterData(this.props.contentInfo);
-
-        //console.log(formattedChapterData);
-
         return(formattedChapterData);
     }
 }

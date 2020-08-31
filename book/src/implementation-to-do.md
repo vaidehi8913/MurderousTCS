@@ -13,15 +13,6 @@ SMALL PROJECTS
         colors, and check out what the site looks 
         like!
 
-    Bug fix: Margins
-        I don't think the top and bottom margins 
-        between content components is working the
-        way I expected it to... We should look into 
-        this.
-
-        This might be easier to fix one we implement 
-        debug mode.
-
     Bug fix: Lavender
         The word lavender is misspelled consistently
         in chapter 1 oops
@@ -144,3 +135,17 @@ DONE!!!
         to the components we render from JSON.  I 
         may have taken them out while fiddling 
         with something -_-
+
+    Bug fix: Margins
+        August 31, 2020
+        I don't think the top and bottom margins 
+        between content components is working the
+        way I expected it to... We should look into 
+        this.
+
+        This might be easier to fix one we implement 
+        debug mode. (which is complete!)
+
+        It turned out to be an error with the way the 
+        width of the SpeakerLine component was being
+        calculated.  Debug mode did help!

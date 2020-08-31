@@ -14,7 +14,8 @@ class ChibiSprite extends Component {
 
         this.chibiSpriteStyle = {
             width: Constants.CHIBI_SIZE,
-            height: Constants.CHIBI_SIZE
+            height: Constants.CHIBI_SIZE,
+            backgroundColor: (Constants.DEBUG > 1) ? "#324ea8" : "none"
         };
 
         this.chibiImageStyle = {
@@ -60,7 +61,7 @@ class SpeakerLine extends Component {
         this.fromDialogueLineInfo = this.fromDialogueLineInfo.bind(this);
 
         this.state = {
-            width: this.props.parentWidth - Constants.CHIBI_MARGIN
+            width: this.props.parentWidth - Constants.CHIBI_SIZE - Constants.CHIBI_MARGIN
         };
 
         this.speakerLineStyle = {
@@ -106,7 +107,8 @@ class SingleSpeaker extends Component {
             backgroundColor: (Constants.DEBUG > 1) ? "#061a99" : "none", 
             display: "flex",
             flexDirection: "row",
-            alignItems: "flex-start"
+            alignItems: "flex-start",
+            //width: this.props.parentWidth //redundant
         }
     }
 
@@ -136,7 +138,12 @@ class SingleSpeaker extends Component {
    speakers)
 
    PROPS
+   dialogueInfo: JSON object with the dialogue that should be
+                 rendered
    parentWidth : width of parent component (ContentBox)
+   key: should initialize dialogue object with a key, since 
+        it is in a list
+   (no longer expects the margin)
 
    arggggh why is it so hard to spell dialogue :( */
 class Dialogue extends Component {
@@ -144,7 +151,7 @@ class Dialogue extends Component {
         super(props);
 
         this.state = {
-            width: this.props.parentWidth - (2 * this.props.margin)
+            width: this.props.parentWidth - (2 * Constants.CONTENT_MARGIN)
         }
 
         this.fromDialogueInfo = this.fromDialogueInfo.bind(this);
@@ -156,8 +163,12 @@ class Dialogue extends Component {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            margin: this.props.margin
+            margin: Constants.CONTENT_MARGIN
         };
+        // Since this has a bottom margin and each SingleSpeaker also has
+        // a bottom margin, this results in an extra margin at the bottom 
+        // of each dialogue block.  We could fix it, but imo it will make
+        // the code too unreadable to be worth it for such a small fix
     }
 
     fromDialogueLineInfo(dialogueLineInfo) {
