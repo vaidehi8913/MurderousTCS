@@ -163,7 +163,8 @@ class Dialogue extends Component {
     fromDialogueLineInfo(dialogueLineInfo) {
         var dialogueLineComponent = 
             <SingleSpeaker parentWidth={this.state.width}
-                           dialogueLineInfo={dialogueLineInfo} />;
+                           dialogueLineInfo={dialogueLineInfo} 
+                           key={dialogueLineInfo.key}/>;
 
         return (dialogueLineComponent);
     }

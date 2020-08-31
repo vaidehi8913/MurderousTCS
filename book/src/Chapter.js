@@ -52,7 +52,7 @@ class Chapter extends Component {
         var sideBarWidth = (this.state.windowWidth - Constants.CONTENT_WIDTH) / 2;
 
         return (
-            <div style={this.chapterStyle} > 
+            <div style={this.chapterStyle} key={this.props.chapterInfo.key}> 
                 <NavigationBar width={sideBarWidth} />
                 <ContentBox width={Constants.CONTENT_WIDTH} 
                             contentInfo={this.props.chapterInfo}/>

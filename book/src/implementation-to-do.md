@@ -26,12 +26,6 @@ SMALL PROJECTS
         The word lavender is misspelled consistently
         in chapter 1 oops
 
-    Improvement: Object keys
-        We should add all the object keys back in
-        to the components we render from JSON.  I 
-        may have taken them out while fiddling 
-        with something -_-
-
 
 MEDIUM PROJECTS 
     Improvement: Italics and Bold from JSON
@@ -143,3 +137,10 @@ DONE!!!
         the Nav Bar. 
 
         See Kirupa's chapter 18
+
+    Bug fix: Object keys
+        August 31, 2020
+        We should add all the object keys back in
+        to the components we render from JSON.  I 
+        may have taken them out while fiddling 
+        with something -_-

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import chapter1Content from "chapter-jsons/chapter1.json";
 import Dialogue from "contentbox/Dialogue";
 import * as Constants from "Constants";
 
@@ -134,7 +133,8 @@ class ContentBox extends Component {
 
             return <Dialogue dialogueInfo={contentData} 
                              parentWidth={Constants.CONTENT_WIDTH}
-                             margin={Constants.CONTENT_MARGIN}/>;
+                             margin={Constants.CONTENT_MARGIN}
+                             key={contentData.key}/>;
         }
     }
 

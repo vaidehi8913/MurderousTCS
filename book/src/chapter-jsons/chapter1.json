@@ -64,19 +64,19 @@
                     "line": "Whatever. What are you two doing here?"
                 },
                 {
-                    "key": "chap1dialogue2line3",
+                    "key": "chap1dialogue2line4",
                     "chibiImage": "sprites/parmita_sweat.png",
                     "chibiDescription": "nervous Parmita",
                     "line": "We're just here to get our kite. One moment and we'll be out of your hair!"
                 },
                 {
-                    "key": "chap1dialogue2line4",
+                    "key": "chap1dialogue2line5",
                     "chibiImage": "sprites/vaidehi_very_3.png",
                     "chibiDescription": "sassy Vaidehi",
                     "line": "Which is probably a good thing... it looks like he hasn't washed his hair in months!"
                 },
                 {
-                    "key": "chap1dialogue2line5",
+                    "key": "chap1dialogue2line6",
                     "chibiImage": "sprites/inventor_inform.png",
                     "chibiDescription": "indignant inventor",
                     "line": "So you being here has nothing to do with me putting the finishing touches on a computer that can answer... ANY QUESTION!?"
