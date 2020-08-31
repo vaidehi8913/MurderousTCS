@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import NavigationBar from "./navigationbar/NavigationBar";
-import ContentBox from "./contentbox/ContentBox";
-import ExtrasBar from "./extrasbar/ExtrasBar";
+import NavigationBar from "navigationbar/NavigationBar";
+import ContentBox from "contentbox/ContentBox";
+import ExtrasBar from "extrasbar/ExtrasBar";
 import * as Constants from "Constants";
 
 /* The container for one chapter of our book.  This is everything
    that will show up on the webpage, including the left navigation
    bar, the center content box, and the right "extras" bar.
 
-   PROPS: none for now
+   PROPS: 
+   chapterInfo: json object specifying chapter details and content
    
    WISHLIST: eventually we need to pass in some JSON-like argument
    that includes all of the chapter content.  Then we can use this
@@ -25,6 +26,11 @@ class Chapter extends Component {
         }
 
         this.updateDimensions = this.updateDimensions.bind(this);
+
+        this.chapterStyle = {
+            display: "flex",
+            flexDirection: "row"
+        }
     }
 
     updateDimensions() {
@@ -42,25 +48,16 @@ class Chapter extends Component {
         window.removeEventListener('resize', this.updateDimensions)
     }
 
-    fromJSON(jsonString) {
-        var chapterData = JSON.parse(jsonString);
-        return chapterData;
-    }
-
     render() {
         var sideBarWidth = (this.state.windowWidth - Constants.CONTENT_WIDTH) / 2;
 
-        var chapterStyle = {
-            display: "flex",
-            flexDirection: "row"
-        }
-
         return (
-        <div style={chapterStyle} > 
-            <NavigationBar width={sideBarWidth} />
-            <ContentBox width={Constants.CONTENT_WIDTH} />
-            <ExtrasBar width={sideBarWidth} />
-        </div>
+            <div style={this.chapterStyle} > 
+                <NavigationBar width={sideBarWidth} />
+                <ContentBox width={Constants.CONTENT_WIDTH} 
+                            contentInfo={this.props.chapterInfo}/>
+                <ExtrasBar width={sideBarWidth} />
+            </div>
         );
     }
 }

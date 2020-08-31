@@ -107,8 +107,8 @@ class ChapterHeading extends Component{
    Dialogue is implemented in a separate file.  
 
    PROPS
-   width : the width that the ContextBox is set to.  This is 
-           a constant defined in Chapter.js
+   contentInfo: the json info with the Chapter content
+   width: the width set by the Chapter component
 */
 class ContentBox extends Component {
     constructor(props) {
@@ -158,7 +158,7 @@ class ContentBox extends Component {
 
 
     render () {
-        var formattedChapterData = this.fromChapterData(chapter1Content);
+        var formattedChapterData = this.fromChapterData(this.props.contentInfo);
 
         //console.log(formattedChapterData);
 

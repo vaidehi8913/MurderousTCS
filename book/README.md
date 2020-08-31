@@ -1,3 +1,16 @@
+SETUP TO RUN THIS
+
+1) Make sure that npm is set up
+
+2) If it isn't installed already, run 
+    npm i react-router-dom --save
+
+3) Run 
+    npm start
+
+
+README LEFTOVER FROM CREATE REACT APP
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

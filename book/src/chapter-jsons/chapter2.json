@@ -1,0 +1,33 @@
+{
+    "key": "chapter2",
+    "heading": {
+        "number": 2,
+        "title": "How to Answer a Question"
+    },
+    "content": [
+        {
+            "key": "chap2image1",
+            "type": "image",
+            "source": "comic/008.png",
+            "description": "Vaidehi and Parmita lie on the beach and figure out their next steps."
+        },
+        {
+            "key": "chap2dialogue1",
+            "type": "dialogue",
+            "script": [
+                {
+                    "key": "chap2dialogue1line1",
+                    "chibiImage": "sprites/parmita_thinking.png",
+                    "chibiDescription": "Parmita thinking",
+                    "line": "Well, how do we find an unanswerable question?"
+                },
+                {
+                    "key": "chap2dialogue1line2",
+                    "chibiImage": "sprites/vaidehi_ask_left.png",
+                    "chibiDescription": "Vaidehi questioning",
+                    "line": "Hmm... let's just try to brainstorm some.  Why are some potatoes purple?"
+                }
+            ]
+        }
+    ]
+}

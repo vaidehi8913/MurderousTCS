@@ -42,6 +42,7 @@ MEDIUM PROJECTS
 
         Some day if we are feeling brave: do you 
         think we could render latex? :o
+        https://www.npmjs.com/package/react-latex
 
     New Feature: Centered images in Dialogue
         We have some places where we want to include
@@ -52,14 +53,6 @@ MEDIUM PROJECTS
         its own Content component, or as a Dialogue
         sub-component, and then implement it.  
         Shouldn't be too complicated, I hope :)
-
-    New Feature: New top-level program
-        Right now, the top level program shows one 
-        chapter.  We need to figure out how to design
-        a home page that links to different chapter 
-        pages.  This linking will also probably be a 
-        good training exercise before we try to make 
-        the Nav Bar. 
 
 
 BIG PROJECTS
@@ -108,6 +101,14 @@ TO DISCUSS
         it should be easy for them to log it right 
         then.
 
+    Improvement: Design home page
+        Eventually the navigation will be put in the 
+        Nav bar, so we won't need to have the home
+        page info show on every page.  Even so, the 
+        home page will be what people come to first,
+        and we should design it so it doesn't look
+        as bad as it does right now :) 
+
 
 DONE!!!
     Improvement: Enter Chapter 1 JSON in entirety
@@ -131,3 +132,14 @@ DONE!!!
         of intensity.
 
         (The flag is in src/Constants.js)
+
+    New Feature: New top-level program
+        August 30, 2020
+        Right now, the top level program shows one 
+        chapter.  We need to figure out how to design
+        a home page that links to different chapter 
+        pages.  This linking will also probably be a 
+        good training exercise before we try to make 
+        the Nav Bar. 
+
+        See Kirupa's chapter 18
