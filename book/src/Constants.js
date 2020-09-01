@@ -2,7 +2,7 @@
 // https://medium.com/@austinpaley32/how-to-add-a-constants-file-to-your-react-project-6ce31c015774
 
 // Compilation constants
-export const DEBUG = 1; 
+export const DEBUG = 3; 
 // this can be set to 0, 1, 2, or 3
 // 0: no debug settings
 // 1: basic background colors for the different bars
@@ -24,3 +24,5 @@ export const CONTENT_WIDTH = 2000; // fixed width of the content box
         export const DIALOGUE_TEXT_TOP_OFFSET = 40; // gap between top of chibi image and top of dialogue text
         export const DIALOGUE_FONT_SIZE = 48;
 
+    //Navigation bar formatting constants
+    export const CHAPTER_NAVIGATOR_WIDTH = 1000;
