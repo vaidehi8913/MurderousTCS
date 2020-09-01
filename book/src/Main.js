@@ -8,6 +8,9 @@ import Chapter from "Chapter";
 
 import chapter1Info from "chapter-jsons/chapter1.json";
 import chapter2Info from "chapter-jsons/chapter2.json";
+import chapter3Info from "chapter-jsons/chapter3.json";
+import chapter4Info from "chapter-jsons/chapter4.json";
+import chapter5Info from "chapter-jsons/chapter5.json";
  
 class HomePage extends Component {
     render() {
@@ -16,6 +19,9 @@ class HomePage extends Component {
                 <li><NavLink to="/">Home</NavLink></li>
                 <li><NavLink to="/chapter1">Chapter 1</NavLink></li>
                 <li><NavLink to="/chapter2">Chapter 2</NavLink></li>
+                <li><NavLink to="/chapter3">Chapter 3</NavLink></li>
+                <li><NavLink to="/chapter4">Chapter 4</NavLink></li>
+                <li><NavLink to="/chapter5">Chapter 5</NavLink></li>
             </div>
         );
     }
@@ -27,11 +33,14 @@ class Main extends Component {
         <HashRouter>
             <div>
                 <div className="pageContent">
-                    <Route path="/" component={HomePage} />
+                    <Route exact path="/" component={HomePage} />
                     {/* can change above to <Route exact path= ... to 
                         stop displaying the links on every page */}
                     <Route path="/chapter1" component={() => <Chapter chapterInfo={chapter1Info}/>}/>
                     <Route path="/chapter2" component={() => <Chapter chapterInfo={chapter2Info}/>}/>
+                    <Route path="/chapter3" component={() => <Chapter chapterInfo={chapter3Info}/>}/>
+                    <Route path="/chapter4" component={() => <Chapter chapterInfo={chapter4Info}/>}/>
+                    <Route path="/chapter5" component={() => <Chapter chapterInfo={chapter5Info}/>}/>
                 </div>
             </div>
         </HashRouter>  

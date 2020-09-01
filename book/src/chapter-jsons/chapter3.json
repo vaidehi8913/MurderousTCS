@@ -1,0 +1,21 @@
+{
+    "key": "chapter3",
+    "heading": {
+        "number": 3,
+        "title": "The Question Expert"
+    },
+    "content": [
+        {
+            "key": "chap3dialogue1",
+            "type": "dialogue",
+            "script": [
+                {
+                    "key": "chap3dial1line1",
+                    "chibiImage": "sprites/vaidehi_wink.png",
+                    "chibiDescription": "Vaidehi winking",
+                    "line": "Chapter 3 coming soon!"
+                }
+            ]
+        }
+    ]
+}

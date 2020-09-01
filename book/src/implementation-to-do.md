@@ -17,6 +17,22 @@ SMALL PROJECTS
         The word lavender is misspelled consistently
         in chapter 1 oops
 
+    Bug fix: Margins
+        There is some issue where the comic image 
+        margins and the dialogue margins don't match
+        up. (See the weird jump when switching back
+        and forth from Chapter 2 to Chapter 3)
+
+    Bug fix: Navbar images
+        The navbar images aren't actually highlighting
+        the right text.  These need to be re-generated.
+
+    Improvement: Navbar Home Button
+        We should add a home button to the navbar.
+
+        This should wait until the navbar overhaul is
+        complete (listed under big projects)
+
 
 MEDIUM PROJECTS 
     Improvement: Italics and Bold from JSON
@@ -39,12 +55,25 @@ MEDIUM PROJECTS
         sub-component, and then implement it.  
         Shouldn't be too complicated, I hope :)
 
+    Bug fix: Resizing chain reaction
+        Resizing the window isn't triggering all of 
+        the updates that it should.  This results 
+        in a whole host of issues, including the 
+        navbar clicks not registering properly
+
+    New feature: Navbar hover visual feedback
+        We need some visual feedback when hovering over 
+        an image on the navbar
+        
+        This should probably wait until we fix the 
+        navbar code (which is listed under big 
+        projects.)
+
+    New feature: Navbar scroll
+        Ideally, the navbar should scroll with the page
+
 
 BIG PROJECTS
-    New Feature: Navigation Bar (Left)
-        This needs to be designed and implemented
-        from scratch
-
     New Feature: Extras Bar (Right)
         This is going to be a little complicated.  
         We need to figure out how to hook components
@@ -55,6 +84,40 @@ BIG PROJECTS
     Improvement: Learn to use GitHub issues
         That might be a better way to handle this 
         to-do list :)
+
+    Improvement: Navbar code is a M E S S
+        So the navbar works... technically.  It's 
+        a total mess, not AT ALL modular, and this
+        thing of having a separate image for every
+        navbar state will not scale well.  
+        Especially when we want to highlight chapters
+        on hover. 
+
+        Actually, if we render each chapter link as 
+        a different image, it might be waaaay easier
+        to deal with the navigation, and the clicking.
+        Prolly should have thought of that in the 
+        first place -_-.  Live and learn I guess.
+
+    Improvement: Navbar JSON
+        Maybe we in each chapter, we can directly 
+        include a navbar object that has an ordered 
+        list of elements.  Each element should have:
+            - basicImage
+            - optional hoverImage
+            - optional hoverText (the thing that 
+              shows up by the cursor)
+            - optional linkOnClick
+            - description
+
+        This will have to be included separately for 
+        each chapter, but actually that might be a 
+        feature, not a bug.  It takes away ambiguity
+        and allows us to be more flexible chapter to
+        chapter
+
+        omg someday wouldn't it be cute if the objects
+        reacted to clicks with a small shrink or something?
 
 
 TO DISCUSS
@@ -93,6 +156,16 @@ TO DISCUSS
         home page will be what people come to first,
         and we should design it so it doesn't look
         as bad as it does right now :) 
+
+    Improvement: Navbar DOM structure
+        Currently the navbar is being completely 
+        rerendered for every page.  If it is on 
+        every page (including the home page), 
+        maybe we should move it up in the DOM, 
+        so that it doesn't rerender?
+
+        If we do that, how do we tell the navbar 
+        what chapter it is on?
 
 
 DONE!!!
@@ -149,3 +222,10 @@ DONE!!!
         It turned out to be an error with the way the 
         width of the SpeakerLine component was being
         calculated.  Debug mode did help!
+
+    New Feature: Navigation Bar (Left)
+        September 1, 2020
+        This needs to be designed and implemented
+        from scratch
+
+        It's not great, but it exists!
