@@ -2,7 +2,7 @@
 // https://medium.com/@austinpaley32/how-to-add-a-constants-file-to-your-react-project-6ce31c015774
 
 // Compilation constants
-export const DEBUG = 0; 
+export const DEBUG = 1; 
 // this can be set to 0, 1, 2, or 3
 // 0: no debug settings
 // 1: basic background colors for the different bars
