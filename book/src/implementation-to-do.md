@@ -167,6 +167,11 @@ TO DISCUSS
         If we do that, how do we tell the navbar 
         what chapter it is on?
 
+    Improvement: Webframe is too big
+        Right now you have to zoom out A LOT 
+        to see the website.  We should set our 
+        constants to make the size more reasonable
+
 
 DONE!!!
     Improvement: Enter Chapter 1 JSON in entirety

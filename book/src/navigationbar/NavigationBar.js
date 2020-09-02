@@ -11,12 +11,128 @@ import chapter3NavBarImg from "images/navbar/chapter3.png";
 import chapter4NavBarImg from "images/navbar/chapter4.png";
 import chapter5NavBarImg from "images/navbar/chapter5.png";
 
-/*  This displays the clickable image that allows the user to 
-    move from chapter to chapter
+/*  This is a space between elements in the nav bar.
+
+    PROPS
+    navSpacerInfo: JSON object specifying the spacing
+*/
+class NavSpacer extends Component {
+    constructor(props){
+        super(props);
+
+        this.navSpacerStyle = {
+            backgroundColor: (Constants.DEBUG > 1) ? "#eb6b34" : "none",
+            height: Constants.MEDIUM_SPACER_SIZE // this needs to be changed to depend on the spacer info
+        };
+    }
+
+    render() {
+        return(
+            <div style={this.navSpacerStyle} />
+        );
+    }
+}
+
+/*  This is one clickable image in the nav bar.
+
+    PROPS
+    navImageElementInfo: JSON object containing information
+                         about this navImageElement
+*/
+class NavImageElement extends Component {
+    constructor(props) {
+        super(props);
+
+        this.navImageElementStyle = {
+            width: "100%",
+            height: "auto"
+        };
+
+        this.state = {
+            isClicked: false,
+            isHovering: false
+        }
+
+        this.onHover = this.onHover.bind(this);
+        this.offHover = this.offHover.bind(this);
+        this.onClick = this.onClick.bind(this);
+
+        this.fromNavImageElementInfo = this.fromNavImageElementInfo.bind(this);
+    }
+
+    onHover() {
+        this.setState({
+            isHovering: true
+        });
+    }
+
+    offHover() {
+        this.setState({
+            isHovering: false
+        });
+    }
+
+    onClick(e) {
+        this.setState({
+            isClicked: true
+        });
+    }
+
+    fromNavImageElementInfo() {
+        var navImageElementInfo = this.props.navImageElementInfo;
+        var basicImageSrc = require("images/" + navImageElementInfo.basicImage);
+        var hasHoverBehavior, hoverImageSrc, hoverText;
+        var hasLinkBehavior, linkOnClick;
+        var imageDescription = navImageElementInfo.imageDescription;
+
+        if (navImageElementInfo.hoverImage === null) {
+            hasHoverBehavior = false;
+        } else {
+            hasHoverBehavior = true;
+            //hoverImageSrc = require("images/" + navImageElementInfo.hoverImage);
+            hoverText = navImageElementInfo.hoverText;
+        }
+
+        if (navImageElementInfo.linkOnClick === null) {
+            hasLinkBehavior = false;
+        } else {
+            hasLinkBehavior = true;
+            linkOnClick = navImageElementInfo.linkOnClick;
+        }
+
+        if (this.state.isClicked && hasLinkBehavior) {
+            return <Redirect to={linkOnClick} />;
+        } else if (this.state.isHovering && hasHoverBehavior) {
+            return(
+                <img src={hoverImageSrc}
+                    style={this.navImageElementStyle}
+                    onClick={this.onClick}
+                    alt={imageDescription}/>
+            );
+        } else {
+            return(
+                <img src={basicImageSrc}
+                    style={this.navImageElementStyle}
+                    onClick={this.onClick}
+                    alt={imageDescription}/>
+            );
+        }
+    }
+
+    render() {
+        return (this.fromNavImageElementInfo());
+    }
+
+}
+
+/*  The right-aligned part of the navbar that contains all
+    of the navigation elements.
 
     PROPS
     parentWidth: width of the parent component (NavigationBar)
     chapterNumber: which chapter is this anyway?
+    navBarInfo: a JSON object that contains information about
+                what the navbar includes
 */
 class ChapterNavigator extends Component {
     constructor(props) {
@@ -24,7 +140,9 @@ class ChapterNavigator extends Component {
 
         this.chapterNavigatorStyle = {
             backgroundColor: (Constants.DEBUG > 1) ? "#ffae00" : "none",
-            width: Constants.CHAPTER_NAVIGATOR_WIDTH
+            width: Constants.CHAPTER_NAVIGATOR_WIDTH,
+            display: "flex",
+            flexDirection: "column"
         };
 
         this.chapterNavigatorImageStyle = {
@@ -83,6 +201,10 @@ class ChapterNavigator extends Component {
         }
 
         this.chapterNavigatorRef = React.createRef();
+
+        this.fromNavElementInfo = this.fromNavElementInfo.bind(this);
+        this.fromNavBarInfo = this.fromNavBarInfo.bind(this);
+        this.originalNavBarGenerator = this.originalNavBarGenerator.bind(this);
     }
 
     initializeImageRef(element) {
@@ -164,8 +286,34 @@ class ChapterNavigator extends Component {
                 redirectToChapter5: true
             });
         }
-
     }
+
+    fromNavElementInfo(navElementInfo) {
+        if (navElementInfo.type === "imageElement") {
+            return (
+                <NavImageElement navImageElementInfo={navElementInfo} 
+                                 key={navElementInfo.key} />
+            );
+        } else // (navElementInfo.type === "spacer") 
+        {
+            return (
+                <NavSpacer navSpacerInfo={navElementInfo} 
+                           key={navElementInfo.key}/>
+            );
+        }
+    }
+
+    fromNavBarInfo() {
+        const navBarElements = this.props.navBarInfo.navBarElements;
+        const navBarComponents = navBarElements.map(this.fromNavElementInfo);
+
+        return(
+            <div style={this.chapterNavigatorStyle}>
+                {navBarComponents}
+            </div>
+        );
+    }
+
 
     renderImage() {
         var chapterNavigatorImgSource = fullColorNavBarImg;
@@ -190,7 +338,7 @@ class ChapterNavigator extends Component {
         );
     }
 
-    render() {
+    originalNavBarGenerator() {
         if (this.state.redirectToChapter1 && this.props.chapterNumber !== 1){
             return(<Redirect to="/chapter1"/>);
         } else if (this.state.redirectToChapter2 && this.props.chapterNumber !== 2){
@@ -230,6 +378,14 @@ class ChapterNavigator extends Component {
             </div>
         );
     }
+
+    render() {
+        console.log(this.fromNavBarInfo());
+
+        return(
+            this.fromNavBarInfo()
+        );
+    }
 }
 
 /* Wrapper component for the whole left navigation bar.
@@ -258,7 +414,8 @@ class NavigationBar extends Component {
         return(
             <div style={this.navBarStyle} >
                 <ChapterNavigator parentWidth={this.props.width}
-                                  chapterNumber={chapterNumber}/>
+                                  chapterNumber={chapterNumber}
+                                  navBarInfo={this.props.navBarInfo}/>
             </div>
         );
     }

@@ -2,7 +2,7 @@
 // https://medium.com/@austinpaley32/how-to-add-a-constants-file-to-your-react-project-6ce31c015774
 
 // Compilation constants
-export const DEBUG = 0; 
+export const DEBUG = 2; 
 // this can be set to 0, 1, 2, or 3
 // 0: no debug settings
 // 1: basic background colors for the different bars
@@ -26,3 +26,8 @@ export const CONTENT_WIDTH = 2000; // fixed width of the content box
 
     //Navigation bar formatting constants
     export const CHAPTER_NAVIGATOR_WIDTH = 1000;
+
+        //Spacer formatting constants
+        export const SMALL_SPACER_SIZE = 50;
+        export const MEDIUM_SPACER_SIZE = 100;
+        export const LARGE_SPACER_SIZE = 200;
