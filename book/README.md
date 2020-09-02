@@ -72,6 +72,12 @@ Need help figuring out what the JSONs mean?  The JSON documentation is at
     src/chapter-jsons/json_guide.md
 
 
+# Content
+Looking for content that isn't in the JSON yet, or old script drafts?
+The script is actually on Google Drive in a shared folder also called
+MurderousTCS, not this git repo.
+
+
 # Images
 Looking for the source images that we use? You can find them under
 
