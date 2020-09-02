@@ -28,9 +28,12 @@ use it.
 # Project Structure
 If you want a basic idea of the project structure, it's actually not a bad
 idea to start with the JSON documentation at 
-src/chapter-jsons/json_guide.md.  The organization of the React components 
-is basically the same as the organization of the JSON objects (the 
-serialization of the object looks like the object? Go figure!)
+
+    src/chapter-jsons/json_guide.md 
+
+The organization of the React components is basically the same as the 
+organization of the JSON objects (the serialization of the object looks 
+like the object? Go figure!)
 
 At a very high level: this project is basically entirely based on what I 
 learned from Kirupa Chinnathambi's book: "Learning React: A Hands-On Guide 
@@ -38,7 +41,9 @@ to Building Web Applications Using React and Redux"
 
 That means that it is technically a Single-Page App, even though it behaves
 as though each chapter is a separate page.  You can see the main routing
-at work in src/Main.js .
+at work in 
+
+    src/Main.js
 
 The home page isn't super interesting, so I'm not going to talk about it :)
 
@@ -50,21 +55,27 @@ reader can skip if they want.
 
 The code is all about the formatting of the page.  All of the content 
 (including chapter content, what the navbar has, etc.) is loaded from 
-json files that are in src/chapter-jsons. 
+json files that are in 
+
+    src/chapter-jsons
 
 
 # JSON Documentation
 Don't care about the formatting? Just want to edit the content?  Then you
 are probably looking for the JSON files.  You can find them in the 
-directory src/chapter-jsons.  
+directory 
+
+    src/chapter-jsons 
 
 Need help figuring out what the JSONs mean?  The JSON documentation is at
-src/chapter-jsons/json_guide.md
+
+    src/chapter-jsons/json_guide.md
 
 
 # Images
 Looking for the source images that we use? You can find them under
-src/images
+
+    src/images
 
 
 # Our To-Do List
@@ -75,9 +86,15 @@ You can find this in src/implementation-to-do.md
 # Debug mode
 We have a debug mode!!! I know, so legit right?
 
-You can turn it on by setting the constant DEBUG in src/Constants.js.
+You can turn it on by setting the constant 
 
-It can be set to 0, 1, 2, or 3.  Here's what the different levels do:
+    DEBUG 
+
+in 
+
+    src/Constants.js
+
+It can be set to 0, 1, 2, or 3.  Here's what the different levels do.
 
 ## 0:  No debug mode
 See the website as it was designed to look.
