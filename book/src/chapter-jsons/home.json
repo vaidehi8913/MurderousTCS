@@ -1,36 +1,33 @@
 {
-    "key": "chapter3",
-    "type": "chapter",
-    
+    "key": "homePage",
+    "type": "home",
+
     "navigationBar": {
-        "chapterNumber": 3,
-        "chapterTitle": "The Question Expert",
+        "chapterNumber": 0,
+        "chapterTitle": "Home Page",
         "navBarElements": [
             {
-                "key": "c3homeButton",
+                "key": "Hchapter1Button",
                 "type": "imageElement",
-                "basicImage": "navbar/home_dark.png",
-                "hoverImage": "navbar/home.png",
-                "hoverText": "Go to the home page",
-                "linkOnClick": "/",
-                "imageDescription": "Button to home page"
+                "basicImage": "navbar/home.png",
+                "imageDescription": "Button to Chapter 1"
             },
             {
-                "key": "c3space1",
+                "key": "Hspace1",
                 "type": "spacer",
                 "size": "medium"
             },
             {
-                "key": "c3chapter1Button",
+                "key": "Hchapter1Button",
                 "type": "imageElement",
                 "basicImage": "navbar/chapter1_crop_dark.png",
                 "hoverImage": "navbar/chapter1_crop.png",
                 "hoverText": "Go to Chapter 1",
                 "linkOnClick": "/chapter1",
-                "imageDescription": "Button to chapter 1"
+                "imageDescription": "Button to Chapter 1"
             },
             {
-                "key": "c3chapter2Button",
+                "key": "Hchapter2Button",
                 "type": "imageElement",
                 "basicImage": "navbar/chapter2_crop_dark.png",
                 "hoverImage": "navbar/chapter2_crop.png",
@@ -39,13 +36,16 @@
                 "imageDescription": "Button to chapter 2"
             },
             {
-                "key": "c3chapter3Button",
+                "key": "Hchapter3Button",
                 "type": "imageElement",
-                "basicImage": "navbar/chapter3_crop.png",
-                "imageDescription": "Button to Chapter 3"
+                "basicImage": "navbar/chapter3_crop_dark.png",
+                "hoverImage": "navbar/chapter3_crop.png",
+                "hoverText": "Go to Chapter 3",
+                "linkOnClick": "/chapter3",
+                "imageDescription": "Button to chapter 3"
             },
             {
-                "key": "c3chapter4Button",
+                "key": "Hchapter4Button",
                 "type": "imageElement",
                 "basicImage": "navbar/chapter4_crop_dark.png",
                 "hoverImage": "navbar/chapter4_crop.png",
@@ -54,35 +54,13 @@
                 "imageDescription": "Button to chapter 4"
             },
             {
-                "key": "c3chapter5Button",
+                "key": "Hchapter5Button",
                 "type": "imageElement",
                 "basicImage": "navbar/chapter5_crop_dark.png",
                 "hoverImage": "navbar/chapter5_crop.png",
                 "hoverText": "Go to Chapter 5",
                 "linkOnClick": "/chapter5",
                 "imageDescription": "Button to chapter 5"
-            }
-        ]
-    },
-
-    "contentBox": {
-        "heading": {
-            "number": 3,
-            "title": "The Question Expert"
-        },
-
-        "content": [
-            {
-                "key": "chap3dialogue1",
-                "type": "dialogue",
-                "script": [
-                    {
-                        "key": "chap3dial1line1",
-                        "chibiImage": "sprites/vaidehi_wink.png",
-                        "chibiDescription": "Vaidehi winking",
-                        "line": "Chapter 3 coming soon!"
-                    }
-                ]
             }
         ]
     }

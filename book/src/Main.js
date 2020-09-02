@@ -1,31 +1,19 @@
 import React, { Component } from "react";
 import {
     Route,
-    NavLink,
+    //NavLink,
     HashRouter
 } from "react-router-dom";
+
 import Chapter from "Chapter";
+import HomePage from "HomePage";
 
 import chapter1Info from "chapter-jsons/chapter1.json";
 import chapter2Info from "chapter-jsons/chapter2.json";
 import chapter3Info from "chapter-jsons/chapter3.json";
 import chapter4Info from "chapter-jsons/chapter4.json";
 import chapter5Info from "chapter-jsons/chapter5.json";
- 
-class HomePage extends Component {
-    render() {
-        return (
-            <div>
-                <li><NavLink to="/">Home</NavLink></li>
-                <li><NavLink to="/chapter1">Chapter 1</NavLink></li>
-                <li><NavLink to="/chapter2">Chapter 2</NavLink></li>
-                <li><NavLink to="/chapter3">Chapter 3</NavLink></li>
-                <li><NavLink to="/chapter4">Chapter 4</NavLink></li>
-                <li><NavLink to="/chapter5">Chapter 5</NavLink></li>
-            </div>
-        );
-    }
-}
+import homeInfo from "chapter-jsons/home.json";
 
 class Main extends Component {
   render() {
@@ -33,7 +21,7 @@ class Main extends Component {
         <HashRouter>
             <div>
                 <div className="pageContent">
-                    <Route exact path="/" component={HomePage} />
+                    <Route exact path="/" component={() => <HomePage homeInfo={homeInfo} />} />
                     {/* can change above to <Route exact path= ... to 
                         stop displaying the links on every page */}
                     <Route path="/chapter1" component={() => <Chapter chapterInfo={chapter1Info}/>}/>

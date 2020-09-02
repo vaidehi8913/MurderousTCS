@@ -33,6 +33,17 @@ SMALL PROJECTS
         This should wait until the navbar overhaul is
         complete (listed under big projects)
 
+    Note: Clickable sample
+        Not sure where to leave this note, so I'll 
+        put it here. 
+
+        It's not in the code base anymore, but the 
+        original navbar has an example of how to 
+        get the absolute position of a component
+        and calculate the relative position of a 
+        click.  This can be found in commit 
+        f3feb62df111e93de68de8b885f1f20b8c0fc842
+
 
 MEDIUM PROJECTS 
     Improvement: Italics and Bold from JSON
@@ -85,41 +96,6 @@ BIG PROJECTS
         That might be a better way to handle this 
         to-do list :)
 
-    Improvement: Navbar code is a M E S S
-        So the navbar works... technically.  It's 
-        a total mess, not AT ALL modular, and this
-        thing of having a separate image for every
-        navbar state will not scale well.  
-        Especially when we want to highlight chapters
-        on hover. 
-
-        Actually, if we render each chapter link as 
-        a different image, it might be waaaay easier
-        to deal with the navigation, and the clicking.
-        Prolly should have thought of that in the 
-        first place -_-.  Live and learn I guess.
-
-    Improvement: Navbar JSON
-        Maybe we in each chapter, we can directly 
-        include a navbar object that has an ordered 
-        list of elements.  Each element should have:
-            - basicImage
-            - optional hoverImage
-            - optional hoverText (the thing that 
-              shows up by the cursor)
-            - optional linkOnClick
-            - description
-
-        This will have to be included separately for 
-        each chapter, but actually that might be a 
-        feature, not a bug.  It takes away ambiguity
-        and allows us to be more flexible chapter to
-        chapter
-
-        omg someday wouldn't it be cute if the objects
-        reacted to clicks with a small shrink or something?
-
-
 TO DISCUSS
     New Feature: Threads
         Having a nested thread display for dialogue  
@@ -152,7 +128,9 @@ TO DISCUSS
     Improvement: Design home page
         Eventually the navigation will be put in the 
         Nav bar, so we won't need to have the home
-        page info show on every page.  Even so, the 
+        page info show on every page.  (done!)
+        
+        Even so, the 
         home page will be what people come to first,
         and we should design it so it doesn't look
         as bad as it does right now :) 
@@ -234,3 +212,40 @@ DONE!!!
         from scratch
 
         It's not great, but it exists!
+
+    Improvement: Navbar code is a M E S S
+        September 2, 2020
+        So the navbar works... technically.  It's 
+        a total mess, not AT ALL modular, and this
+        thing of having a separate image for every
+        navbar state will not scale well.  
+        Especially when we want to highlight chapters
+        on hover. 
+
+        Actually, if we render each chapter link as 
+        a different image, it might be waaaay easier
+        to deal with the navigation, and the clicking.
+        Prolly should have thought of that in the 
+        first place -_-.  Live and learn I guess.
+
+    Improvement: Navbar JSON
+        September 2, 2020
+        Maybe we in each chapter, we can directly 
+        include a navbar object that has an ordered 
+        list of elements.  Each element should have:
+            - basicImage
+            - optional hoverImage
+            - optional hoverText (the thing that 
+              shows up by the cursor)
+            - optional linkOnClick
+            - description
+
+        This will have to be included separately for 
+        each chapter, but actually that might be a 
+        feature, not a bug.  It takes away ambiguity
+        and allows us to be more flexible chapter to
+        chapter
+
+        omg someday wouldn't it be cute if the objects
+        reacted to clicks with a small shrink or something?
+

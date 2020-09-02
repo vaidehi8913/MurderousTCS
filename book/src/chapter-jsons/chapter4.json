@@ -1,5 +1,6 @@
 {
     "key": "chapter4",
+    "type": "chapter",
     
     "navigationBar": {
         "chapterNumber": 4,
