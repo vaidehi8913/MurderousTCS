@@ -62,14 +62,6 @@ MEDIUM PROJECTS
         in a whole host of issues, including the 
         navbar clicks not registering properly
 
-    New feature: Navbar hover visual feedback
-        We need some visual feedback when hovering over 
-        an image on the navbar
-        
-        This should probably wait until we fix the 
-        navbar code (which is listed under big 
-        projects.)
-
     New feature: Navbar scroll
         Ideally, the navbar should scroll with the page
 
@@ -254,3 +246,17 @@ DONE!!!
         This should wait until the navbar overhaul is
         complete (listed under big projects)
 
+    
+    New feature: Navbar hover visual feedback
+        September 2, 2020
+        We need some visual feedback when hovering over 
+        an image on the navbar
+        
+        This should probably wait until we fix the 
+        navbar code (which is listed under big 
+        projects.)
+
+    Documentation: Update JSON Guide
+        September 2, 2020
+        The JSON Guide does not have the navigation
+        bar or the home page yet
