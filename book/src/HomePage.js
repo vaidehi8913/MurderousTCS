@@ -26,7 +26,9 @@ class HomePage extends Component {
         var navBarInfo = this.props.homeInfo.navigationBar;
 
         return (
-            <ChapterNavigator navBarInfo={navBarInfo} />
+            <div style={this.homePageStyle}>
+                <ChapterNavigator navBarInfo={navBarInfo} />
+            </div>
         );
     }
 }
