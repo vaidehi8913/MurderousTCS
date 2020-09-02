@@ -50,13 +50,15 @@ class Chapter extends Component {
 
     render() {
         var sideBarWidth = (this.state.windowWidth - Constants.CONTENT_WIDTH) / 2;
+        var contentBoxInfo = this.props.chapterInfo.contentBox;
+        var navBarInfo = this.props.chapterInfo.navigationBar;
 
         return (
             <div style={this.chapterStyle} key={this.props.chapterInfo.key}> 
                 <NavigationBar width={sideBarWidth} 
-                               chapterInfo={this.props.chapterInfo}/>
+                               navBarInfo={navBarInfo}/>
                 <ContentBox width={Constants.CONTENT_WIDTH} 
-                            contentInfo={this.props.chapterInfo}/>
+                            contentInfo={contentBoxInfo}/>
                 <ExtrasBar width={sideBarWidth} />
             </div>
         );

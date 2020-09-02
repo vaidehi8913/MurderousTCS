@@ -1,21 +1,88 @@
 {
     "key": "chapter5",
-    "heading": {
-        "number": 5,
-        "title": "Plenty of Prize-winning Pigeons"
+    
+    "navigationBar": {
+        "chapterNumber": 5,
+        "chapterTitle": "Plenty of Prize-winning Pigeons",
+        "navBarElements": [
+            {
+                "key": "c5homeButton",
+                "type": "imageElement",
+                "basicImage": "navbar/home_dark.png",
+                "hoverImage": "navbar/home.png",
+                "hoverText": "Go to the home page",
+                "linkOnClick": "/",
+                "imageDescription": "Button to home page"
+            },
+            {
+                "key": "c5space1",
+                "type": "spacer",
+                "size": "medium"
+            },
+            {
+                "key": "c5chapter1Button",
+                "type": "imageElement",
+                "basicImage": "navbar/chapter1_crop_dark.png",
+                "hoverImage": "navbar/chapter1_crop.png",
+                "hoverText": "Go to Chapter 1",
+                "linkOnClick": "/chapter1",
+                "imageDescription": "Button to chapter 1"
+            },
+            {
+                "key": "c5chapter2Button",
+                "type": "imageElement",
+                "basicImage": "navbar/chapter2_crop_dark.png",
+                "hoverImage": "navbar/chapter2_crop.png",
+                "hoverText": "Go to Chapter 2",
+                "linkOnClick": "/chapter2",
+                "imageDescription": "Button to chapter 2"
+            },
+            {
+                "key": "c5chapter3Button",
+                "type": "imageElement",
+                "basicImage": "navbar/chapter3_crop_dark.png",
+                "hoverImage": "navbar/chapter3_crop.png",
+                "hoverText": "Go to Chapter 3",
+                "linkOnClick": "/chapter3",
+                "imageDescription": "Button to chapter 3"
+            },
+            {
+                "key": "c5chapter4Button",
+                "type": "imageElement",
+                "basicImage": "navbar/chapter4_crop_dark.png",
+                "hoverImage": "navbar/chapter4_crop.png",
+                "hoverText": "Go to Chapter 4",
+                "linkOnClick": "/chapter4",
+                "imageDescription": "Button to chapter 4"
+            },
+            {
+                "key": "c5chapter5Button",
+                "type": "imageElement",
+                "basicImage": "navbar/chapter5_crop.png",
+                "imageDescription": "Button to Chapter 5"
+            }
+        ]
     },
-    "content": [
-        {
-            "key": "chap5dialogue1",
-            "type": "dialogue",
-            "script": [
-                {
-                    "key": "chap5dial1line1",
-                    "chibiImage": "sprites/vaidehi_wink.png",
-                    "chibiDescription": "Vaidehi winking",
-                    "line": "Chapter 5 coming soon!"
-                }
-            ]
-        }
-    ]
+
+    "contentBox": {
+        "heading": {
+            "number": 5,
+            "title": "Plenty of Prize-winning Pigeons"
+        },
+
+        "content": [
+            {
+                "key": "chap5dialogue1",
+                "type": "dialogue",
+                "script": [
+                    {
+                        "key": "chap5dial1line1",
+                        "chibiImage": "sprites/vaidehi_wink.png",
+                        "chibiDescription": "Vaidehi winking",
+                        "line": "Chapter 5 coming soon!"
+                    }
+                ]
+            }
+        ]
+    }
 }

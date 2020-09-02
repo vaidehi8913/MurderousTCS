@@ -4,7 +4,7 @@ import {
 } from "react-router-dom";
 import * as Constants from "Constants";
 
-import fullColorNavBarImg from "images/navbar/full-color.png";
+import fullColorNavBarImg from "images/navbar/full_color.png";
 import chapter1NavBarImg from "images/navbar/chapter1.png";
 import chapter2NavBarImg from "images/navbar/chapter2.png";
 import chapter3NavBarImg from "images/navbar/chapter3.png";
@@ -170,15 +170,15 @@ class ChapterNavigator extends Component {
     renderImage() {
         var chapterNavigatorImgSource = fullColorNavBarImg;
 
-        if (this.props.chapterNumber == 1) {
+        if (this.props.chapterNumber === 1) {
             chapterNavigatorImgSource = chapter1NavBarImg;
-        } else if (this.props.chapterNumber == 2) {
+        } else if (this.props.chapterNumber === 2) {
             chapterNavigatorImgSource = chapter2NavBarImg;
-        } else if (this.props.chapterNumber == 3) {
+        } else if (this.props.chapterNumber === 3) {
             chapterNavigatorImgSource = chapter3NavBarImg;
-        } else if (this.props.chapterNumber == 4) {
+        } else if (this.props.chapterNumber === 4) {
             chapterNavigatorImgSource = chapter4NavBarImg;
-        } else if (this.props.chapterNumber == 5) {
+        } else if (this.props.chapterNumber === 5) {
             chapterNavigatorImgSource = chapter5NavBarImg;
         }
 
@@ -191,15 +191,15 @@ class ChapterNavigator extends Component {
     }
 
     render() {
-        if (this.state.redirectToChapter1 && this.props.chapterNumber != 1){
+        if (this.state.redirectToChapter1 && this.props.chapterNumber !== 1){
             return(<Redirect to="/chapter1"/>);
-        } else if (this.state.redirectToChapter2 && this.props.chapterNumber != 2){
+        } else if (this.state.redirectToChapter2 && this.props.chapterNumber !== 2){
             return(<Redirect to="/chapter2"/>);
-        } if (this.state.redirectToChapter3 && this.props.chapterNumber != 3){
+        } if (this.state.redirectToChapter3 && this.props.chapterNumber !== 3){
             return(<Redirect to="/chapter3"/>);
-        } if (this.state.redirectToChapter4 && this.props.chapterNumber != 4){
+        } if (this.state.redirectToChapter4 && this.props.chapterNumber !== 4){
             return(<Redirect to="/chapter4"/>);
-        } if (this.state.redirectToChapter5 && this.props.chapterNumber != 5){
+        } if (this.state.redirectToChapter5 && this.props.chapterNumber !== 5){
             return(<Redirect to="/chapter5"/>);
         }
 
@@ -237,8 +237,8 @@ class ChapterNavigator extends Component {
     PROPS (eventually)
     width: width of the navbar, calculated at the parent 
            level (Chapter)
-    chapterInfo: a JSON file with information about the 
-                 chapter
+    navBarInfo: a JSON file with information about the 
+                navigation bar
 */
 class NavigationBar extends Component {
     constructor(props) {
@@ -253,7 +253,7 @@ class NavigationBar extends Component {
     }
 
     render () {
-        var chapterNumber = this.props.chapterInfo.heading.number;
+        var chapterNumber = this.props.navBarInfo.chapterNumber;
 
         return(
             <div style={this.navBarStyle} >
