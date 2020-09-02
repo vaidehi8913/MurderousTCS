@@ -103,7 +103,7 @@ us turn off the print statements easily.  We should probably
 clean the obsolete ones out every so often...
 
 
-# README LEFTOVER FROM CREATE REACT APP
+# README Leftover from create-react-app
 
 (we used create react app to make this, and this was the readme it came with.
 I don't know what is going on well enough to delete it quite yet)
