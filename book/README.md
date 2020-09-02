@@ -19,6 +19,7 @@ is "MurderousTCS" (TCS for theoretical computer science).
 
 Make sure you have npm downloaded.  Then as long as you are in the project 
 directory (MurederousTCS/book) you can run: 
+
     npm start
 
 If you want to use debug mode, there's a section in this README on how to
