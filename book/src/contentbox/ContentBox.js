@@ -59,7 +59,7 @@ class ChapterHeading extends Component{
         };
 
         this.chapterNumberStyle = {
-            backgroundColor: (Constants.DEBUG > 1) ? "#ffdc7a" : "none", 
+            backgroundColor: (Constants.DEBUG > 1) ? "#7866ff" : "none", 
             width: Constants.CHAPTER_NUMBER_SIZE,
             marginRight: this.props.margin,
             textAlign: "center",
@@ -68,7 +68,7 @@ class ChapterHeading extends Component{
         };
 
         this.chapterTitleStyle = {
-            backgroundColor: (Constants.DEBUG > 1) ? "#fcba03" : "none",  
+            backgroundColor: (Constants.DEBUG > 1) ? "#1259ff" : "none",  
             width: ((this.props.parentWidth - this.props.margin) - Constants.CHAPTER_NUMBER_SIZE),
             fontFamily: "sans-serif",
             // fontVariant: "small-caps", // can play with this later

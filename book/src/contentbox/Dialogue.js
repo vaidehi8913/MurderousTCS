@@ -26,9 +26,15 @@ class ChibiSprite extends Component {
 
     fromDialogueLineInfo(dialogueLineInfo) {
 
-        console.log("WOAHHHH");
+        if (Constants.DEBUG > 2) {
+            console.log("WOAHHHH");
+        }
+        
         var chibiImageSource = require ("images/" + dialogueLineInfo.chibiImage);
-        console.log("HEYYYY");
+
+        if (Constants.DEBUG > 2) {
+            console.log("HEYYYY");
+        }
 
         var chibiSpriteComponent = 
             <div style={this.chibiSpriteStyle}>

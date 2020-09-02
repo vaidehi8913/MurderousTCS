@@ -10,10 +10,6 @@ import * as Constants from "Constants";
     navSpacerInfo: JSON object specifying the spacing
 */
 class NavSpacer extends Component {
-    constructor(props){
-        super(props);
-    }
-
     render() {
         var navSpacerHeight;
 
@@ -62,20 +58,20 @@ class NavImageElement extends Component {
             isHovering: false
         }
 
-        this.onHover = this.onHover.bind(this);
-        this.offHover = this.offHover.bind(this);
+        this.onMouseEnter = this.onMouseEnter.bind(this);
+        this.onMouseLeave = this.onMouseLeave.bind(this);
         this.onClick = this.onClick.bind(this);
 
         this.fromNavImageElementInfo = this.fromNavImageElementInfo.bind(this);
     }
 
-    onHover() {
+    onMouseEnter() {
         this.setState({
             isHovering: true
         });
     }
 
-    offHover() {
+    onMouseLeave() {
         this.setState({
             isHovering: false
         });
@@ -94,19 +90,30 @@ class NavImageElement extends Component {
         var hasLinkBehavior, linkOnClick;
         var imageDescription = navImageElementInfo.imageDescription;
 
-        if (navImageElementInfo.hoverImage === null) {
-            hasHoverBehavior = false;
-        } else {
+        if (navImageElementInfo.hasOwnProperty('hoverImage')) {
             hasHoverBehavior = true;
-            //hoverImageSrc = require("images/" + navImageElementInfo.hoverImage);
+
+            if (Constants.DEBUG > 2) {
+                var debugString2 = "Navbar hover image path: " + navImageElementInfo.hoverImage;
+                console.log(debugString2);
+            }
+            hoverImageSrc = require("images/" + navImageElementInfo.hoverImage);
             hoverText = navImageElementInfo.hoverText;
+            
+        } else {
+            if (Constants.DEBUG > 2) {
+                var debugString1 = "Does this ever happen?";
+                console.log(debugString1);
+            }
+
+            hasHoverBehavior = false;
         }
 
-        if (navImageElementInfo.linkOnClick === null) {
-            hasLinkBehavior = false;
-        } else {
+        if (navImageElementInfo.hasOwnProperty('linkOnClick')) {
             hasLinkBehavior = true;
             linkOnClick = navImageElementInfo.linkOnClick;
+        } else {
+            hasLinkBehavior = false;
         }
 
         if (this.state.isClicked && hasLinkBehavior) {
@@ -116,6 +123,8 @@ class NavImageElement extends Component {
                 <img src={hoverImageSrc}
                     style={this.navImageElementStyle}
                     onClick={this.onClick}
+                    onMouseEnter={this.onMouseEnter}
+                    onMouseLeave={this.onMouseLeave}
                     alt={imageDescription}/>
             );
         } else {
@@ -123,6 +132,8 @@ class NavImageElement extends Component {
                 <img src={basicImageSrc}
                     style={this.navImageElementStyle}
                     onClick={this.onClick}
+                    onMouseEnter={this.onMouseEnter}
+                    onMouseLeave={this.onMouseLeave}
                     alt={imageDescription}/>
             );
         }
@@ -211,8 +222,6 @@ class NavigationBar extends Component {
     }
 
     render () {
-        var chapterNumber = this.props.navBarInfo.chapterNumber;
-
         return(
             <div style={this.navBarStyle} >
                 <ChapterNavigator navBarInfo={this.props.navBarInfo}/>

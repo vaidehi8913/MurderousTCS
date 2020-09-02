@@ -7,7 +7,7 @@
         "chapterTitle": "Home Page",
         "navBarElements": [
             {
-                "key": "Hchapter1Button",
+                "key": "HhomeButton",
                 "type": "imageElement",
                 "basicImage": "navbar/home.png",
                 "imageDescription": "Button to Chapter 1"

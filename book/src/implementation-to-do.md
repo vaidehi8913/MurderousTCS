@@ -23,16 +23,6 @@ SMALL PROJECTS
         up. (See the weird jump when switching back
         and forth from Chapter 2 to Chapter 3)
 
-    Bug fix: Navbar images
-        The navbar images aren't actually highlighting
-        the right text.  These need to be re-generated.
-
-    Improvement: Navbar Home Button
-        We should add a home button to the navbar.
-
-        This should wait until the navbar overhaul is
-        complete (listed under big projects)
-
     Note: Clickable sample
         Not sure where to leave this note, so I'll 
         put it here. 
@@ -150,6 +140,9 @@ TO DISCUSS
         to see the website.  We should set our 
         constants to make the size more reasonable
 
+        For example, looking at it on an ipad is 
+        impossible.
+
 
 DONE!!!
     Improvement: Enter Chapter 1 JSON in entirety
@@ -248,4 +241,16 @@ DONE!!!
 
         omg someday wouldn't it be cute if the objects
         reacted to clicks with a small shrink or something?
+
+    Bug fix: Navbar images
+        (Obsolete)
+        The navbar images aren't actually highlighting
+        the right text.  These need to be re-generated.
+
+    Improvement: Navbar Home Button
+        September 2, 2020
+        We should add a home button to the navbar.
+
+        This should wait until the navbar overhaul is
+        complete (listed under big projects)
 

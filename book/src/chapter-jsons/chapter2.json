@@ -101,13 +101,13 @@
                         "line": "Hmm... let's just try to brainstorm some.  Why are some potatoes purple?"
                     },
                     {
-                        "key": "chap2dialogue1line1",
+                        "key": "chap2dialogue1line4",
                         "chibiImage": "sprites/parmita_inform.png",
                         "chibiDescription": "Parmita informative",
                         "line": "It's because they contain anthocyanin, which acts as a natural purple pigment. It's also an antioxidant. Too easy."
                     },
                     {
-                        "key": "chap2dialogue1line1",
+                        "key": "chap2dialogue1line5",
                         "chibiImage": "sprites/vaidehi_very_3.png",
                         "chibiDescription": "Vaidehi annoyed",
                         "line": ""
@@ -137,7 +137,7 @@
                         "line": "It came from Latin, to Old French, to Old English. Originally in Latin it was \"quaerere\", which means \"to ask\". Too easy."
                     },
                     {
-                        "key": "chap2dialogue2line2",
+                        "key": "chap2dialogue2line3",
                         "chibiImage": "sprites/parmita_halflidded_left.png",
                         "chibiDescription": "Parmita annoyed",
                         "line": ""
