@@ -16,6 +16,12 @@ like!
 The word lavender is misspelled consistently
 in chapter 1 oops
 
+## Improvement: Window size at top level
+Currently the code is checking the 
+window size at the Chapter level.  This
+should probably be done in Main and 
+passed down.  
+
 ## Note: Clickable sample
 Not sure where to leave this note, so I'll 
 put it here. 
@@ -26,13 +32,6 @@ get the absolute position of a component
 and calculate the relative position of a 
 click.  This can be found in commit 
 f3feb62df111e93de68de8b885f1f20b8c0fc842
-
-## Improvement: Window size at top level
-Currently the code is checking the 
-window size at the Chapter level.  This
-should probably be done in Main and 
-passed down.  
-
 
 # Medium projects 
 ## Improvement: Italics and Bold from JSON
@@ -121,6 +120,11 @@ put their feedback as they think of it.  That
 is if they think "I don't get this sentence,"
 it should be easy for them to log it right 
 then.
+
+Even before we do this, we should have a 
+document or something to start logging feedback.
+I have to write down this stuff before I 
+forget the notes my family gives me :)
 
 ## Improvement: Design home page
 Eventually the navigation will be put in the 

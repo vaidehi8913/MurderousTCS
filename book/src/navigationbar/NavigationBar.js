@@ -86,7 +86,7 @@ class NavImageElement extends Component {
     fromNavImageElementInfo() {
         var navImageElementInfo = this.props.navImageElementInfo;
         var basicImageSrc = require("images/" + navImageElementInfo.basicImage);
-        var hasHoverBehavior, hoverImageSrc, hoverText;
+        var hasHoverBehavior, hoverImageSrc; //, hoverText;
         var hasLinkBehavior, linkOnClick;
         var imageDescription = navImageElementInfo.imageDescription;
 
@@ -98,7 +98,7 @@ class NavImageElement extends Component {
                 console.log(debugString2);
             }
             hoverImageSrc = require("images/" + navImageElementInfo.hoverImage);
-            hoverText = navImageElementInfo.hoverText;
+            //hoverText = navImageElementInfo.hoverText;
             
         } else {
             if (Constants.DEBUG > 2) {
