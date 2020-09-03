@@ -18,7 +18,7 @@ is "MurderousTCS" (TCS for theoretical computer science).
 # How do I run it?
 
 Make sure you have npm downloaded.  Then as long as you are in the project 
-directory (MurederousTCS/book) you can run: 
+directory (MurderousTCS/book) you can run: 
 
     npm start
 
@@ -50,12 +50,12 @@ The home page isn't super interesting, so I'm not going to talk about it :)
 The Chapter component has three main divisions.  On the left is the 
 NavigationBar (or navbar as it is inconsistetly shortened in many variable
 names).  In the middle is the ContentBox.  On the right is the ExtrasBar.  
-The ExtrasBar is designed for material related to the content, that the 
+The ExtrasBar is designed for material related to the content that the 
 reader can skip if they want.  
 
-The code is all about the formatting of the page.  All of the content 
-(including chapter content, what the navbar has, etc.) is loaded from 
-json files that are in 
+The code is all about formatting the page.  All of the content (including 
+chapter content, what the navbar has, etc.) is loaded from json files that 
+are in 
 
     src/chapter-jsons
 
@@ -80,7 +80,9 @@ Looking for the source images that we use? You can find them under
 
 # Our To-Do List
 This is where we track issues and improvements that we want to get to.
-You can find this in src/implementation-to-do.md
+You can find this in 
+
+    src/implementation-to-do.md
 
 
 # Debug mode

@@ -57,8 +57,8 @@ class Chapter extends Component {
             <div style={this.chapterStyle} key={this.props.chapterInfo.key}> 
                 <NavigationBar width={sideBarWidth} 
                                navBarInfo={navBarInfo}/>
-                <ContentBox width={Constants.CONTENT_WIDTH} 
-                            contentInfo={contentBoxInfo}/>
+                <ContentBox contentInfo={contentBoxInfo}
+                            height={this.state.windowHeight}/>
                 <ExtrasBar width={sideBarWidth} />
             </div>
         );

@@ -67,7 +67,9 @@ class SpeakerLine extends Component {
         this.fromDialogueLineInfo = this.fromDialogueLineInfo.bind(this);
 
         this.state = {
-            width: this.props.parentWidth - Constants.CHIBI_SIZE - Constants.CHIBI_MARGIN
+            width: this.props.parentWidth 
+                    - Constants.CHIBI_SIZE 
+                    - Constants.CHIBI_MARGIN
         };
 
         this.speakerLineStyle = {
@@ -92,6 +94,12 @@ class SpeakerLine extends Component {
     }
 
     render () {
+
+        if (Constants.DEBUG > 2) {
+            console.log("SpeakerLine state width: " + this.state.width);
+            console.log("SpeakerLine style width: " + this.speakerLineStyle.width);
+        }
+
         return this.fromDialogueLineInfo(this.props.dialogueLineInfo);
     }
 }
@@ -114,7 +122,7 @@ class SingleSpeaker extends Component {
             display: "flex",
             flexDirection: "row",
             alignItems: "flex-start",
-            //width: this.props.parentWidth //redundant
+            width: this.props.parentWidth 
         }
     }
 
@@ -158,7 +166,7 @@ class Dialogue extends Component {
 
         this.state = {
             width: this.props.parentWidth - (2 * Constants.CONTENT_MARGIN)
-        }
+        };
 
         this.fromDialogueInfo = this.fromDialogueInfo.bind(this);
         this.fromDialogueLineInfo = this.fromDialogueLineInfo.bind(this);
@@ -169,7 +177,8 @@ class Dialogue extends Component {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            margin: Constants.CONTENT_MARGIN
+            marginLeft: Constants.CONTENT_MARGIN,
+            marginRight: Constants.CONTENT_MARGIN
         };
         // Since this has a bottom margin and each SingleSpeaker also has
         // a bottom margin, this results in an extra margin at the bottom 
@@ -199,6 +208,13 @@ class Dialogue extends Component {
     }
 
     render () {
+        if (Constants.DEBUG > 2) {
+            console.log("Dialogue parent width: " + this.props.parentWidth);
+            console.log("Content Margin: " + Constants.CONTENT_MARGIN);
+            console.log("Dialogue state width: " + this.state.width);
+            console.log("Dialogue style width: " + this.dialogueStyle.width);
+        }
+
         return (this.fromDialogueInfo(this.props.dialogueInfo));
     }
 }

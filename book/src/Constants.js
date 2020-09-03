@@ -13,7 +13,7 @@ export const DEBUG = 0;
 export const CONTENT_WIDTH = 2000; // fixed width of the content box
 
     // Content box formatting constants
-    export const CONTENT_MARGIN = 20; // 
+    export const CONTENT_MARGIN = 40; // 
     export const CHAPTER_NUMBER_SIZE = 200; // width of chapter number in chapter heading
     export const CHAPTER_TITLE_FONT_SIZE = 100; // for chapter heading
 

@@ -1,3 +1,14 @@
 body {
     background-color: #ffffff;
-  }
+}
+
+/* Makes the scrollbar disappear in WebKit based browsers
+   (Chrome included)
+
+   Might need to update for other browsers someday?
+
+   https://medium.com/@vigu_madurai/solved-hide-scrollbar-but-still-scroll-54955525d238 */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}

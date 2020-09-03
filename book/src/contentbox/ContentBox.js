@@ -14,10 +14,16 @@ class ComicImage extends Component {
 
         this.fromJSON = this.fromJSON.bind(this);
 
+        this.comicImageWrapperStyle = {
+            //marginTop: Constants.CONTENT_MARGIN, 
+            marginLeft: Constants.CONTENT_MARGIN,
+            marginRight: Constants.CONTENT_MARGIN, 
+            //marginBottom: Constants.CONTENT_MARGIN, 
+            backgroundColor: (Constants.DEBUG > 2) ? "#2b0dbf" : "none",
+        }
+
         this.comicImageStyle = {
-            marginTop: this.props.margin, 
-            marginBottom: this.props.margin,
-            width: "100%",
+            width: "100%", 
             height: "auto"
         };
     }
@@ -31,7 +37,9 @@ class ComicImage extends Component {
         var imgDescription = contentData.description;
 
         return (
-            <img src={imgSource} alt={imgDescription} style={this.comicImageStyle}/>
+            <div style={this.comicImageWrapperStyle}>
+                <img src={imgSource} alt={imgDescription} style={this.comicImageStyle}/>
+            </div>  
         );
     }
 
@@ -45,7 +53,6 @@ class ComicImage extends Component {
     PROPS
     headingInfo: a JSON object with heading information
     parentWidth: width of the parent component (content box)
-    margin
 */
 class ChapterHeading extends Component{
     constructor(props) {
@@ -61,7 +68,7 @@ class ChapterHeading extends Component{
         this.chapterNumberStyle = {
             backgroundColor: (Constants.DEBUG > 1) ? "#7866ff" : "none", 
             width: Constants.CHAPTER_NUMBER_SIZE,
-            marginRight: this.props.margin,
+            marginRight: Constants.CONTENT_MARGIN,
             textAlign: "center",
             fontFamily: "sans-serif",
             fontSize: Constants.CHAPTER_TITLE_FONT_SIZE
@@ -69,7 +76,7 @@ class ChapterHeading extends Component{
 
         this.chapterTitleStyle = {
             backgroundColor: (Constants.DEBUG > 1) ? "#1259ff" : "none",  
-            width: ((this.props.parentWidth - this.props.margin) - Constants.CHAPTER_NUMBER_SIZE),
+            width: ((this.props.parentWidth - Constants.CONTENT_MARGIN) - Constants.CHAPTER_NUMBER_SIZE),
             fontFamily: "sans-serif",
             // fontVariant: "small-caps", // can play with this later
             fontSize: Constants.CHAPTER_TITLE_FONT_SIZE
@@ -107,7 +114,8 @@ class ChapterHeading extends Component{
 
    PROPS
    contentInfo: the json info with the Chapter content
-   width: the width set by the Chapter component
+   height: height of the window from the parent component
+           (Chapter)
 */
 class ContentBox extends Component {
     constructor(props) {
@@ -117,11 +125,23 @@ class ContentBox extends Component {
 
         this.contentBoxStyle = {
             backgroundColor: (Constants.DEBUG > 0) ? "#a8caff" : "none",
-            width: this.props.width, 
+            width: Constants.CONTENT_WIDTH, 
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center"
+            height: this.props.height, //100%
+            overflow: "auto"
         };
+
+        this.contentScrollBoxStyle = {
+            backgroundColor: (Constants.DEBUG > 0) ? "#0c0640" : "none",
+            height: this.props.height,
+            width: Constants.CONTENT_WIDTH, //"100%",
+            //display: "none",
+            //scrollbarWidth: "none",
+            overflow: "auto"
+        }
+
+        
     }
 
     fromContentData(contentData) {
@@ -141,11 +161,14 @@ class ContentBox extends Component {
         var headingInfo = chapterData.heading;
 
         var heading = <ChapterHeading headingInfo={headingInfo} 
-                                      parentWidth={Constants.CONTENT_WIDTH} 
-                                      margin={Constants.CONTENT_MARGIN} />;
+                                      parentWidth={Constants.CONTENT_WIDTH}/>;
 
         var contentInfo = chapterData.content;
         var contentComponents = contentInfo.map(this.fromContentData);
+
+        if (Constants.DEBUG > 2) {
+            console.log("ContentBox width:" + this.contentBoxStyle.width);
+        }
 
         return(
             <div style={this.contentBoxStyle}>
