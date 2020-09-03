@@ -65,25 +65,19 @@
         ]
     },
 
-    "contentBox": {
-        "heading": {
+    "content": [
+        {
+            "key": "chapter4Heading",
+            "type": "heading",
             "number": 4,
             "title": "Inconfuddlible Ernie and the Discrete Finite Automata!"
         },
-
-        "content": [
-            {
-                "key": "chap4dialogue1",
-                "type": "dialogue",
-                "script": [
-                    {
-                        "key": "chap4dial1line1",
-                        "chibiImage": "sprites/vaidehi_wink.png",
-                        "chibiDescription": "Vaidehi winking",
-                        "line": "Chapter 4 coming soon!"
-                    }
-                ]
-            }
-        ]
-    }
+        {
+            "key": "chap4dial1line1",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_wink.png",
+            "chibiDescription": "Vaidehi winking",
+            "line": "Chapter 4 coming soon!"
+        }
+    ]
 }

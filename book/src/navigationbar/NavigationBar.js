@@ -152,6 +152,7 @@ class NavImageElement extends Component {
     PROPS
     navBarInfo: a JSON object that contains information about
                 what the navbar includes
+    parentWidth
 */
 class ChapterNavigator extends Component {
     constructor(props) {
@@ -159,7 +160,9 @@ class ChapterNavigator extends Component {
 
         this.chapterNavigatorStyle = {
             backgroundColor: (Constants.DEBUG > 1) ? "#ffae00" : "none",
-            width: Constants.CHAPTER_NAVIGATOR_WIDTH,
+            width: (Constants.CHAPTER_NAVIGATOR_WIDTH < this.props.parentWidth)
+                   ? Constants.CHAPTER_NAVIGATOR_WIDTH
+                   : this.props.parentWidth,
             display: "flex",
             flexDirection: "column"
         };
@@ -224,7 +227,8 @@ class NavigationBar extends Component {
     render () {
         return(
             <div style={this.navBarStyle} >
-                <ChapterNavigator navBarInfo={this.props.navBarInfo}/>
+                <ChapterNavigator navBarInfo={this.props.navBarInfo}
+                                  parentWidth={this.navBarStyle.width}/>
             </div>
         );
     }

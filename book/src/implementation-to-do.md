@@ -16,12 +16,6 @@ like!
 The word lavender is misspelled consistently
 in chapter 1 oops
 
-## Improvement: Window size at top level
-Currently the code is checking the 
-window size at the Chapter level.  This
-should probably be done in Main and 
-passed down.  
-
 ## Note: Clickable sample
 Not sure where to leave this note, so I'll 
 put it here. 
@@ -32,6 +26,10 @@ get the absolute position of a component
 and calculate the relative position of a 
 click.  This can be found in commit 
 f3feb62df111e93de68de8b885f1f20b8c0fc842
+
+
+
+
 
 # Medium projects 
 ## Improvement: Italics and Bold from JSON
@@ -76,6 +74,16 @@ thoughts:
     we want, we can put stuff in the empty
     box.  Otherwise, who cares?
 
+## Improvement: Extra pause flag
+Add a flag for a list of extras that affects
+whether the extras make the dialogue pause 
+until they are over, or the dialogue continues
+even if the extras are too tall.
+
+
+
+
+
 # Big projects
 ## New Feature: Extras Bar (Right)
 This is going to be a little complicated.  
@@ -87,10 +95,13 @@ in the chapter JSON?
 Before doing this: see the reorg task in 
 medium projects
 
-
 ## Improvement: Learn to use GitHub issues
 That might be a better way to handle this 
 to-do list :)
+
+
+
+
 
 # To Discuss
 ## New Feature: Threads
@@ -158,6 +169,9 @@ constants to make the size more reasonable
 
 For example, looking at it on an ipad is 
 impossible.
+
+
+
 
 
 # Done!!! Woot Woot!!!
@@ -318,3 +332,11 @@ and forth from Chapter 2 to Chapter 3)
 Not sure what the issue was, but it magically
 got fixed when I messed around with the 
 margins trying to debug the scrollbar issue.
+
+
+## Improvement: Window size at top level
+September 2, 2020
+Currently the code is checking the 
+window size at the Chapter level.  This
+should probably be done in Main and 
+passed down.  

@@ -4,13 +4,13 @@ import * as Constants from "Constants";
 /* This wraps and renders the Chibi sprite image.
 
     PROPS
-    dialogueLineInfo : JSON dialogueLineInfo object
+    dialogueInfo : JSON dialogueInfo object
 */
 class ChibiSprite extends Component {
     constructor(props) {
         super(props);
 
-        this.fromDialogueLineInfo = this.fromDialogueLineInfo.bind(this);
+        this.fromDialogueInfo = this.fromDialogueInfo.bind(this);
 
         this.chibiSpriteStyle = {
             width: Constants.CHIBI_SIZE,
@@ -24,13 +24,13 @@ class ChibiSprite extends Component {
         }
     }
 
-    fromDialogueLineInfo(dialogueLineInfo) {
+    fromDialogueInfo(dialogueInfo) {
 
         if (Constants.DEBUG > 2) {
             console.log("WOAHHHH");
         }
         
-        var chibiImageSource = require ("images/" + dialogueLineInfo.chibiImage);
+        var chibiImageSource = require ("images/" + dialogueInfo.chibiImage);
 
         if (Constants.DEBUG > 2) {
             console.log("HEYYYY");
@@ -40,14 +40,14 @@ class ChibiSprite extends Component {
             <div style={this.chibiSpriteStyle}>
                 <img src={chibiImageSource} 
                      style={this.chibiImageStyle} 
-                     alt={dialogueLineInfo.chibiDescription}/>
+                     alt={dialogueInfo.chibiDescription}/>
             </div>;
 
         return (chibiSpriteComponent);
     }
 
     render () {
-        return (this.fromDialogueLineInfo(this.props.dialogueLineInfo));
+        return (this.fromDialogueInfo(this.props.dialogueInfo));
     }
 }
 
@@ -58,13 +58,13 @@ class ChibiSprite extends Component {
 
     PROPS
     parentWidth: width of the parent container (SingleSpeaker) 
-    dialogueLineInfo: JSON object with info about the dialogueLine
+    dialogueInfo: JSON object with info about the dialogue
 */
 class SpeakerLine extends Component {
     constructor(props) {
         super(props);
 
-        this.fromDialogueLineInfo = this.fromDialogueLineInfo.bind(this);
+        this.fromDialogueInfo = this.fromDialogueInfo.bind(this);
 
         this.state = {
             width: this.props.parentWidth 
@@ -77,17 +77,17 @@ class SpeakerLine extends Component {
             marginTop: Constants.DIALOGUE_TEXT_TOP_OFFSET,
             backgroundColor: (Constants.DEBUG > 1) ? "#3b55ff" : "none", 
             width: this.state.width,
-            fontFamily: "sans-serif",
+            fontFamily: Constants.DIALOGUE_FONT_FAMILY,
             fontSize: Constants.DIALOGUE_FONT_SIZE
         }
     }
 
-    fromDialogueLineInfo(dialogueLineInfo) {
+    fromDialogueInfo(dialogueInfo) {
         console.log("text width: " + this.state.width);
 
         var speakerLineComponent = 
             <div style={this.speakerLineStyle}>
-                {dialogueLineInfo.line}
+                {dialogueInfo.line}
             </div>;
 
         return speakerLineComponent;
@@ -100,7 +100,7 @@ class SpeakerLine extends Component {
             console.log("SpeakerLine style width: " + this.speakerLineStyle.width);
         }
 
-        return this.fromDialogueLineInfo(this.props.dialogueLineInfo);
+        return this.fromDialogueInfo(this.props.dialogueInfo);
     }
 }
 
@@ -108,15 +108,15 @@ class SpeakerLine extends Component {
 
     PROPS
     parentWidth: width of parent container (Dialogue)
-    dialogueLineInfo: JSON object with info about the dialogueLine
+    dialogueInfo: JSON object with info about the dialogue
 */
-class SingleSpeaker extends Component {
+class Dialogue extends Component {
     constructor(props) {
         super(props);
 
-        this.fromDialogueLineInfo = this.fromDialogueLineInfo.bind(this);
+        this.fromDialogueInfo = this.fromDialogueInfo.bind(this);
 
-        this.singleSpeakerStyle = {
+        this.dialogueStyle = {
             marginBottom: Constants.SPEAKER_MARGIN,
             backgroundColor: (Constants.DEBUG > 1) ? "#061a99" : "none", 
             display: "flex",
@@ -126,14 +126,14 @@ class SingleSpeaker extends Component {
         }
     }
 
-    fromDialogueLineInfo(dialogueLineInfo) {
-        var chibiComponent = <ChibiSprite dialogueLineInfo={dialogueLineInfo} />;
+    fromDialogueInfo(dialogueInfo) {
+        var chibiComponent = <ChibiSprite dialogueInfo={dialogueInfo} />;
 
-        var speakerLineComponent = <SpeakerLine dialogueLineInfo={dialogueLineInfo}
+        var speakerLineComponent = <SpeakerLine dialogueInfo={dialogueInfo}
                                                 parentWidth={this.props.parentWidth} />;
 
         var singleSpeakerComponent = 
-            <div style={this.singleSpeakerStyle}>
+            <div style={this.dialogueStyle}>
                 {chibiComponent}
                 {speakerLineComponent}
             </div> ;
@@ -143,80 +143,9 @@ class SingleSpeaker extends Component {
     }
 
     render () { 
-        return (this.fromDialogueLineInfo(this.props.dialogueLineInfo));
-    }
-
-}
-
-/* This class encapsulates a chunk of dialogue (multiple 
-   speakers)
-
-   PROPS
-   dialogueInfo: JSON object with the dialogue that should be
-                 rendered
-   parentWidth : width of parent component (ContentBox)
-   key: should initialize dialogue object with a key, since 
-        it is in a list
-   (no longer expects the margin)
-
-   arggggh why is it so hard to spell dialogue :( */
-class Dialogue extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            width: this.props.parentWidth - (2 * Constants.CONTENT_MARGIN)
-        };
-
-        this.fromDialogueInfo = this.fromDialogueInfo.bind(this);
-        this.fromDialogueLineInfo = this.fromDialogueLineInfo.bind(this);
-
-        this.dialogueStyle = {
-            backgroundColor: (Constants.DEBUG > 1) ? "#328FA8" : "none", 
-            width: this.state.width, 
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            marginLeft: Constants.CONTENT_MARGIN,
-            marginRight: Constants.CONTENT_MARGIN
-        };
-        // Since this has a bottom margin and each SingleSpeaker also has
-        // a bottom margin, this results in an extra margin at the bottom 
-        // of each dialogue block.  We could fix it, but imo it will make
-        // the code too unreadable to be worth it for such a small fix
-    }
-
-    fromDialogueLineInfo(dialogueLineInfo) {
-        var dialogueLineComponent = 
-            <SingleSpeaker parentWidth={this.state.width}
-                           dialogueLineInfo={dialogueLineInfo} 
-                           key={dialogueLineInfo.key}/>;
-
-        return (dialogueLineComponent);
-    }
-
-    fromDialogueInfo(dialogueInfo) {
-        var scriptInfo = dialogueInfo.script;
-        var scriptComponents = scriptInfo.map(this.fromDialogueLineInfo);
-
-        var dialogueComponent = 
-            <div style={this.dialogueStyle}>
-                {scriptComponents}
-            </div>;
-
-        return (dialogueComponent);
-    }
-
-    render () {
-        if (Constants.DEBUG > 2) {
-            console.log("Dialogue parent width: " + this.props.parentWidth);
-            console.log("Content Margin: " + Constants.CONTENT_MARGIN);
-            console.log("Dialogue state width: " + this.state.width);
-            console.log("Dialogue style width: " + this.dialogueStyle.width);
-        }
-
         return (this.fromDialogueInfo(this.props.dialogueInfo));
     }
+
 }
 
 export default Dialogue;

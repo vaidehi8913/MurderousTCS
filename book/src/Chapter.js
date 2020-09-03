@@ -10,22 +10,12 @@ import * as Constants from "Constants";
 
    PROPS: 
    chapterInfo: json object specifying chapter details and content
-   
-   WISHLIST: eventually we need to pass in some JSON-like argument
-   that includes all of the chapter content.  Then we can use this
-   to format each chapter individually.  For now, we hardcode one
-   chapter.                                                         */
+   windowHeight: Main can find this
+   windowWidth: Main can get this                                   */
 class Chapter extends Component {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            windowWidth: window.innerWidth,
-            windowHeight: window.innerHeight
-        }
-
-        this.updateDimensions = this.updateDimensions.bind(this);
 
         this.chapterStyle = {
             display: "flex",
@@ -33,24 +23,9 @@ class Chapter extends Component {
         }
     }
 
-    updateDimensions() {
-        this.setState({
-            windowWidth: window.innerWidth,
-            windowHeight: window.innerHeight
-        });
-    }
-
-    componentDidMount() {
-        window.addEventListener('resize', this.updateDimensions);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.updateDimensions)
-    }
-
     render() {
-        var sideBarWidth = (this.state.windowWidth - Constants.CONTENT_WIDTH) / 2;
-        var contentBoxInfo = this.props.chapterInfo.contentBox;
+        var sideBarWidth = (this.props.windowWidth - Constants.CONTENT_WIDTH) / 2;
+        var contentBoxInfo = this.props.chapterInfo.content;
         var navBarInfo = this.props.chapterInfo.navigationBar;
 
         return (
@@ -58,8 +33,8 @@ class Chapter extends Component {
                 <NavigationBar width={sideBarWidth} 
                                navBarInfo={navBarInfo}/>
                 <ContentBox contentInfo={contentBoxInfo}
-                            height={this.state.windowHeight}/>
-                <ExtrasBar width={sideBarWidth} />
+                            height={this.props.windowHeight}
+                            extrasWidth={sideBarWidth}/>
             </div>
         );
     }

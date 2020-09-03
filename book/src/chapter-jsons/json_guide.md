@@ -23,7 +23,7 @@ CHAPTER
         "key": "chapterx",
         "type": "chapter",
         "navigationBar": {...},
-        "contentBox": {...}
+        "content": [...]
     }
 
     All of the JSON objects have the key attribute.  This is 
@@ -123,18 +123,28 @@ CHAPTER
                 might be fixed now, but hey! why bother linking to 
                 the current page anyway?
 
+    CONTENT 
+        Content is made up of an ordered list of objects.  There are 
+        many different kinds of content objects, however they all 
+        have one thing in common: they can have "extras".  Extras
+        are content that are anchored at the the object they are
+        specified in, and appear in the right-hand-side "extras bar".
+        Because they are in the extras bar, they automatically resize
+        on window resizing.  This section starts with describing the
+        different kinds of content objects.  It ends with describing
+        extras, as extras are the same for every content object.
 
+        CHAPTER HEADING 
 
-    CONTENT BOX
-
-        THE HEADING OBJECT 
-
-        It has 2 attributes.
+        ...has 4 required attributes.
 
         Example:
-        "heading" : {
+        {
+            "key": "chapterXHeading",
+            "type": "heading",
             "number" : 1,
-            "title": "The Unanswerable Question"
+            "title": "The Unanswerable Question",
+            "extras": [optional]
         }
 
         The title should be the exact string we want displayed. 
@@ -142,73 +152,109 @@ CHAPTER
         text (bold, italics, underline, etc.).  It shouldn't be too 
         important for the heading hopefully...
 
+        COMIC IMAGES
 
-        CONTENT
+        To display a comic image, use the following template:
 
-        Objects in the content box should be in the order you want 
-        them to render.  They can come in a few types, described 
-        below.
+        {
+            "key": "chap1image1",
+            "type": "image",
+            "source": "001.png",
+            "description": "Vaidehi and Parmita are flying a kite, but the kite gets loose and floats into a nearby cave!",
+            "extras": [optional]
+        }
 
-            COMIC IMAGES
+        Important: the image path should be from src/images/ . 
+        Right now we do that because of some hacky thing where
+        we append a string to these paths to get a string literal
+        which is the only way we can get these stupid pictures to
+        render (grrrrr...)  
 
-            To display a comic image, use the following template:
+        If we want to put in abosolute paths later, we will have 
+        to work around this. (Maybe by concetenating it with the 
+        empty string or something?)
+
+        DIALOGUE
+
+        The dialogue object looks like this:
+        {
+            "key": "chap1dialogue1",
+            "type": "dialogue",
+            "chibiImage": "path/to/chibi/image",
+            "chibiDescription": "this is used as alt text for the chibi image",
+            "line": "what is your character saying?",
+            "extras": [optional]
+        }
+
+        Similarly to the Comic Images, the image file paths for 
+        chibi images should be assumed to come from src/images/ .
+
+        Also similary to Comic Images, chibiDescription is used 
+        as alternate text, should the image not render.  
+
+        One functionality that we have not yet implemented is the
+        ability to format the text in the line (e.g. bold, 
+        italics, underline).  Hopefully in the future, we can use
+        html-like tags directly in the JSON, and have it show up
+        in the rendered site.
+
+        History: we used to call this a DialogueLine, and group
+        multiple together into one Dialogue object, but that 
+        wasn't really getting us anything.  Actually instead of
+        making margins simpler, it made them more complicated.
+        We ended up taking out the middle man when adding the 
+        extras functionality.
+
+        EXTRAS
+
+        Extra describe things that should show up in the right bar of 
+        the window.  
+
+        Any of the content elements can have the optional attribute
+
+            "extras": [...]
+
+        This expects an ordered list of extra objects.  Extra objects
+        can be the following kinds.
+
+            TEXT EXTRA
+
+            This displays text to the right of it's anchor element.  
+            It looks like this:
 
             {
-                "key": "chap1image1",
+                "key": "extra1",
+                "type": "text",
+                "text": "text goes here"
+            }
+
+            IMAGE EXTRA
+
+            This displays an image.  The basic imageExtra looks like
+            this:
+
+            {
+                "key": "extra2",
                 "type": "image",
-                "source": "001.png",
-                "description": "Vaidehi and Parmita are flying a kite, but the kite gets loose and floats into a nearby cave!"
+                "imgSource": "path/to/image",
+                "description": "this is used as alt text for the image"
             }
 
-            Important: the image path should be from src/images/ . 
-            Right now we do that because of some hacky thing where
-            we append a string to these paths to get a string literal
-            which is the only way we can get these stupid pictures to
-            render (grrrrr...)  
+            This will display the image at the full width of the extras 
+            bar.  The width of the extras bar depends on your window size.
+            The width of the main content is fixed by a constant (in 
+            src/Constats.js).  The remaining horizontal window space is 
+            evenly divided between the NavigationBar on the left, and the 
+            ExtrasBar on the right.  This is so that the content is centered.
 
-            If we want to put in abosolute paths later, we will have 
-            to work around this. (Maybe by concetenating it with the 
-            empty string or something?)
+            Optionally, if you want to provide a maximum width for the 
+            image, you can provide the attribute
+
+                "widthMultiplier": 0.5
+
+            This will make it such that your image will scale up with the
+            extrasBar until a maximum width of 
+            (widthMultipler * Constants.CONTENT_WIDTH).
 
 
-            DIALOGUE
-
-            The dialogue object looks like this:
-            {
-                "key": "chap1dialogue1",
-                "type": "dialogue",
-                "script": [...]
-            }
-
-            The list of objects in the script are each of a type we 
-            are calling DialogueObjectLine.  They should look like this:
-
-            {
-                "key": "chap1dialogue1line1",
-                "chibiImage": "sprites/scientist_sprite.png", "chibiDescription": "angry inventor",
-                "line": "Hey! Who on earth are you?"
-            }
-
-            Similarly to the Comic Images, the image file paths for 
-            chibi images should be assumed to come from src/images/ 
-
-            Also similary to Comic Images, chibiDescription is used 
-            as alternate text, should the image not render.  In the 
-            future, ma
-
-            One functionality that we have not yet implemented is the
-            ability to format the text in the line (e.g. bold, 
-            italics, underline).  Hopefully in the future, we can use
-            html-like tags directly in the JSON, and have it show up
-            in the rendered site.
-
-            Interesting point: Why are multiple dialogue lines bundled 
-            in the Dialogue object, rather than being individually 
-            added?  As of right now, it's not a particulalry noticeable
-            difference.  However, if in the future, we want to mess with
-            margins and spacing, we many want the spacing between two 
-            lines of dialogue to be different than their spacing with 
-            respect to a comic image.  Having the Dialogue object here
-            will let us modularly change these things later, as we figure
-            out styling details. 
 

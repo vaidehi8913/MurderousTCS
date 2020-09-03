@@ -65,193 +65,189 @@
         ]
     },
 
-    "contentBox" :{
-        "heading": {
+    "content": [
+        {
+            "key": "chapter2Heading",
+            "type": "heading",
             "number": 2,
             "title": "How to Answer a Question"
         },
-
-        "content": [
-            {
-                "key": "chap2image1",
-                "type": "image",
-                "source": "comic/008.png",
-                "description": "Vaidehi and Parmita lie on the beach and figure out their next steps."
-            },
-            {
-                "key": "chap2dialogue1",
-                "type": "dialogue",
-                "script": [
-                    {
-                        "key": "chap2dialogue1line1",
-                        "chibiImage": "sprites/vaidehi_angry.png",
-                        "chibiDescription": "Vaidehi angry",
-                        "line": "No way! I'm sure we can come up with a question that he can't answer."
-                    },
-                    {
-                        "key": "chap2dialogue1line2",
-                        "chibiImage": "sprites/parmita_thinking.png",
-                        "chibiDescription": "Parmita thinking",
-                        "line": "Well, how do we find an unanswerable question?"
-                    },
-                    {
-                        "key": "chap2dialogue1line3",
-                        "chibiImage": "sprites/vaidehi_ask.png",
-                        "chibiDescription": "Vaidehi questioning",
-                        "line": "Hmm... let's just try to brainstorm some.  Why are some potatoes purple?"
-                    },
-                    {
-                        "key": "chap2dialogue1line4",
-                        "chibiImage": "sprites/parmita_inform.png",
-                        "chibiDescription": "Parmita informative",
-                        "line": "It's because they contain anthocyanin, which acts as a natural purple pigment. It's also an antioxidant. Too easy."
-                    },
-                    {
-                        "key": "chap2dialogue1line5",
-                        "chibiImage": "sprites/vaidehi_very_3.png",
-                        "chibiDescription": "Vaidehi annoyed",
-                        "line": ""
-                    }
-                ]
-            },
-            {
-                "key": "chap2image2",
-                "type": "image",
-                "source": "comic/009.png",
-                "description": "A man is windsurfing on the water."
-            },
-            {
-                "key": "chap2dialogue2",
-                "type": "dialogue",
-                "script": [
-                    {
-                        "key": "chap2dialogue2line1",
-                        "chibiImage": "sprites/parmita_confused.png",
-                        "chibiDescription": "Parmita questioning",
-                        "line": "Where does the word \"question\" even come from?"
-                    },
-                    {
-                        "key": "chap2dialogue2line2",
-                        "chibiImage": "sprites/vaidehi_inform.png",
-                        "chibiDescription": "Vaidehi informative",
-                        "line": "It came from Latin, to Old French, to Old English. Originally in Latin it was \"quaerere\", which means \"to ask\". Too easy."
-                    },
-                    {
-                        "key": "chap2dialogue2line3",
-                        "chibiImage": "sprites/parmita_halflidded_left.png",
-                        "chibiDescription": "Parmita annoyed",
-                        "line": ""
-                    }
-                ]
-            },
-            {
-                "key": "chap2image3",
-                "type": "image",
-                "source": "comic/010.png",
-                "description": "The man falls off his surfboard into the water."
-            },
-            {
-                "key": "chap2dialogue3",
-                "type": "dialogue",
-                "script": [
-                    {
-                        "key": "chap2dialogue3line1",
-                        "chibiImage": "sprites/vaidehi_ask_left.png",
-                        "chibiDescription": "Vaidehi questioning",
-                        "line": "Why won't my mom let me dig for dinosaur bones in the backyard?"
-                    },
-                    {
-                        "key": "chap2dialogue3line2",
-                        "chibiImage": "sprites/parmita_halflidded_left.png",
-                        "chibiDescription": "Parmita exasperated",
-                        "line": "Because your neighborhood was built in the 1980s.  If there were any dinosaur bones there, the developers would have found them when they first starting digging! Also, your mom probably doesn't want you to mess up the landscaping."
-                    },
-                    {
-                        "key": "chap2dialogue3line3",
-                        "chibiImage": "sprites/vaidehi_XP.png",
-                        "chibiDescription": "Vaidehi embarassed",
-                        "line": "Huh. I guess that's pretty easy too."
-                    },
-                    {
-                        "key": "chap2dialogue3line4",
-                        "chibiImage": "sprites/parmita_thinking.png",
-                        "chibiDescription": "Parmita thinking",
-                        "line": "Maybe we're going about this wrong. Maybe if we think about how to answer a question, then we can find a question that is hard to answer."
-                    },
-                    {
-                        "key": "chap2dialogue3line5",
-                        "chibiImage": "sprites/vaidehi_very_3.png",
-                        "chibiDescription": "Vaidehi thinking",
-                        "line": "Ok..."
-                    },
-                    {
-                        "key": "chap2dialogue3line6",
-                        "chibiImage": "sprites/parmita_basic.png",
-                        "chibiDescription": "Parmita talking",
-                        "line": "Suppose someone asked you if it is a good time to go swimming. How would you respond?"
-                    }
-                ]
-            },
-            {
-                "key": "chap2image4",
-                "type": "image",
-                "source": "comic/012.png",
-                "description": "Vaidehi draws a flowchart in the sand."
-            },
-            {
-                "key": "chap2dialogue4",
-                "type": "dialogue",
-                "script": [
-                    {
-                        "key": "chap2dialogue4line1",
-                        "chibiImage": "sprites/parmita_happy.png",
-                        "chibiDescription": "Parmita happy",
-                        "line": "Wow, this flowchart is a nice way to visualize all those things!"
-                    },
-                    {
-                        "key": "chap2dialogue4line2",
-                        "chibiImage": "sprites/vaidehi_wink.png",
-                        "chibiDescription": "Vaidehi winking",
-                        "line": "ikr thx"
-                    },
-                    {
-                        "key": "chap2dialogue4line3",
-                        "chibiImage": "sprites/parmita_halflidded_left.png",
-                        "chibiDescription": "Parmita realizing the problem",
-                        "line": "But a computer can step through any flowchart."
-                    },
-                    {
-                        "key": "chap2dialogue4line4",
-                        "chibiImage": "sprites/vaidehi_worried.png",
-                        "chibiDescription": "Vaidehi realizing the problem",
-                        "line": "Aw man! That's true."
-                    },
-                    {
-                        "key": "chap2dialogue4line5",
-                        "chibiImage": "sprites/parmita_thinking.png",
-                        "chibiDescription": "Parmita thinking",
-                        "line": "So I guess that leaves us with two questions."
-                    },
-                    {
-                        "key": "chap2dialogue4line6",
-                        "chibiImage": "sprites/parmita_confused.png",
-                        "chibiDescription": "Parmita thinking",
-                        "line": "1) Are there any questions that can't be answered with a flow chart?"
-                    },
-                    {
-                        "key": "chap2dialogue4line7",
-                        "chibiImage": "sprites/parmita_basic.png",
-                        "chibiDescription": "Parmita thinking",
-                        "line": "2) And if so, can a computer answer these questions?"
-                    }
-                ]
-            },
-            {
-                "key": "chap2image5",
-                "type": "image",
-                "source": "comic/011.png",
-                "description": "Surfer dude is riding a dolphin."
-            }
-        ]
-    }
+        {
+            "key": "chap2image1",
+            "type": "image",
+            "source": "comic/008.png",
+            "description": "Vaidehi and Parmita lie on the beach and figure out their next steps."
+        },
+        {
+            "key": "chap2dialogue1line1",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_angry.png",
+            "chibiDescription": "Vaidehi angry",
+            "line": "No way! I'm sure we can come up with a question that he can't answer."
+        },
+        {
+            "key": "chap2dialogue1line2",
+            "type": "dialogue",
+            "chibiImage": "sprites/parmita_thinking.png",
+            "chibiDescription": "Parmita thinking",
+            "line": "Well, how do we find an unanswerable question?"
+        },
+        {
+            "key": "chap2dialogue1line3",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_ask.png",
+            "chibiDescription": "Vaidehi questioning",
+            "line": "Hmm... let's just try to brainstorm some.  Why are some potatoes purple?"
+        },
+        {
+            "key": "chap2dialogue1line4",
+            "type": "dialogue",
+            "chibiImage": "sprites/parmita_inform.png",
+            "chibiDescription": "Parmita informative",
+            "line": "It's because they contain anthocyanin, which acts as a natural purple pigment. It's also an antioxidant. Too easy."
+        },
+        {
+            "key": "chap2dialogue1line5",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_very_3.png",
+            "chibiDescription": "Vaidehi annoyed",
+            "line": ""
+        },
+        {
+            "key": "chap2image2",
+            "type": "image",
+            "source": "comic/009.png",
+            "description": "A man is windsurfing on the water."
+        },
+        {
+            "key": "chap2dialogue2line1",
+            "type": "dialogue",
+            "chibiImage": "sprites/parmita_confused.png",
+            "chibiDescription": "Parmita questioning",
+            "line": "Where does the word \"question\" even come from?"
+        },
+        {
+            "key": "chap2dialogue2line2",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_inform.png",
+            "chibiDescription": "Vaidehi informative",
+            "line": "It came from Latin, to Old French, to Old English. Originally in Latin it was \"quaerere\", which means \"to ask\". Too easy."
+        },
+        {
+            "key": "chap2dialogue2line3",
+            "type": "dialogue",
+            "chibiImage": "sprites/parmita_halflidded_left.png",
+            "chibiDescription": "Parmita annoyed",
+            "line": ""
+        },
+        {
+            "key": "chap2image3",
+            "type": "image",
+            "source": "comic/010.png",
+            "description": "The man falls off his surfboard into the water."
+        },
+        {
+            "key": "chap2dialogue3line1",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_ask_left.png",
+            "chibiDescription": "Vaidehi questioning",
+            "line": "Why won't my mom let me dig for dinosaur bones in the backyard?"
+        },
+        {
+            "key": "chap2dialogue3line2",
+            "type": "dialogue",
+            "chibiImage": "sprites/parmita_halflidded_left.png",
+            "chibiDescription": "Parmita exasperated",
+            "line": "Because your neighborhood was built in the 1980s.  If there were any dinosaur bones there, the developers would have found them when they first starting digging! Also, your mom probably doesn't want you to mess up the landscaping."
+        },
+        {
+            "key": "chap2dialogue3line3",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_XP.png",
+            "chibiDescription": "Vaidehi embarassed",
+            "line": "Huh. I guess that's pretty easy too."
+        },
+        {
+            "key": "chap2dialogue3line4",
+            "type": "dialogue",
+            "chibiImage": "sprites/parmita_thinking.png",
+            "chibiDescription": "Parmita thinking",
+            "line": "Maybe we're going about this wrong. Maybe if we think about how to answer a question, then we can find a question that is hard to answer."
+        },
+        {
+            "key": "chap2dialogue3line5",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_very_3.png",
+            "chibiDescription": "Vaidehi thinking",
+            "line": "Ok..."
+        },
+        {
+            "key": "chap2dialogue3line6",
+            "type": "dialogue",
+            "chibiImage": "sprites/parmita_basic.png",
+            "chibiDescription": "Parmita talking",
+            "line": "Suppose someone asked you if it is a good time to go swimming. How would you respond?"
+        },
+        {
+            "key": "chap2image4",
+            "type": "image",
+            "source": "comic/012.png",
+            "description": "Vaidehi draws a flowchart in the sand."
+        },
+        {
+            "key": "chap2dialogue4line1",
+            "type": "dialogue",
+            "chibiImage": "sprites/parmita_happy.png",
+            "chibiDescription": "Parmita happy",
+            "line": "Wow, this flowchart is a nice way to visualize all those things!"
+        },
+        {
+            "key": "chap2dialogue4line2",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_wink.png",
+            "chibiDescription": "Vaidehi winking",
+            "line": "ikr thx"
+        },
+        {
+            "key": "chap2dialogue4line3",
+            "type": "dialogue",
+            "chibiImage": "sprites/parmita_halflidded_left.png",
+            "chibiDescription": "Parmita realizing the problem",
+            "line": "But a computer can step through any flowchart."
+        },
+        {
+            "key": "chap2dialogue4line4",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_worried.png",
+            "chibiDescription": "Vaidehi realizing the problem",
+            "line": "Aw man! That's true."
+        },
+        {
+            "key": "chap2dialogue4line5",
+            "type": "dialogue",
+            "chibiImage": "sprites/parmita_thinking.png",
+            "chibiDescription": "Parmita thinking",
+            "line": "So I guess that leaves us with two questions."
+        },
+        {
+            "key": "chap2dialogue4line6",
+            "type": "dialogue",
+            "chibiImage": "sprites/parmita_confused.png",
+            "chibiDescription": "Parmita thinking",
+            "line": "1) Are there any questions that can't be answered with a flow chart?"
+        },
+        {
+            "key": "chap2dialogue4line7",
+            "type": "dialogue",
+            "chibiImage": "sprites/parmita_basic.png",
+            "chibiDescription": "Parmita thinking",
+            "line": "2) And if so, can a computer answer these questions?"
+        },
+        {
+            "key": "chap2image5",
+            "type": "image",
+            "source": "comic/011.png",
+            "description": "Surfer dude is riding a dolphin."
+        }
+    ]
 }

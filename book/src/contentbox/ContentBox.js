@@ -1,107 +1,99 @@
 import React, { Component } from "react";
+
 import Dialogue from "contentbox/Dialogue";
+import ComicImage from "contentbox/ComicImage";
+import ChapterHeading from "contentbox/ChapterHeading";
+import ExtraList from "contentbox/ExtraList";
+
 import * as Constants from "Constants";
 
-/* Comic images have no 
-   side margins. 
-   
-   PROPS
-   contentData: a JSON format object
-*/
-class ComicImage extends Component {
-    constructor(props) {
-        super(props);
-
-        this.fromJSON = this.fromJSON.bind(this);
-
-        this.comicImageWrapperStyle = {
-            //marginTop: Constants.CONTENT_MARGIN, 
-            marginLeft: Constants.CONTENT_MARGIN,
-            marginRight: Constants.CONTENT_MARGIN, 
-            //marginBottom: Constants.CONTENT_MARGIN, 
-            backgroundColor: (Constants.DEBUG > 2) ? "#2b0dbf" : "none",
-        }
-
-        this.comicImageStyle = {
-            width: "100%", 
-            height: "auto"
-        };
-    }
-    
-    fromJSON(contentData) {
-        var imgSource = require ("images/" + contentData.source);
-        /* I have no idea why my previous 17 tries to get this image to render 
-            did not work.  Maybe I will never know.  I sure am glad this one 
-            worked though */
-
-        var imgDescription = contentData.description;
-
-        return (
-            <div style={this.comicImageWrapperStyle}>
-                <img src={imgSource} alt={imgDescription} style={this.comicImageStyle}/>
-            </div>  
-        );
-    }
-
-    render () {
-        return (this.fromJSON(this.props.contentData));
-    }
-}
-
-/* Formatting for the chapter heading
+/*  This formats the content to sit inside 
+    Constants.CONTENT_WIDTH, and to place the extras
+    correctly.
 
     PROPS
-    headingInfo: a JSON object with heading information
-    parentWidth: width of the parent component (content box)
+    extrasWidth
+    contentInfo
 */
-class ChapterHeading extends Component{
+class ContentElement extends Component {
     constructor(props) {
         super(props);
 
-        this.fromJSON = this.fromJSON.bind(this);
-
-        this.chapterHeadingStyle = {
+        this.contentElementStyle = {
+            backgroundColor: (Constants.DEBUG > 2) ? "#dbdbdb" : "none",
             display: "flex",
             flexDirection: "row"
         };
 
-        this.chapterNumberStyle = {
-            backgroundColor: (Constants.DEBUG > 1) ? "#7866ff" : "none", 
-            width: Constants.CHAPTER_NUMBER_SIZE,
-            marginRight: Constants.CONTENT_MARGIN,
-            textAlign: "center",
-            fontFamily: "sans-serif",
-            fontSize: Constants.CHAPTER_TITLE_FONT_SIZE
+        this.contentContainerStyle = {
+            backgroundColor: (Constants.DEBUG > 2) ? "#11b8b5" : "none",
+            width: Constants.CONTENT_WIDTH
+        }; 
+
+        this.extrasContainerStyle = {
+            backgroundColor: (Constants.DEBUG > 2) ? "#e31bbe" : "none",
+            width: this.props.extrasWidth - Constants.CONTENT_MARGIN
         };
 
-        this.chapterTitleStyle = {
-            backgroundColor: (Constants.DEBUG > 1) ? "#1259ff" : "none",  
-            width: ((this.props.parentWidth - Constants.CONTENT_MARGIN) - Constants.CHAPTER_NUMBER_SIZE),
-            fontFamily: "sans-serif",
-            // fontVariant: "small-caps", // can play with this later
-            fontSize: Constants.CHAPTER_TITLE_FONT_SIZE
+        this.contentComponentFromInfo = this.contentComponentFromInfo.bind(this);
+        this.extrasComponentFromInfo = this.extrasComponentFromInfo.bind(this);
+    }
+
+    contentComponentFromInfo() {
+        var contentInfo = this.props.contentInfo;
+        var contentComponent; 
+
+        if (Constants.DEBUG > 2) {
+            console.log(contentInfo);
+        }
+
+        if (contentInfo.type === "image") {
+            contentComponent =  <ComicImage contentInfo={contentInfo} 
+                                            key={contentInfo.key} />;
+
+        } else if (contentInfo.type === "dialogue") {
+            contentComponent =  <Dialogue dialogueInfo={contentInfo} 
+                                          parentWidth={Constants.CONTENT_WIDTH}
+                                          key={contentInfo.key}/>;
+        } else if (contentInfo.type === "heading") {
+            contentComponent =  <ChapterHeading headingInfo={contentInfo}
+                                                parentWidth={Constants.CONTENT_WIDTH}
+                                                key={contentInfo.key}/>;
+        }
+
+        return (
+            <div style={this.contentContainerStyle}>
+                {contentComponent}
+            </div>
+        );
+    }
+
+    extrasComponentFromInfo() {
+        var contentInfo = this.props.contentInfo;
+
+        if (contentInfo.hasOwnProperty("extras")) {
+            return (
+                <div style={this.extrasContainerStyle}>
+                    <ExtraList extraListInfo={contentInfo.extras}
+                               extrasWidth={this.props.extrasWidth} />
+                </div>
+            );
+        } else {
+            return (
+                <div style={this.extrasContainerStyle} />
+            );
         }
     }
 
-    fromJSON(headingInfo) {
-        var chapterNumber = headingInfo.number;
-        var chapterTitle = headingInfo.title;
-
-        var headingObject =  <div style={this.chapterHeadingStyle}>
-                                <div style={this.chapterNumberStyle}>
-                                    {chapterNumber}
-                                </div>
-                                <div style={this.chapterTitleStyle}>
-                                    {chapterTitle}
-                                </div>
-                            </div>;
-
-        return (headingObject);
+    render() {
+        return (
+            <div style={this.contentElementStyle}>
+                {this.contentComponentFromInfo()}
+                {this.extrasComponentFromInfo()}
+            </div>
+        );
     }
 
-    render () {
-        return (this.fromJSON(this.props.headingInfo));
-    }
 }
 
 /* The ContentBox contains the "middle bar" of our layout.
@@ -116,6 +108,8 @@ class ChapterHeading extends Component{
    contentInfo: the json info with the Chapter content
    height: height of the window from the parent component
            (Chapter)
+   extrasWidth: width of the extras bar, calculated at 
+                the Chapter level
 */
 class ContentBox extends Component {
     constructor(props) {
@@ -125,45 +119,22 @@ class ContentBox extends Component {
 
         this.contentBoxStyle = {
             backgroundColor: (Constants.DEBUG > 0) ? "#a8caff" : "none",
-            width: Constants.CONTENT_WIDTH, 
+            width: Constants.CONTENT_WIDTH + this.props.extrasWidth, 
             display: "flex",
             flexDirection: "column",
-            height: this.props.height, //100%
+            height: this.props.height, 
             overflow: "auto"
         };
-
-        this.contentScrollBoxStyle = {
-            backgroundColor: (Constants.DEBUG > 0) ? "#0c0640" : "none",
-            height: this.props.height,
-            width: Constants.CONTENT_WIDTH, //"100%",
-            //display: "none",
-            //scrollbarWidth: "none",
-            overflow: "auto"
-        }
-
-        
     }
 
     fromContentData(contentData) {
-        if (contentData.type === "image") {
-
-            return <ComicImage contentData={contentData} key={contentData.key} />;
-
-        } else if (contentData.type === "dialogue") {
-
-            return <Dialogue dialogueInfo={contentData} 
-                             parentWidth={Constants.CONTENT_WIDTH}
-                             key={contentData.key}/>;
-        }
+        return(
+            <ContentElement contentInfo={contentData}
+                            extrasWidth={this.props.extrasWidth}/>
+        );
     }
 
-    fromChapterData(chapterData) {
-        var headingInfo = chapterData.heading;
-
-        var heading = <ChapterHeading headingInfo={headingInfo} 
-                                      parentWidth={Constants.CONTENT_WIDTH}/>;
-
-        var contentInfo = chapterData.content;
+    fromChapterData(contentInfo) {
         var contentComponents = contentInfo.map(this.fromContentData);
 
         if (Constants.DEBUG > 2) {
@@ -172,12 +143,10 @@ class ContentBox extends Component {
 
         return(
             <div style={this.contentBoxStyle}>
-                {heading}
                 {contentComponents}
             </div>
         );
     }
-
 
     render () {
         var formattedChapterData = this.fromChapterData(this.props.contentInfo);
