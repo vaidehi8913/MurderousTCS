@@ -144,7 +144,7 @@ CHAPTER
             "type": "heading",
             "number" : 1,
             "title": "The Unanswerable Question",
-            "extras": [optional]
+            "extras": {...optional...}
         }
 
         The title should be the exact string we want displayed. 
@@ -161,7 +161,7 @@ CHAPTER
             "type": "image",
             "source": "001.png",
             "description": "Vaidehi and Parmita are flying a kite, but the kite gets loose and floats into a nearby cave!",
-            "extras": [optional]
+            "extras": {...optional...}
         }
 
         Important: the image path should be from src/images/ . 
@@ -183,7 +183,7 @@ CHAPTER
             "chibiImage": "path/to/chibi/image",
             "chibiDescription": "this is used as alt text for the chibi image",
             "line": "what is your character saying?",
-            "extras": [optional]
+            "extras": {...optional...}
         }
 
         Similarly to the Comic Images, the image file paths for 
@@ -212,7 +212,7 @@ CHAPTER
 
         Any of the content elements can have the optional attribute
 
-            "extras": [...]
+            "extras": {...}
 
         This expects an ordered list of extra objects.  Extra objects
         can be the following kinds.

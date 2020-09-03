@@ -10,7 +10,8 @@ backup fonts?
 
 Once this is done: remove the background
 colors, and check out what the site looks 
-like!
+like! (lol this comment is from before
+I implemented debug mode)
 
 ## Bug fix: Lavender
 The word lavender is misspelled consistently
@@ -52,28 +53,6 @@ its own Content component, or as a Dialogue
 sub-component, and then implement it.  
 Shouldn't be too complicated, I hope :)
 
-## Bug fix: Resizing chain reaction
-Resizing the window isn't triggering all of 
-the updates that it should.  This results 
-in a whole host of issues, including the 
-navbar clicks not registering properly
-
-## Improvement: Reorganize content components
-What is currently known as the content box, 
-and what is currently known as the extras
-bar need to be reorganized.  Here's some 
-thoughts:
-- They need to scroll together, so they
-    need to be wrapped in one div at the outer
-    most level
-
-- Actually, it might be easy to anchor things
-    in the content if we just constrict the 
-    width of the content, and attach each 
-    content chunk to an empty box.  Then if 
-    we want, we can put stuff in the empty
-    box.  Otherwise, who cares?
-
 ## Improvement: Extra pause flag
 Add a flag for a list of extras that affects
 whether the extras make the dialogue pause 
@@ -85,15 +64,6 @@ even if the extras are too tall.
 
 
 # Big projects
-## New Feature: Extras Bar (Right)
-This is going to be a little complicated.  
-We need to figure out how to hook components
-to their friends in the Content bar.  Also, 
-what is the input format going to look like 
-in the chapter JSON?
-
-Before doing this: see the reorg task in 
-medium projects
 
 ## Improvement: Learn to use GitHub issues
 That might be a better way to handle this 
@@ -340,3 +310,51 @@ Currently the code is checking the
 window size at the Chapter level.  This
 should probably be done in Main and 
 passed down.  
+
+
+## Bug fix: Resizing chain reaction
+September 2, 2020
+Resizing the window isn't triggering all of 
+the updates that it should.  This results 
+in a whole host of issues, including the 
+navbar clicks not registering properly
+
+Seems to be fixed.  Maybe because I moved
+the window size up. Who knows.
+
+
+## Improvement: Reorganize content components
+September 2, 2020
+What is currently known as the content box, 
+and what is currently known as the extras
+bar need to be reorganized.  Here's some 
+thoughts:
+- They need to scroll together, so they
+    need to be wrapped in one div at the outer
+    most level
+
+- Actually, it might be easy to anchor things
+    in the content if we just constrict the 
+    width of the content, and attach each 
+    content chunk to an empty box.  Then if 
+    we want, we can put stuff in the empty
+    box.  Otherwise, who cares?
+
+The previously existing "extrasBar" component
+has been obliterated. Now extras are under 
+the ContentBox component (which makes sense, 
+after all, the extras are content).  More 
+detail is in the JSON docs.
+
+## New Feature: Extras Bar (Right)
+September 2, 2020
+This is going to be a little complicated.  
+We need to figure out how to hook components
+to their friends in the Content bar.  Also, 
+what is the input format going to look like 
+in the chapter JSON?
+
+Before doing this: see the reorg task in 
+medium projects
+
+Wooooot!

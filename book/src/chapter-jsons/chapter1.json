@@ -111,19 +111,21 @@
             "chibiImage": "sprites/inventor_angry.png",
             "chibiDescription": "angry inventor",
             "line": "Never mind, I don't care! Why are you bothering us while I work on my greatest invention?",
-            "extras": [
-                {
-                    "key": "chap1dialogue2line1extra1",
-                    "type": "text",
-                    "text": "< Hear ye, hear ye! Basic extra behaviour has been implemented!"
-                },
-                {
-                    "key": "chap1dialogue2line1extra2",
-                    "type": "image",
-                    "imgSource": "debug/pikachu.jpg",
-                    "description": "wow pikachu"
-                }
-            ]
+            "extras": {
+                "list": [
+                    {
+                        "key": "chap1dialogue2line1extra1",
+                        "type": "text",
+                        "text": "< Hear ye, hear ye! Basic extra behaviour has been implemented!"
+                    },
+                    {
+                        "key": "chap1dialogue2line1extra2",
+                        "type": "image",
+                        "imgSource": "debug/pikachu.jpg",
+                        "description": "wow pikachu"
+                    }
+                ]
+            }
         },
         {
             "key": "chap1dialogue2line2",
@@ -172,20 +174,24 @@
             "chibiImage": "sprites/inventor_angry.png",
             "chibiDescription": "indignant inventor",
             "line": "Oh really. You don't think I can do it!",
-            "extras": [
-                {
-                    "key": "chap1dialogue2line1extra1",
-                    "type": "text",
-                    "text": "< Can the pikachu be a more reasonable size? Sure!"
-                },
-                {
-                    "key": "chap1dialogue2line1extra2",
-                    "type": "image",
-                    "imgSource": "debug/pikachu.jpg",
-                    "description": "wow pikachu",
-                    "widthMultiplier": 0.5
-                }
-            ]
+            "extras": {
+                "pauseForExtras": "false",
+                "list": [
+                    {
+                        "key": "chap1dialogue2line1extra1",
+                        "type": "text",
+                        "text": "< Can the pikachu be a more reasonable size? Sure!"
+                    },
+                    {
+                        "key": "chap1dialogue2line1extra2",
+                        "type": "image",
+                        "imgSource": "debug/pikachu.jpg",
+                        "description": "wow pikachu",
+                        "widthMultiplier": 0.5
+                    }
+                ]
+            }
+                
         },
         {
             "key": "chap1dialogue3line2",

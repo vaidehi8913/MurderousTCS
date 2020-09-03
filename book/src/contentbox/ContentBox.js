@@ -86,10 +86,13 @@ class ContentElement extends Component {
     }
 
     render() {
+        var contentComponent = this.contentComponentFromInfo();
+        var extrasComponent = this.extrasComponentFromInfo();
+
         return (
             <div style={this.contentElementStyle}>
-                {this.contentComponentFromInfo()}
-                {this.extrasComponentFromInfo()}
+                {contentComponent}
+                {extrasComponent}
             </div>
         );
     }

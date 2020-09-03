@@ -8,10 +8,6 @@ import * as Constants from "Constants";
     parentWidth
 */
 class ImageExtra extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         var imgExtraInfo = this.props.imgExtraInfo;
         var imgSource = require("images/" + imgExtraInfo.imgSource);
@@ -111,14 +107,15 @@ class ExtraList extends Component {
         }
 
         return (
-            <div style={this.singleExtraStyle}>
+            <div style={this.singleExtraStyle}
+                 key={extraInfo.key}>
                 {extraComponent}
             </div>
         );
     }
 
     render() {
-        var extraListInfo = this.props.extraListInfo;
+        var extraListInfo = this.props.extraListInfo.list;
         var extraComponents = extraListInfo.map(this.fromSingleExtraInfo);
 
         return (

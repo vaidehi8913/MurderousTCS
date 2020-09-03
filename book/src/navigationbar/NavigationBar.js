@@ -218,7 +218,8 @@ class NavigationBar extends Component {
 
         this.navBarStyle = {
             backgroundColor: (Constants.DEBUG > 0) ? "#fff5a8" : "none",
-            width: this.props.width,
+            width: this.props.width - Constants.CONTENT_MARGIN,
+            marginRight: Constants.CONTENT_MARGIN,
             display: "flex",
             flexDirection: "row-reverse"
         };
