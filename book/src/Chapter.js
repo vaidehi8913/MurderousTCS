@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavigationBar } from "navigationbar/NavigationBar";
 import ContentBox from "contentbox/ContentBox";
 import * as Constants from "Constants";
+import ExtrasBar from "./extrasbar/ExtrasBar";
 
 /* The container for one chapter of our book.  This is everything
    that will show up on the webpage, including the left navigation
@@ -34,6 +35,7 @@ class Chapter extends Component {
                 <ContentBox contentInfo={contentBoxInfo}
                             height={this.props.windowHeight}
                             extrasWidth={sideBarWidth}/>
+                <ExtrasBar width={sideBarWidth} />
             </div>
         );
     }
