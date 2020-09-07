@@ -28,6 +28,11 @@ and calculate the relative position of a
 click.  This can be found in commit 
 f3feb62df111e93de68de8b885f1f20b8c0fc842
 
+## Improvement: Vertically center dialogue
+Update the Dialogue components so that 
+text vertically centers with it's chibi
+image
+
 
 
 
@@ -58,6 +63,14 @@ Add a flag for a list of extras that affects
 whether the extras make the dialogue pause 
 until they are over, or the dialogue continues
 even if the extras are too tall.
+
+## New Feature: Line numbers in debug mode
+Content should have line numbers
+
+## Improvement: Content-width minimum 
+The minimum content width should be a constant
+but in general, the content width could be 
+based on the window size
 
 
 
