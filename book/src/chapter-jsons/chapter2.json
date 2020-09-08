@@ -1,7 +1,6 @@
 {
     "key": "chapter2",
     "type": "chapter",
-    
     "navigationBar": {
         "chapterNumber": 2,
         "chapterTitle": "How to Answer a Question",
@@ -10,7 +9,7 @@
                 "key": "c2homeButton",
                 "type": "imageElement",
                 "basicImage": "navbar/home_dark.png",
-                "hoverImage": "navbar/home.png",
+                "hoverImage": "navbar/home_hover.png",
                 "hoverText": "Go to the home page",
                 "linkOnClick": "/",
                 "imageDescription": "Button to home page"
@@ -23,8 +22,8 @@
             {
                 "key": "c2chapter1Button",
                 "type": "imageElement",
-                "basicImage": "navbar/chapter1_crop_dark.png",
-                "hoverImage": "navbar/chapter1_crop.png",
+                "basicImage": "navbar/chapter1_dark.png",
+                "hoverImage": "navbar/chapter1_hover.png",
                 "hoverText": "Go to Chapter 1",
                 "linkOnClick": "/chapter1",
                 "imageDescription": "Button to chapter 1"
@@ -32,14 +31,14 @@
             {
                 "key": "c2chapter2Button",
                 "type": "imageElement",
-                "basicImage": "navbar/chapter2_crop.png",
+                "basicImage": "navbar/chapter2_hover.png",
                 "imageDescription": "Button to Chapter 2"
             },
             {
                 "key": "c2chapter3Button",
                 "type": "imageElement",
-                "basicImage": "navbar/chapter3_crop_dark.png",
-                "hoverImage": "navbar/chapter3_crop.png",
+                "basicImage": "navbar/chapter3_dark.png",
+                "hoverImage": "navbar/chapter3_hover.png",
                 "hoverText": "Go to Chapter 3",
                 "linkOnClick": "/chapter3",
                 "imageDescription": "Button to chapter 3"
@@ -47,8 +46,8 @@
             {
                 "key": "c2chapter4Button",
                 "type": "imageElement",
-                "basicImage": "navbar/chapter4_crop_dark.png",
-                "hoverImage": "navbar/chapter4_crop.png",
+                "basicImage": "navbar/chapter4_dark.png",
+                "hoverImage": "navbar/chapter4_hover.png",
                 "hoverText": "Go to Chapter 4",
                 "linkOnClick": "/chapter4",
                 "imageDescription": "Button to chapter 4"
@@ -56,15 +55,14 @@
             {
                 "key": "c2chapter5Button",
                 "type": "imageElement",
-                "basicImage": "navbar/chapter5_crop_dark.png",
-                "hoverImage": "navbar/chapter5_crop.png",
+                "basicImage": "navbar/chapter5_dark.png",
+                "hoverImage": "navbar/chapter5_hover.png",
                 "hoverText": "Go to Chapter 5",
                 "linkOnClick": "/chapter5",
                 "imageDescription": "Button to chapter 5"
             }
         ]
     },
-
     "content": [
         {
             "key": "chapter2Heading",
