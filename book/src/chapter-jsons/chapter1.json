@@ -227,14 +227,14 @@
             "key": "chap1image6",
             "type": "image",
             "source": "comic/006.png",
-            "description": "Octopus rapidly types into the computer terminal.  \"Swamp ooze and Lavendar\" shows up on the display. Vaidehi and Parmita are wowed."
+            "description": "Octopus rapidly types into the computer terminal.  \"Swamp ooze and Lavender\" shows up on the display. Vaidehi and Parmita are wowed."
         },
         {
             "key": "chap1dialogue5line1",
             "type": "dialogue",
             "chibiImage": "sprites/vaidehi_XP.png",
             "chibiDescription": "smug octopus",
-            "line": "There you have it, it's \"swamp ooze and lavendar.\""
+            "line": "There you have it, it's \"swamp ooze and lavender.\""
         },
         {
             "key": "chap1dialogue5line2",
@@ -248,7 +248,7 @@
             "type": "dialogue",
             "chibiImage": "sprites/vaidehi_XP.png",
             "chibiDescription": "disgusted octopus",
-            "line": "I know! Lavendar seems like it would really take away from the swamp ooze..."
+            "line": "I know! Lavender seems like it would really take away from the swamp ooze..."
         },
         {
             "key": "chap1dialogue5line4",
