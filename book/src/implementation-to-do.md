@@ -13,10 +13,6 @@ colors, and check out what the site looks
 like! (lol this comment is from before
 I implemented debug mode)
 
-## Bug fix: Lavender
-The word lavender is misspelled consistently
-in chapter 1 oops
-
 ## Note: Clickable sample
 Not sure where to leave this note, so I'll 
 put it here. 
@@ -371,3 +367,8 @@ Before doing this: see the reorg task in
 medium projects
 
 Wooooot!
+
+## Bug fix: Lavender
+September 16, 2020
+The word lavender is misspelled consistently
+in chapter 1 oops
