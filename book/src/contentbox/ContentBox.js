@@ -87,7 +87,7 @@ class ContentElement extends Component {
 
     render() {
         var contentComponent = this.contentComponentFromInfo();
-        var extrasComponent = this.extrasComponentFromInfo();
+        //var extrasComponent = this.extrasComponentFromInfo();
 
         // return (
         //     <div style={this.contentElementStyle}>
@@ -95,6 +95,7 @@ class ContentElement extends Component {
         //         {extrasComponent}
         //     </div>
         // );
+
         return contentComponent;
     }
 
@@ -123,11 +124,9 @@ class ContentBox extends Component {
 
         this.contentBoxStyle = {
             backgroundColor: (Constants.DEBUG > 0) ? "#a8caff" : "none",
-            width: Constants.CONTENT_WIDTH, //+ this.props.extrasWidth, 
+            width: Constants.CONTENT_WIDTH, 
             display: "flex",
-            flexDirection: "column",
-            height: this.props.height, 
-            overflow: "auto"
+            flexDirection: "column"
         };
     }
 

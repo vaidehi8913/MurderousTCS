@@ -79,22 +79,47 @@ class Antelope extends Component {
     }
 }
 
+class Tortoise extends Component {
+    render () {
+        var extraComponentStyle = {
+            backgroundColor: (Constants.DEBUG > 2) ? "#e895de" : "none",
+            //width: "100%", // does not account for margins :(
+            marginTop: Constants.CONTENT_MARGIN,
+            marginLeft: Constants.CONTENT_MARGIN,
+            marginRight: Constants.CONTENT_MARGIN,
+            fontSize: 48
+        }
+
+        return(
+            <div style={extraComponentStyle}>
+                {this.props.name}
+            </div>
+        );
+    }
+}
+
 /*
     PROPS
     width
+    //height
 */
 class ExtrasBar extends Component {
     render() {
         var extrasBarStyle = {
             backgroundColor: (Constants.DEBUG > 1) ? "#ffccf9" : "none",
-            width: this.props.width,
-            //height: 200
+            width: this.props.width
+            //height: this.props.height
         };
+
+        if (Constants.DEBUG > 2) {
+            console.log("ExtrasBar height: " + this.props.height);
+        }
 
         return(
             <div style={extrasBarStyle}>
-                <Tiger name={"Daniel"}/>
-                <Antelope name={"Aretha"}/>
+                <Tiger name={"Aretha"} />
+                <Antelope name={"Daniel"} />
+                <Tortoise name={"Stephan"}/>
             </div>
         );
     }
