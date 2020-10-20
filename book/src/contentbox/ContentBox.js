@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from 'react-dom';
 
 import Dialogue from "contentbox/Dialogue";
 import ComicImage from "contentbox/ComicImage";
@@ -14,6 +15,7 @@ import * as Constants from "Constants";
     PROPS
     extrasWidth
     contentInfo
+    registerExtra
 */
 class ContentElement extends Component {
     constructor(props) {
@@ -37,6 +39,27 @@ class ContentElement extends Component {
 
         this.contentComponentFromInfo = this.contentComponentFromInfo.bind(this);
         this.extrasComponentFromInfo = this.extrasComponentFromInfo.bind(this);
+
+        this.state = {
+            top: 0,
+            mounted: false,
+            extraUnregistered: true
+        };
+
+        this.parseAndRegisterExtra = this.parseAndRegisterExtra.bind(this);
+    }
+
+    componentDidMount() {
+        var rect = ReactDOM.findDOMNode(this).getBoundingClientRect()
+
+        if (Constants.DEBUG > 2) {
+            console.log("content component mounted, top: " + rect.top);
+        }
+
+        this.setState({
+            top: rect.top,
+            mounted: true
+        });
     }
 
     contentComponentFromInfo() {
@@ -85,16 +108,40 @@ class ContentElement extends Component {
         }
     }
 
+    parseAndRegisterExtra() {
+        if (Constants.DEBUG > 2) {
+            console.log("entering parseAndRegisterExtra");
+        }
+
+        if (this.state.mounted && this.state.extraUnregistered) {
+
+            if (Constants.DEBUG > 2) {
+                console.log("registering extra");
+            }
+
+            var contentInfo = this.props.contentInfo;
+
+            if (contentInfo.hasOwnProperty("extras")) {
+                var extraListInfo = contentInfo.extras;
+                
+                var extraInfo = {
+                    key: contentInfo.key,
+                    top: this.state.top,
+                    extraList: extraListInfo
+                };
+
+                this.props.registerExtra(extraInfo);
+
+                this.setState({
+                    extraUnregistered: false
+                });
+            }
+        }
+    }
+
     render() {
         var contentComponent = this.contentComponentFromInfo();
-        //var extrasComponent = this.extrasComponentFromInfo();
-
-        // return (
-        //     <div style={this.contentElementStyle}>
-        //         {contentComponent}
-        //         {extrasComponent}
-        //     </div>
-        // );
+        this.parseAndRegisterExtra();
 
         return contentComponent;
     }
@@ -115,6 +162,8 @@ class ContentElement extends Component {
            (Chapter)
    extrasWidth: width of the extras bar, calculated at 
                 the Chapter level
+   registerExtra: a function that passes the information about 
+                  an extra and its position back up the chain
 */
 class ContentBox extends Component {
     constructor(props) {
@@ -133,7 +182,8 @@ class ContentBox extends Component {
     fromContentData(contentData) {
         return(
             <ContentElement contentInfo={contentData}
-                            extrasWidth={this.props.extrasWidth}/>
+                            extrasWidth={this.props.extrasWidth}
+                            registerExtra={this.props.registerExtra}/>
         );
     }
 

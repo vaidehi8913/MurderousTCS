@@ -28,10 +28,35 @@ class ScrollBox extends Component {
            height: this.props.height,
            overflow: "auto"
        };
+
+       this.registerExtra = this.registerExtra.bind(this);
+
+       this.state = {
+           extrasToRender: []
+       };
+   }
+
+   /* This method gets passed down for the content box to register extras
+      as it's loading from the JSON file and tag them with the heights
+      at which they are supposed to appear.
+    */
+   registerExtra(extraInfo) {
+        if (Constants.DEBUG > 2) {
+            console.log("registerExtra succesfully propagated up");
+        }
+
+        var newList = this.state.extrasToRender.concat(extraInfo);
+
+        this.setState({
+            extrasToRender: newList
+        });
+
+        if (Constants.DEBUG > 2) {
+            console.log("registered new extra, updated list: " + newList);
+        }
    }
 
    render () {
-
         if (Constants.DEBUG > 2) {
             console.log("I'm here!!!");
         }
@@ -42,11 +67,13 @@ class ScrollBox extends Component {
                     <ScrollSyncPane>
                         <ContentBox contentInfo={this.props.contentInfo} 
                                     height={this.props.windowHeight}
-                                    extrasWidth={this.props.extrasWidth}/>
+                                    extrasWidth={this.props.extrasWidth}
+                                    registerExtra={this.registerExtra}/>
                     </ScrollSyncPane>
 
                     <ScrollSyncPane>
-                        <ExtrasBar width={this.props.extrasWidth} />
+                        <ExtrasBar width={this.props.extrasWidth} 
+                                   extrasToRender={this.state.extrasToRender}/>
                     </ScrollSyncPane>
                 </div>
            </ScrollSync>
