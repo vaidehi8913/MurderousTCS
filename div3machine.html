@@ -93,77 +93,6 @@
   <div id="container"></div>
   <script type="text/babel">
 
-    class Display extends React.Component {
-      render() {
-        var displayStyle = {
-          height: 15,
-          width: 360,
-          marginLeft: 50,
-          textAlign: "right",
-          fontFamily: "monospace",
-          fontSize: "4.5em",
-          padding: 20,
-        }
-
-        return (
-          <div style={displayStyle} >
-            { this.props.number}
-          </div>
-        )
-      }
-    }
-
-    class Keypad extends React.Component {
-
-      render() {
-        var buttonStyle = {
-          fontSize: "2.75em",
-          textAlign: "center",
-          width: 75,
-          height: 50,
-          fontFamily: "sans-serif",
-          color: "#FFF",
-          backgroundColor: "#454545",
-          fontWeight: "bold",
-          lineHeight: "3px",
-        };
-
-        var tableStyle = {
-          width: 400,
-          height: 200
-        };
-
-        var buttonColStyle = {
-          marginLeft: 175
-        };
-
-        return (
-          <table style={tableStyle} id="keypad">
-            <tr>
-              <td><button onClick={() => { this.props.newDigitMouseClick(1) }} style={buttonStyle}> 1 </button></td>
-              <td><button onClick={() => { this.props.newDigitMouseClick(2) }} style={buttonStyle}> 2 </button></td>
-              <td><button onClick={() => { this.props.newDigitMouseClick(3) }} style={buttonStyle}> 3 </button></td>
-            </tr>
-            <tr>
-              <td><button onClick={() => { this.props.newDigitMouseClick(4) }} style={buttonStyle}> 4 </button></td>
-              <td><button onClick={() => { this.props.newDigitMouseClick(5) }} style={buttonStyle}> 5 </button></td>
-              <td><button onClick={() => { this.props.newDigitMouseClick(6) }} style={buttonStyle}> 6 </button></td>
-            </tr>
-            <tr>
-              <td><button onClick={() => { this.props.newDigitMouseClick(7) }} style={buttonStyle}> 7 </button></td>
-              <td><button onClick={() => { this.props.newDigitMouseClick(8) }} style={buttonStyle}> 8 </button></td>
-              <td><button onClick={() => { this.props.newDigitMouseClick(9) }} style={buttonStyle}> 9 </button></td>
-            </tr>
-            <tr>
-              <td><button onClick={this.props.deleteDigit} style={buttonStyle}> <i id="icon" class="fas fa-backspace" ></i> </button></td>
-              <td><button onClick={() => { this.props.newDigitMouseClick(0) }} style={buttonStyle}> 0 </button></td>
-              <td><button onClick={this.props.enterNumberMouseClick} style={buttonStyle}> <i id="icon" class="fas fa-arrow-circle-right"></i> </button></td>
-            </tr>
-          </table>
-        );
-      }
-    }
-
     class Machine extends React.Component {
       constructor(props) {
         super(props);
@@ -280,7 +209,62 @@
         window.removeEventListener('keydown', this.keyboardDigit);
       }
 
+
       render() {
+        var displayStyle = {
+          height: 15,
+          width: 360,
+          marginLeft: 50,
+          textAlign: "right",
+          fontFamily: "monospace",
+          fontSize: "4.5em",
+          padding: 20,
+        };
+
+        var display =
+          <div style={displayStyle} >
+            {this.state.number}
+          </div>;
+
+        var buttonStyle = {
+          fontSize: "2.75em",
+          textAlign: "center",
+          width: 75,
+          height: 50,
+          fontFamily: "sans-serif",
+          color: "#FFF",
+          backgroundColor: "#454545",
+          fontWeight: "bold",
+          lineHeight: "3px",
+        };
+
+        var tableStyle = {
+          width: 400,
+          height: 200
+        };
+
+        var keypad = <table style={tableStyle} id="keypad">
+          <tr>
+            <td><button onClick={() => { this.newDigitMouseClick(1) }} style={buttonStyle}> 1 </button></td>
+            <td><button onClick={() => { this.newDigitMouseClick(2) }} style={buttonStyle}> 2 </button></td>
+            <td><button onClick={() => { this.newDigitMouseClick(3) }} style={buttonStyle}> 3 </button></td>
+          </tr>
+          <tr>
+            <td><button onClick={() => { this.newDigitMouseClick(4) }} style={buttonStyle}> 4 </button></td>
+            <td><button onClick={() => { this.newDigitMouseClick(5) }} style={buttonStyle}> 5 </button></td>
+            <td><button onClick={() => { this.newDigitMouseClick(6) }} style={buttonStyle}> 6 </button></td>
+          </tr>
+          <tr>
+            <td><button onClick={() => { this.newDigitMouseClick(7) }} style={buttonStyle}> 7 </button></td>
+            <td><button onClick={() => { this.newDigitMouseClick(8) }} style={buttonStyle}> 8 </button></td>
+            <td><button onClick={() => { this.newDigitMouseClick(9) }} style={buttonStyle}> 9 </button></td>
+          </tr>
+          <tr>
+            <td><button onClick={this.deleteDigit} style={buttonStyle}> <i id="icon" class="fas fa-backspace" ></i> </button></td>
+            <td><button onClick={() => { this.newDigitMouseClick(0) }} style={buttonStyle}> 0 </button></td>
+            <td><button onClick={this.enterNumberMouseClick} style={buttonStyle}> <i id="icon" class="fas fa-arrow-circle-right"></i> </button></td>
+          </tr>
+        </table>;
 
         var base;
         var off_base = <img src="book/src/images/div3machine/off.png" alt="div3 Machine" />;
@@ -299,8 +283,8 @@
 
         return (
           <div id="machineDiv">
-            <div class="dsply"><Display number={this.state.number} /></div>
-            <div class="kypd"><Keypad newDigit={this.newDigit} newDigitMouseClick={this.newDigitMouseClick} deleteDigit={this.deleteDigit} enterNumberMouseClick ={this.enterNumberMouseClick} /></div>
+            <div class="dsply">{display}</div>
+            <div class="kypd">{keypad}</div>
             <div id="baseDiv">{base}</div>
           </div>
         );
