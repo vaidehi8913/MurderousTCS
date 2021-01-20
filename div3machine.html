@@ -157,7 +157,7 @@
             <tr>
               <td><button onClick={this.props.deleteDigit} style={buttonStyle}> <i id="icon" class="fas fa-backspace" ></i> </button></td>
               <td><button onClick={() => { this.props.newDigitMouseClick(0) }} style={buttonStyle}> 0 </button></td>
-              <td><button onClick={this.props.enterNumber} style={buttonStyle}> <i id="icon" class="fas fa-arrow-circle-right"></i> </button></td>
+              <td><button onClick={this.props.enterNumberMouseClick} style={buttonStyle}> <i id="icon" class="fas fa-arrow-circle-right"></i> </button></td>
             </tr>
           </table>
         );
@@ -177,6 +177,7 @@
         this.newDigitMouseClick = this.newDigitMouseClick.bind(this);
         this.deleteDigit = this.deleteDigit.bind(this);
         this.enterNumber = this.enterNumber.bind(this);
+        this.enterNumberMouseClick = this.enterNumberMouseClick.bind(this);
         this.keyboardDigit = this.keyboardDigit.bind(this);
       }
 
@@ -230,6 +231,14 @@
         console.log("enter number: " + this.state.number + ", is final: " + this.state.numberIsFinal);
       }
 
+      enterNumberMouseClick() {
+        this.setState({
+          numberIsFinal: true
+        });
+
+        console.log("enter number MOUSE: " + this.state.number + ", is final: " + this.state.numberIsFinal);
+      }
+
       keyboardDigit(e) {
         if (e.key == '1') {
           this.newDigit(1);
@@ -249,6 +258,8 @@
           this.newDigit(8);
         } else if (e.key == '9') {
           this.newDigit(9);
+        } else if (e.key == '0') {
+          this.newDigit(0);
         } else if (e.key == 'Enter') {
           this.enterNumber();
         } else if (e.key == 'Backspace') {
@@ -284,7 +295,7 @@
         return (
           <div id="machineDiv">
             <div class="dsply"><Display number={this.state.number} /></div>
-            <div class="kypd"><Keypad newDigit={this.newDigit} newDigitMouseClick={this.newDigitMouseClick} deleteDigit={this.deleteDigit} enterNumber={this.enterNumber} /></div>
+            <div class="kypd"><Keypad newDigit={this.newDigit} newDigitMouseClick={this.newDigitMouseClick} deleteDigit={this.deleteDigit} enterNumberMouseClick ={this.enterNumberMouseClick} /></div>
             <div id="baseDiv">{base}</div>
           </div>
         );
