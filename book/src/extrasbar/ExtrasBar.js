@@ -121,6 +121,11 @@ class FloatingExtra extends Component {
             top: this.props.singleExtraToRender.top
         }
 
+        if (Constants.DEBUG > 2) {
+            console.log("floating extra, top: " + this.props.singleExtraToRender.top 
+            + ", extra info: " + this.props.singleExtraToRender.extraList);
+        }
+
         return(
             <div style={floatingExtraStyle}>
                 <ExtraList extraListInfo={this.props.singleExtraToRender.extraList}
@@ -153,7 +158,8 @@ class ExtrasBar extends Component {
     createSingleExtraListComponent(singleExtraToRender) {
         return (
             <FloatingExtra singleExtraToRender={singleExtraToRender}
-                           extrasWidth={this.props.width}/>
+                           extrasWidth={this.props.width}
+                           key={singleExtraToRender.key}/>
         );
     }
 

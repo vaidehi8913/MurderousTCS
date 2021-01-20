@@ -38,9 +38,13 @@ class ContentElement extends Component {
         };
 
         this.contentComponentFromInfo = this.contentComponentFromInfo.bind(this);
-        this.extrasComponentFromInfo = this.extrasComponentFromInfo.bind(this);
+        //this.extrasComponentFromInfo = this.extrasComponentFromInfo.bind(this);
 
         this.state = {
+            mounted: false
+        };
+
+        this.extraState = {
             top: 0,
             mounted: false,
             extraUnregistered: true
@@ -56,10 +60,15 @@ class ContentElement extends Component {
             console.log("content component mounted, top: " + rect.top);
         }
 
-        this.setState({
+        this.extraState = {
             top: rect.top,
+            extraUnregistered: true
+        };
+
+        this.setState({
             mounted: true
         });
+
     }
 
     contentComponentFromInfo() {
@@ -91,7 +100,7 @@ class ContentElement extends Component {
         );
     }
 
-    extrasComponentFromInfo() {
+    /*extrasComponentFromInfo() {
         var contentInfo = this.props.contentInfo;
 
         if (contentInfo.hasOwnProperty("extras")) {
@@ -106,14 +115,14 @@ class ContentElement extends Component {
                 <div style={this.extrasContainerStyle} />
             );
         }
-    }
+    }*/
 
     parseAndRegisterExtra() {
         if (Constants.DEBUG > 2) {
             console.log("entering parseAndRegisterExtra");
         }
 
-        if (this.state.mounted && this.state.extraUnregistered) {
+        if (this.state.mounted && this.extraState.extraUnregistered) {
 
             if (Constants.DEBUG > 2) {
                 console.log("registering extra");
@@ -132,7 +141,8 @@ class ContentElement extends Component {
 
                 this.props.registerExtra(extraInfo);
 
-                this.setState({
+                this.extraState = ({
+                    top: this.extraState.top,
                     extraUnregistered: false
                 });
             }
