@@ -103,11 +103,11 @@
         };
 
         this.newDigit = this.newDigit.bind(this);
-        this.newDigitMouseClick = this.newDigitMouseClick.bind(this);
         this.deleteDigit = this.deleteDigit.bind(this);
         this.enterNumber = this.enterNumber.bind(this);
-        this.enterNumberMouseClick = this.enterNumberMouseClick.bind(this);
         this.keyboardDigit = this.keyboardDigit.bind(this);
+
+        this.enterButton;
       }
 
       newDigit(i) {
@@ -122,25 +122,9 @@
           });
         }
 
-        console.log("New Digit(" + i + "): " + this.state.number + ", is final: " + this.state.numberIsFinal);
-      }
+        this.enterButton.focus();
 
-      newDigitMouseClick(i) {
-        /*if (this.state.numberIsFinal) {
-          this.setState({
-            number: i,
-            numberIsFinal: false
-          });
-        } else {
-          this.setState({
-            number: (this.state.number * 10) + i
-          });
-        }*/
-
-        this.newDigit(i);
-
-        console.log("New Digit MOUSE(" + i + "): " + this.state.number + ", is final: " + this.state.numberIsFinal);
-
+        //console.log("New Digit(" + i + "): " + this.state.number + ", is final: " + this.state.numberIsFinal);
       }
 
       deleteDigit() {
@@ -152,7 +136,7 @@
           number: r
         });
 
-        console.log("delete digit: " + this.state.number + ", is final: " + this.state.numberIsFinal);
+        //console.log("delete digit: " + this.state.number + ", is final: " + this.state.numberIsFinal);
       }
 
       enterNumber() {
@@ -160,17 +144,7 @@
           numberIsFinal: true
         });
 
-        console.log("enter number: " + this.state.number + ", is final: " + this.state.numberIsFinal);
-      }
-
-      enterNumberMouseClick() {
-        /*this.setState({
-          numberIsFinal: true
-        });*/
-
-        this.enterNumber();
-
-        console.log("enter number MOUSE: " + this.state.number + ", is final: " + this.state.numberIsFinal);
+        //console.log("enter number: " + this.state.number + ", is final: " + this.state.numberIsFinal);
       }
 
       keyboardDigit(e) {
@@ -194,7 +168,7 @@
           this.newDigit(9);
         } else if (e.key == '0') {
           this.newDigit(0);
-        } else if (e.key == 'Enter') {
+        } else if (e.key == 'p') {
           this.enterNumber();
         } else if (e.key == 'Backspace') {
           this.deleteDigit();
@@ -245,24 +219,24 @@
 
         var keypad = <table style={tableStyle} id="keypad">
           <tr>
-            <td><button onClick={() => { this.newDigitMouseClick(1) }} style={buttonStyle}> 1 </button></td>
-            <td><button onClick={() => { this.newDigitMouseClick(2) }} style={buttonStyle}> 2 </button></td>
-            <td><button onClick={() => { this.newDigitMouseClick(3) }} style={buttonStyle}> 3 </button></td>
+            <td><button onClick={() => { this.newDigit(1) }} style={buttonStyle}> 1 </button></td>
+            <td><button onClick={() => { this.newDigit(2) }} style={buttonStyle}> 2 </button></td>
+            <td><button onClick={() => { this.newDigit(3) }} style={buttonStyle}> 3 </button></td>
           </tr>
           <tr>
-            <td><button onClick={() => { this.newDigitMouseClick(4) }} style={buttonStyle}> 4 </button></td>
-            <td><button onClick={() => { this.newDigitMouseClick(5) }} style={buttonStyle}> 5 </button></td>
-            <td><button onClick={() => { this.newDigitMouseClick(6) }} style={buttonStyle}> 6 </button></td>
+            <td><button onClick={() => { this.newDigit(4) }} style={buttonStyle}> 4 </button></td>
+            <td><button onClick={() => { this.newDigit(5) }} style={buttonStyle}> 5 </button></td>
+            <td><button onClick={() => { this.newDigit(6) }} style={buttonStyle}> 6 </button></td>
           </tr>
           <tr>
-            <td><button onClick={() => { this.newDigitMouseClick(7) }} style={buttonStyle}> 7 </button></td>
-            <td><button onClick={() => { this.newDigitMouseClick(8) }} style={buttonStyle}> 8 </button></td>
-            <td><button onClick={() => { this.newDigitMouseClick(9) }} style={buttonStyle}> 9 </button></td>
+            <td><button onClick={() => { this.newDigit(7) }} style={buttonStyle}> 7 </button></td>
+            <td><button onClick={() => { this.newDigit(8) }} style={buttonStyle}> 8 </button></td>
+            <td><button onClick={() => { this.newDigit(9) }} style={buttonStyle}> 9 </button></td>
           </tr>
           <tr>
             <td><button onClick={this.deleteDigit} style={buttonStyle}> <i id="icon" class="fas fa-backspace" ></i> </button></td>
-            <td><button onClick={() => { this.newDigitMouseClick(0) }} style={buttonStyle}> 0 </button></td>
-            <td><button onClick={this.enterNumberMouseClick} style={buttonStyle}> <i id="icon" class="fas fa-arrow-circle-right"></i> </button></td>
+            <td><button onClick={() => { this.newDigit(0) }} style={buttonStyle}> 0 </button></td>
+            <td><button onClick={this.enterNumber} style={buttonStyle} ref={x => this.enterButton = x}> <i id="icon" class="fas fa-arrow-circle-right"></i> </button></td>
           </tr>
         </table>;
 
