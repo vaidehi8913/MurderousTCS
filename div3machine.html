@@ -197,7 +197,7 @@
       }
 
       newDigitMouseClick(i) {
-        if (this.state.numberIsFinal) {
+        /*if (this.state.numberIsFinal) {
           this.setState({
             number: i,
             numberIsFinal: false
@@ -206,9 +206,12 @@
           this.setState({
             number: (this.state.number * 10) + i
           });
-        }
+        }*/
+
+        this.newDigit(i);
 
         console.log("New Digit MOUSE(" + i + "): " + this.state.number + ", is final: " + this.state.numberIsFinal);
+
       }
 
       deleteDigit() {
@@ -232,9 +235,11 @@
       }
 
       enterNumberMouseClick() {
-        this.setState({
+        /*this.setState({
           numberIsFinal: true
-        });
+        });*/
+
+        this.enterNumber();
 
         console.log("enter number MOUSE: " + this.state.number + ", is final: " + this.state.numberIsFinal);
       }
