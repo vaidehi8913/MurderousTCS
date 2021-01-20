@@ -140,23 +140,23 @@
         return (
           <table style={tableStyle} id="keypad">
             <tr>
-              <td><button onClick={() => { this.props.newDigit(1) }} style={buttonStyle}> 1 </button></td>
-              <td><button onClick={() => { this.props.newDigit(2) }} style={buttonStyle}> 2 </button></td>
-              <td><button onClick={() => { this.props.newDigit(3) }} style={buttonStyle}> 3 </button></td>
+              <td><button onClick={() => { this.props.newDigitMouseClick(1) }} style={buttonStyle}> 1 </button></td>
+              <td><button onClick={() => { this.props.newDigitMouseClick(2) }} style={buttonStyle}> 2 </button></td>
+              <td><button onClick={() => { this.props.newDigitMouseClick(3) }} style={buttonStyle}> 3 </button></td>
             </tr>
             <tr>
-              <td><button onClick={() => { this.props.newDigit(4) }} style={buttonStyle}> 4 </button></td>
-              <td><button onClick={() => { this.props.newDigit(5) }} style={buttonStyle}> 5 </button></td>
-              <td><button onClick={() => { this.props.newDigit(6) }} style={buttonStyle}> 6 </button></td>
+              <td><button onClick={() => { this.props.newDigitMouseClick(4) }} style={buttonStyle}> 4 </button></td>
+              <td><button onClick={() => { this.props.newDigitMouseClick(5) }} style={buttonStyle}> 5 </button></td>
+              <td><button onClick={() => { this.props.newDigitMouseClick(6) }} style={buttonStyle}> 6 </button></td>
             </tr>
             <tr>
-              <td><button onClick={() => { this.props.newDigit(7) }} style={buttonStyle}> 7 </button></td>
-              <td><button onClick={() => { this.props.newDigit(8) }} style={buttonStyle}> 8 </button></td>
-              <td><button onClick={() => { this.props.newDigit(9) }} style={buttonStyle}> 9 </button></td>
+              <td><button onClick={() => { this.props.newDigitMouseClick(7) }} style={buttonStyle}> 7 </button></td>
+              <td><button onClick={() => { this.props.newDigitMouseClick(8) }} style={buttonStyle}> 8 </button></td>
+              <td><button onClick={() => { this.props.newDigitMouseClick(9) }} style={buttonStyle}> 9 </button></td>
             </tr>
             <tr>
               <td><button onClick={this.props.deleteDigit} style={buttonStyle}> <i id="icon" class="fas fa-backspace" ></i> </button></td>
-              <td><button onClick={() => { this.props.newDigit(0) }} style={buttonStyle}> 0 </button></td>
+              <td><button onClick={() => { this.props.newDigitMouseClick(0) }} style={buttonStyle}> 0 </button></td>
               <td><button onClick={this.props.enterNumber} style={buttonStyle}> <i id="icon" class="fas fa-arrow-circle-right"></i> </button></td>
             </tr>
           </table>
@@ -174,6 +174,7 @@
         };
 
         this.newDigit = this.newDigit.bind(this);
+        this.newDigitMouseClick = this.newDigitMouseClick.bind(this);
         this.deleteDigit = this.deleteDigit.bind(this);
         this.enterNumber = this.enterNumber.bind(this);
         this.keyboardDigit = this.keyboardDigit.bind(this);
@@ -192,6 +193,21 @@
         }
 
         console.log("New Digit(" + i + "): " + this.state.number + ", is final: " + this.state.numberIsFinal);
+      }
+
+      newDigitMouseClick(i) {
+        if (this.state.numberIsFinal) {
+          this.setState({
+            number: i,
+            numberIsFinal: false
+          });
+        } else {
+          this.setState({
+            number: (this.state.number * 10) + i
+          });
+        }
+
+        console.log("New Digit MOUSE(" + i + "): " + this.state.number + ", is final: " + this.state.numberIsFinal);
       }
 
       deleteDigit() {
@@ -268,7 +284,7 @@
         return (
           <div id="machineDiv">
             <div class="dsply"><Display number={this.state.number} /></div>
-            <div class="kypd"><Keypad newDigit={this.newDigit} deleteDigit={this.deleteDigit} enterNumber={this.enterNumber} /></div>
+            <div class="kypd"><Keypad newDigit={this.newDigit} newDigitMouseClick={this.newDigitMouseClick} deleteDigit={this.deleteDigit} enterNumber={this.enterNumber} /></div>
             <div id="baseDiv">{base}</div>
           </div>
         );
