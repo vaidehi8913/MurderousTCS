@@ -7,10 +7,79 @@
   <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   <style>
     #container {
       padding: 50px;
       background-color: #FFF;
+    }
+
+    #keypad {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #keypad td {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: center;
+      /* background-color: #af7bae; */
+    }
+
+    #keypad button {
+      display: inline-block;
+      padding: 15px 25px;
+      font-size: 24px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      color: #fff;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 6px #777;
+    }
+
+    #keypad button:hover {
+      background-color: #3e8e41
+    }
+
+    #keypad button:active {
+      background-color: #3e8e41;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+
+    #machineDiv {
+      position: relative;
+      width: 100%;
+      max-width: 540px;
+    }
+
+    /* for the base img */
+    #machineDiv img {
+      width: 100%;
+      height: auto;
+    }
+
+    #machineDiv .dsply {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-55%, -160%);
+      -ms-transform: translate(-50%, -50%);
+      padding: 12px 24px;
+      border: none;
+    }
+
+    #machineDiv .kypd {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      -ms-transform: translate(-50%, -50%);
+      padding: 12px 24px;
+      border: none;
     }
   </style>
 </head>
@@ -19,65 +88,44 @@
   <div id="container"></div>
   <script type="text/babel">
 
-    class SingleLight extends React.Component {
-      render() {
-        var lightStyle = {
-          height: 50,
-          width: 100,
-          backgroundColor: this.props.color,
-          display: "inline-block",
-          padding: 10,
-          marginLeft: 65,
-          marginRight: 65,
-          textAlign: "center",
-          fontFamily: "monospace",
-          fontSize: "xx-large"
-        };
-
-        return (
-          <div style={lightStyle}>
-            {this.props.message}
-          </div>
-        );
-      }
-    }
-
     class Display extends React.Component {
       render() {
         var displayStyle = {
-          height: 60,
+          height: 15,
           width: 360,
           marginLeft: 50,
           textAlign: "right",
           fontFamily: "monospace",
-          fontSize: "xx-large",
-          backgroundColor: "#00916d",
-          padding: 20
+          fontSize: "4.5em",
+          padding: 20,
         }
 
         return (
-          <div style={displayStyle}>
-            {this.props.number}
+          <div style={displayStyle} >
+            { this.props.number}
           </div>
         )
       }
     }
 
-    class InputButtons extends React.Component {
+    class Keypad extends React.Component {
 
       render() {
         var buttonStyle = {
-          fontSize: "1em",
-          width: 50,
+          fontSize: "2.75em",
+          textAlign: "center",
+          width: 75,
           height: 50,
           fontFamily: "sans-serif",
-          color: "#333",
+          color: "#FFF",
+          backgroundColor: "#454545",
           fontWeight: "bold",
-          lineHeight: "3px"
+          lineHeight: "3px",
         };
 
-        var buttonRowStyle = {
-          width: 500
+        var tableStyle = {
+          width: 400,
+          height: 200
         };
 
         var buttonColStyle = {
@@ -85,56 +133,28 @@
         };
 
         return (
-          <div style={buttonColStyle}>
-            <div style={buttonRowStyle}>
-              <button onClick={() => { this.props.newDigit(1) }} style={buttonStyle}> 1 </button>
-              <button onClick={() => { this.props.newDigit(2) }} style={buttonStyle}> 2 </button>
-              <button onClick={() => { this.props.newDigit(3) }} style={buttonStyle}> 3 </button>
-            </div>
-            <div style={buttonRowStyle}>
-              <button onClick={() => { this.props.newDigit(4) }} style={buttonStyle}> 4 </button>
-              <button onClick={() => { this.props.newDigit(5) }} style={buttonStyle}> 5 </button>
-              <button onClick={() => { this.props.newDigit(6) }} style={buttonStyle}> 6 </button>
-            </div>
-            <div style={buttonRowStyle}>
-              <button onClick={() => { this.props.newDigit(7) }} style={buttonStyle}> 7 </button>
-              <button onClick={() => { this.props.newDigit(8) }} style={buttonStyle}> 8 </button>
-              <button onClick={() => { this.props.newDigit(9) }} style={buttonStyle}> 9 </button>
-            </div>
-            <div style={buttonRowStyle}>
-              <button onClick={this.props.deleteDigit} style={buttonStyle}> b </button>
-              <button onClick={() => { this.props.newDigit(0) }} style={buttonStyle}> 0 </button>
-              <button onClick={this.props.enterNumber} style={buttonStyle}> e </button>
-            </div>
-          </div>
-        );
-      }
-    }
-
-
-    class Box extends React.Component {
-      render() {
-        var boxStyle = {
-          height: 500,
-          width: 500,
-          padding: 0,
-          backgroundColor: "#B3B3B3",
-          borderColor: "#FFFFFF",
-          borderRadius: 10
-        };
-
-
-        var spacerStyle = {
-          height: 50
-        };
-
-        return (
-          <div style={boxStyle}>
-            <div style={spacerStyle} />
-            <Display number={this.props.number} />
-            <div style={spacerStyle} />
-            <InputButtons newDigit={this.props.newDigit} deleteDigit={this.props.deleteDigit} enterNumber={this.props.enterNumber} />
-          </div>
+          <table style={tableStyle} id="keypad">
+            <tr>
+              <td><button onClick={() => { this.props.newDigit(1) }} style={buttonStyle}> 1 </button></td>
+              <td><button onClick={() => { this.props.newDigit(2) }} style={buttonStyle}> 2 </button></td>
+              <td><button onClick={() => { this.props.newDigit(3) }} style={buttonStyle}> 3 </button></td>
+            </tr>
+            <tr>
+              <td><button onClick={() => { this.props.newDigit(4) }} style={buttonStyle}> 4 </button></td>
+              <td><button onClick={() => { this.props.newDigit(5) }} style={buttonStyle}> 5 </button></td>
+              <td><button onClick={() => { this.props.newDigit(6) }} style={buttonStyle}> 6 </button></td>
+            </tr>
+            <tr>
+              <td><button onClick={() => { this.props.newDigit(7) }} style={buttonStyle}> 7 </button></td>
+              <td><button onClick={() => { this.props.newDigit(8) }} style={buttonStyle}> 8 </button></td>
+              <td><button onClick={() => { this.props.newDigit(9) }} style={buttonStyle}> 9 </button></td>
+            </tr>
+            <tr>
+              <td><button onClick={this.props.deleteDigit} style={buttonStyle}> b </button></td>
+              <td><button onClick={() => { this.props.newDigit(0) }} style={buttonStyle}> 0 </button></td>
+              <td><button onClick={this.props.enterNumber} style={buttonStyle}> e </button></td>
+            </tr>
+          </table>
         );
       }
     }
@@ -144,7 +164,7 @@
         super(props);
 
         this.state = {
-          number: 9837812,
+          number: 0,
           numberIsFinal: false
         };
 
@@ -172,6 +192,7 @@
         var r = (this.state.number - m) / 10;
 
         this.setState({
+          numberIsFinal: false,
           number: r
         });
       }
@@ -218,40 +239,26 @@
 
       render() {
 
-        var darkNo = "#700013";
-        var brightNo = "#ff002b";
-        var darkYes = "#00660e";
-        var brightYes = "#00ff22";
-
-        var yesLight, noLight;
+        var base;
+        var off_base = <img src="book/src/images/div3machine/off.png" alt="div3 Machine" />;
+        var yes_base = <img src="book/src/images/div3machine/yes.png" alt="div3 Machine" />;
+        var no_base = <img src="book/src/images/div3machine/no.png" alt="div3 Machine" />;
 
         if (this.state.numberIsFinal) {
           if (this.state.number % 3 == 0) {
-            yesLight = <SingleLight color={darkNo} message={"No!"} />
-            noLight = <SingleLight color={brightYes} message={"Yes!"} />
+            base = yes_base;
           } else {
-            yesLight = <SingleLight color={brightNo} message={"No!"} />
-            noLight = <SingleLight color={darkYes} message={"Yes!"} />
+            base = no_base;
           }
         } else {
-          yesLight = <SingleLight color={darkNo} message={"No!"} />
-          noLight = <SingleLight color={darkYes} message={"Yes!"} />
+          base = off_base;
         }
 
-        var lights = <div>
-          {yesLight}
-          {noLight}
-        </div>;
-
-        var machineStyle = {
-          height: 550,
-          width: 500
-        };
-
         return (
-          <div style={machineStyle} onKeyPress={this.keyboardDigit}>
-            {lights}
-            <Box number={this.state.number} newDigit={this.newDigit} deleteDigit={this.deleteDigit} enterNumber={this.enterNumber} />
+          <div id="machineDiv">
+            <div class="dsply"><Display number={this.state.number} /></div>
+            <div class="kypd"><Keypad newDigit={this.newDigit} deleteDigit={this.deleteDigit} enterNumber={this.enterNumber} /></div>
+            <div id="baseDiv">{base}</div>
           </div>
         );
       }
@@ -259,8 +266,8 @@
 
     ReactDOM.render(
       <div>
+        <p>over here<i class="icon-camera-retro"></i>icon-camera-retro</p>
         <Machine />
-        <img src="book/src/images/div3machine/off.png" alt="div3 Machine" width="540" height="720" />
       </div>,
       document.querySelector("#container")
     );
