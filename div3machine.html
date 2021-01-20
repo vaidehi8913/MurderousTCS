@@ -190,6 +190,8 @@
             number: (this.state.number * 10) + i
           });
         }
+
+        console.log("New Digit(" + i + "): " + this.state.number + ", is final: " + this.state.numberIsFinal);
       }
 
       deleteDigit() {
@@ -200,12 +202,16 @@
           numberIsFinal: false,
           number: r
         });
+
+        console.log("delete digit: " + this.state.number + ", is final: " + this.state.numberIsFinal);
       }
 
       enterNumber() {
         this.setState({
           numberIsFinal: true
         });
+
+        console.log("enter number: " + this.state.number + ", is final: " + this.state.numberIsFinal);
       }
 
       keyboardDigit(e) {
