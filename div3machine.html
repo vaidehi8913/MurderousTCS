@@ -7,7 +7,7 @@
   <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <link href="fontawesome/css/all.css" rel="stylesheet">
   <style>
     #container {
       padding: 50px;
@@ -81,6 +81,11 @@
       padding: 12px 24px;
       border: none;
     }
+
+    #icon {
+      transform: translate(-25%, -25%);
+      -ms-transform: translate(-50%, -50%);
+    }
   </style>
 </head>
 
@@ -150,9 +155,9 @@
               <td><button onClick={() => { this.props.newDigit(9) }} style={buttonStyle}> 9 </button></td>
             </tr>
             <tr>
-              <td><button onClick={this.props.deleteDigit} style={buttonStyle}> b </button></td>
+              <td><button onClick={this.props.deleteDigit} style={buttonStyle}> <i id="icon" class="fas fa-backspace" ></i> </button></td>
               <td><button onClick={() => { this.props.newDigit(0) }} style={buttonStyle}> 0 </button></td>
-              <td><button onClick={this.props.enterNumber} style={buttonStyle}> e </button></td>
+              <td><button onClick={this.props.enterNumber} style={buttonStyle}> <i id="icon" class="fas fa-arrow-circle-right"></i> </button></td>
             </tr>
           </table>
         );
@@ -266,9 +271,8 @@
 
     ReactDOM.render(
       <div>
-        <p>over here<i class="icon-camera-retro"></i>icon-camera-retro</p>
         <Machine />
-      </div>,
+      </div >,
       document.querySelector("#container")
     );
   </script>
