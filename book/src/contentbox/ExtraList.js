@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import * as Constants from "Constants";
 
-// Testing Vaidehi's new dev setup
-
 /* Displays an image in the extras bar
 
     PROPS
