@@ -17,8 +17,11 @@ is "MurderousTCS" (TCS for theoretical computer science).
 
 # How do I run it?
 
-Make sure you have npm downloaded.  Then as long as you are in the project 
-directory (MurderousTCS/book) you can run: 
+Make sure you have npm downloaded.  If it is your first time opening up this project, then you want to make sure that you have all of the necessary packages by running 
+
+    npm install
+
+Then as long as you are in the project directory (MurderousTCS/book) you can run: 
 
     npm start
 
