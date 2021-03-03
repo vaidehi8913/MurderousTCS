@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
+import {TouchableOpacity} from 'react-native';
 
 import Dialogue from "contentbox/Dialogue";
 import ComicImage from "contentbox/ComicImage";
@@ -130,6 +131,7 @@ class ContentBox extends Component {
 
         this.fromContentData = this.fromContentData.bind(this);
 	this.extrasFromContentData = this.extrasFromContentData.bind(this);
+	this.buttonsFromContentData = this.buttonsFromContentData.bind(this);
    }
 
     fromContentData(contentData, index) {
@@ -149,16 +151,48 @@ class ContentBox extends Component {
 	);
     }
 
+    buttonsFromContentData(contentData, index) {
+
+	var feedbackButtonContainerStyle = {
+	    backgroundColor: (Constants.DEBUG > 0) ? "#03fc30" : "none",
+	    gridColumnStart: "button-start",
+	    gridRowStart: "row-start " + (index + 1),
+	    placeSelf: "center"
+	}
+
+	var feedbackButtonStyle = {
+	    width: Constants.FEEDBACK_BUTTON_WIDTH,
+	    height: Constants.FEEDBACK_BUTTON_WIDTH,
+	    justifyContent: "center",
+	    alignItems: "center",
+	    padding: 10,
+	    borderRadius: 100,
+	    backgroundColor: "orange"
+	}
+
+	return(
+	    <div style={feedbackButtonContainerStyle}>
+	        <TouchableOpacity style={feedbackButtonStyle}
+				  onPress={() => console.log("Feedback button "
+				  	+ index + " clicked")}>
+		    !!!
+	        </TouchableOpacity>
+	    </div>
+	);
+    }
+
     fromChapterData(contentInfo) {
 
         var contentComponents = contentInfo.map(this.fromContentData);
         var extraComponents = contentInfo.map(this.extrasFromContentData);
+	var buttonComponents = contentInfo.map(this.buttonsFromContentData);
 
 	var contentBoxStyle = {
 	    backgroundColor: (Constants.DEBUG > 0) ? "#a8caff" : "none",
 	    display: "grid",
 	    gridTemplateColumns: "[content-start] " + Constants.CONTENT_WIDTH + "px "
-	        + "[content-end extras-start] " + this.props.extrasWidth + "px " 
+	        + "[content-end button-start] " + Constants.FEEDBACK_BUTTON_WIDTH + "px "
+		+ "[button-end extras-start] " + this.props.extrasWidth + "px " 
 		+ " [extras-end]",
 	    gridTemplateRows: "repeat(" + contentInfo.length + ", [row-start] auto)"
 	        + " [rows-end]"
@@ -168,6 +202,7 @@ class ContentBox extends Component {
             <div style={contentBoxStyle}>
                 {contentComponents}
 		{extraComponents}
+		{buttonComponents}
             </div>
         );
     }
