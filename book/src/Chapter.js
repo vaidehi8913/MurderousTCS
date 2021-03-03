@@ -61,22 +61,29 @@ class ScrollBox extends Component {
             console.log("I'm here!!!");
         }
 
-       return(
-           <ScrollSync>
+       /*return(
+	   <ScrollSync>
                 <div style={this.scrollBoxStyle}>
                     <ScrollSyncPane>
                         <ContentBox contentInfo={this.props.contentInfo} 
                                     height={this.props.windowHeight}
                                     extrasWidth={this.props.extrasWidth}
                                     registerExtra={this.registerExtra}/>
-                    </ScrollSyncPane>
+                   </ScrollSyncPane>
 
-                    <ScrollSyncPane>
+	           <ScrollSyncPane>
                         <ExtrasBar width={this.props.extrasWidth} 
                                    extrasToRender={this.state.extrasToRender}/>
                     </ScrollSyncPane>
                 </div>
            </ScrollSync>
+       );*/
+
+       return(
+	   <ContentBox contentInfo={this.props.contentInfo}
+	       	       height={this.props.windowHeight}
+	               extrasWidth={this.props.extrasWidth}
+	       	       registerExtra={this.registerExtra} />
        );
    }
 

@@ -8,6 +8,51 @@ import ExtraList from "contentbox/ExtraList";
 
 import * as Constants from "Constants";
 
+/*
+ * Wraps the ExtraList component with the sole purpose of 
+ * assiging it to the correct grid cell
+ *
+ * PROPS
+ * contentInfo
+ * index
+ * extrasWidth
+ *
+ */
+class ExtraElement extends Component {
+    constructor(props){
+	super(props);
+
+	this.extraElementStyle = {
+	    backgroundColor: (Constants.DEBUG > 2) ? "#ebe134" : "none",
+	    gridColumnStart: "extras-start",
+	    gridRowStart: "row-start " + (this.props.index + 1),
+	    gridRowEnd: "rows-end",
+	    width: this.props.extrasWidth
+	}
+    }
+
+    render() {
+	var contentInfo = this.props.contentInfo;
+	var extraComponent = null;
+   
+        if (Constants.DEBUG > 2) {
+	    console.log("rendering extra element: " + this.props.index);
+	}
+
+	if (contentInfo.hasOwnProperty("extras")) {
+	    extraComponent = 
+	        <div style={this.extraElementStyle}
+		     key={contentInfo.key}>
+		    <ExtraList extraListInfo={contentInfo.extras}
+			       extrasWidth={this.props.extrasWidth} />
+		</div>;
+	}
+
+	return extraComponent;
+    }    
+}
+
+
 /*  This formats the content to sit inside 
     Constants.CONTENT_WIDTH, and to place the extras
     correctly.
@@ -16,6 +61,7 @@ import * as Constants from "Constants";
     extrasWidth
     contentInfo
     registerExtra
+    index
 */
 class ContentElement extends Component {
     constructor(props) {
@@ -29,7 +75,9 @@ class ContentElement extends Component {
 
         this.contentContainerStyle = {
             backgroundColor: (Constants.DEBUG > 2) ? "#11b8b5" : "none",
-            width: Constants.CONTENT_WIDTH
+            //width: Constants.CONTENT_WIDTH,
+	    gridColumnStart: "content-start",
+	    gridRowStart: "row-start " + (this.props.index + 1)
         }; 
 
         this.extrasContainerStyle = {
@@ -40,6 +88,7 @@ class ContentElement extends Component {
         this.contentComponentFromInfo = this.contentComponentFromInfo.bind(this);
         //this.extrasComponentFromInfo = this.extrasComponentFromInfo.bind(this);
 
+	/*
         this.state = {
             mounted: false
         };
@@ -48,11 +97,12 @@ class ContentElement extends Component {
             top: 0,
             mounted: false,
             extraUnregistered: true
-        };
+        };*/
 
-        this.parseAndRegisterExtra = this.parseAndRegisterExtra.bind(this);
+        //this.parseAndRegisterExtra = this.parseAndRegisterExtra.bind(this);
     }
-
+    
+    /*
     componentDidMount() {
         var rect = ReactDOM.findDOMNode(this).getBoundingClientRect()
 
@@ -69,24 +119,27 @@ class ContentElement extends Component {
             mounted: true
         });
 
-    }
+    }*/
 
     contentComponentFromInfo() {
         var contentInfo = this.props.contentInfo;
         var contentComponent; 
 
+	/*
         if (Constants.DEBUG > 2) {
             console.log(contentInfo);
         }
+	*/
 
         if (contentInfo.type === "image") {
             contentComponent =  <ComicImage contentInfo={contentInfo} 
-                                            key={contentInfo.key} />;
+                                            key={contentInfo.key}/>;
 
         } else if (contentInfo.type === "dialogue") {
             contentComponent =  <Dialogue dialogueInfo={contentInfo} 
                                           parentWidth={Constants.CONTENT_WIDTH}
                                           key={contentInfo.key}/>;
+
         } else if (contentInfo.type === "heading") {
             contentComponent =  <ChapterHeading headingInfo={contentInfo}
                                                 parentWidth={Constants.CONTENT_WIDTH}
@@ -94,7 +147,8 @@ class ContentElement extends Component {
         }
 
         return (
-            <div style={this.contentContainerStyle}>
+            <div style={this.contentContainerStyle}
+		 key={contentInfo.key}>
                 {contentComponent}
             </div>
         );
@@ -117,6 +171,7 @@ class ContentElement extends Component {
         }
     }*/
 
+    /*
     parseAndRegisterExtra() {
         if (Constants.DEBUG > 2) {
             console.log("entering parseAndRegisterExtra");
@@ -148,10 +203,16 @@ class ContentElement extends Component {
             }
         }
     }
+    */
 
     render() {
+
+	if (Constants.DEBUG > 2) {
+	    console.log("rendering content component: " + this.props.index );
+	}
+
         var contentComponent = this.contentComponentFromInfo();
-        this.parseAndRegisterExtra();
+        //this.parseAndRegisterExtra();
 
         return contentComponent;
     }
@@ -180,33 +241,67 @@ class ContentBox extends Component {
         super(props);
 
         this.fromContentData = this.fromContentData.bind(this);
+	this.extrasFromContentData = this.extrasFromContentData.bind(this);
 
+	/*
         this.contentBoxStyle = {
             backgroundColor: (Constants.DEBUG > 0) ? "#a8caff" : "none",
             width: Constants.CONTENT_WIDTH, 
-            display: "flex",
+	    display: "flex",
             flexDirection: "column"
         };
+	*/
     }
 
-    fromContentData(contentData) {
+    fromContentData(contentData, index) {
         return(
             <ContentElement contentInfo={contentData}
                             extrasWidth={this.props.extrasWidth}
-                            registerExtra={this.props.registerExtra}/>
+                            registerExtra={this.props.registerExtra}
+		            index={index}/>
         );
     }
 
-    fromChapterData(contentInfo) {
-        var contentComponents = contentInfo.map(this.fromContentData);
+    extrasFromContentData(contentData, index) {
+	return(
+	    <ExtraElement contentInfo={contentData}
+		          extrasWidth={this.props.extrasWidth}
+			  index={index}/>
+	);
+    }
 
+    fromChapterData(contentInfo) {
+
+	// can use contentInfo.length to initialize the grid
+	// to use the repeat command, will have to format a string
+	// npm install react-string-format
+	// import { format } from 'react-string-format';
+	// format('text: {1}, number: {0}', 'hello!', 123);
+
+        var contentComponents = contentInfo.map(this.fromContentData);
+        var extraComponents = contentInfo.map(this.extrasFromContentData);
+
+	    /*
         if (Constants.DEBUG > 2) {
             console.log("ContentBox width:" + this.contentBoxStyle.width);
         }
+	*/
+
+	var contentBoxStyle = {
+	    backgroundColor: (Constants.DEBUG > 0) ? "#a8caff" : "none",
+	    //width: Constants.CONTENT_WIDTH + this.props.extrasWidth,
+	    display: "grid",
+	    gridTemplateColumns: "[content-start] " + Constants.CONTENT_WIDTH + "px "
+				 + "[content-end extras-start] " + this.props.extrasWidth + "px " 
+		 		 + " [extras-end]",
+	    gridTemplateRows: "repeat(" + contentInfo.length + ", [row-start] auto)"
+			      + " [rows-end]"
+	};
 
         return(
-            <div style={this.contentBoxStyle}>
+            <div style={contentBoxStyle}>
                 {contentComponents}
+		{extraComponents}
             </div>
         );
     }
