@@ -13,10 +13,6 @@ colors, and check out what the site looks
 like! (lol this comment is from before
 I implemented debug mode)
 
-## Bug fix: Lavender
-The word lavender is misspelled consistently
-in chapter 1 oops
-
 ## Note: Clickable sample
 Not sure where to leave this note, so I'll 
 put it here. 
@@ -27,6 +23,11 @@ get the absolute position of a component
 and calculate the relative position of a 
 click.  This can be found in commit 
 f3feb62df111e93de68de8b885f1f20b8c0fc842
+
+## Improvement: Vertically center dialogue
+Update the Dialogue components so that 
+text vertically centers with it's chibi
+image
 
 
 
@@ -67,6 +68,14 @@ The only way to do this might be to pass forward
 functions to pass refs back o_o
 
 should learn how to push back lists I guess
+
+## New Feature: Line numbers in debug mode
+Content should have line numbers
+
+## Improvement: Content-width minimum 
+The minimum content width should be a constant
+but in general, the content width could be 
+based on the window size
 
 
 
@@ -367,3 +376,8 @@ Before doing this: see the reorg task in
 medium projects
 
 Wooooot!
+
+## Bug fix: Lavender
+September 16, 2020
+The word lavender is misspelled consistently
+in chapter 1 oops

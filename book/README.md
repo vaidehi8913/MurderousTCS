@@ -89,11 +89,11 @@ Looking for the source images that we use? You can find them under
 
 # Our To-Do List
 
-EDIT: That To-do list is obsolete.  Now we keep track of issues and 
-improvements using the git issues on this project.
 
-This is where we track issues and improvements that we want to get to.
-You can find this in 
+We used to use a to-do list.  Now we are moving to Git issues!
+
+In the past, this is where we would track issues and improvements 
+that we wanted to get to.  You can find this in 
 
     src/implementation-to-do.md
 

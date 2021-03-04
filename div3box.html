@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
- 
+
 <head>
   <meta charset="utf-8">
   <title>Div3 Machine</title>
@@ -14,12 +14,13 @@
     }
   </style>
 </head>
+
 <body>
   <div id="container"></div>
   <script type="text/babel">
 
     class SingleLight extends React.Component {
-      render () {
+      render() {
         var lightStyle = {
           height: 50,
           width: 100,
@@ -42,10 +43,10 @@
     }
 
     class Display extends React.Component {
-      render () {
+      render() {
         var displayStyle = {
           height: 60,
-          width: 360, 
+          width: 360,
           marginLeft: 50,
           textAlign: "right",
           fontFamily: "monospace",
@@ -56,7 +57,7 @@
 
         return (
           <div style={displayStyle}>
-              {this.props.number}
+            {this.props.number}
           </div>
         )
       }
@@ -64,7 +65,7 @@
 
     class InputButtons extends React.Component {
 
-      render () {
+      render() {
         var buttonStyle = {
           fontSize: "1em",
           width: 50,
@@ -85,24 +86,24 @@
 
         return (
           <div style={buttonColStyle}>
-            <div style={buttonRowStyle}> 
-              <button onClick={() => {this.props.newDigit(1)}} style={buttonStyle}> 1 </button>
-              <button onClick={() => {this.props.newDigit(2)}} style={buttonStyle}> 2 </button>
-              <button onClick={() => {this.props.newDigit(3)}} style={buttonStyle}> 3 </button>
+            <div style={buttonRowStyle}>
+              <button onClick={() => { this.props.newDigit(1) }} style={buttonStyle}> 1 </button>
+              <button onClick={() => { this.props.newDigit(2) }} style={buttonStyle}> 2 </button>
+              <button onClick={() => { this.props.newDigit(3) }} style={buttonStyle}> 3 </button>
             </div>
-            <div style={buttonRowStyle}> 
-              <button onClick={() => {this.props.newDigit(4)}} style={buttonStyle}> 4 </button>
-              <button onClick={() => {this.props.newDigit(5)}} style={buttonStyle}> 5 </button>
-              <button onClick={() => {this.props.newDigit(6)}} style={buttonStyle}> 6 </button>
+            <div style={buttonRowStyle}>
+              <button onClick={() => { this.props.newDigit(4) }} style={buttonStyle}> 4 </button>
+              <button onClick={() => { this.props.newDigit(5) }} style={buttonStyle}> 5 </button>
+              <button onClick={() => { this.props.newDigit(6) }} style={buttonStyle}> 6 </button>
             </div>
-            <div style={buttonRowStyle}> 
-              <button onClick={() => {this.props.newDigit(7)}} style={buttonStyle}> 7 </button>
-              <button onClick={() => {this.props.newDigit(8)}} style={buttonStyle}> 8 </button>
-              <button onClick={() => {this.props.newDigit(9)}} style={buttonStyle}> 9 </button>
+            <div style={buttonRowStyle}>
+              <button onClick={() => { this.props.newDigit(7) }} style={buttonStyle}> 7 </button>
+              <button onClick={() => { this.props.newDigit(8) }} style={buttonStyle}> 8 </button>
+              <button onClick={() => { this.props.newDigit(9) }} style={buttonStyle}> 9 </button>
             </div>
-            <div style={buttonRowStyle}> 
+            <div style={buttonRowStyle}>
               <button onClick={this.props.deleteDigit} style={buttonStyle}> b </button>
-              <button onClick={() => {this.props.newDigit(0)}} style={buttonStyle}> 0 </button>
+              <button onClick={() => { this.props.newDigit(0) }} style={buttonStyle}> 0 </button>
               <button onClick={this.props.enterNumber} style={buttonStyle}> e </button>
             </div>
           </div>
@@ -112,30 +113,30 @@
 
 
     class Box extends React.Component {
-        render () {
-          var boxStyle = {
-              height: 500,
-              width: 500,
-              padding: 0,
-              backgroundColor: "#B3B3B3",
-              borderColor: "#FFFFFF",
-              borderRadius: 10
-          };
+      render() {
+        var boxStyle = {
+          height: 500,
+          width: 500,
+          padding: 0,
+          backgroundColor: "#B3B3B3",
+          borderColor: "#FFFFFF",
+          borderRadius: 10
+        };
 
 
-          var spacerStyle = {
-            height: 50
-          };
+        var spacerStyle = {
+          height: 50
+        };
 
-          return (
-              <div style={boxStyle}>
-                <div style={spacerStyle}/>
-                <Display number={this.props.number}/>
-                <div style={spacerStyle}/>
-                <InputButtons newDigit={this.props.newDigit} deleteDigit={this.props.deleteDigit} enterNumber={this.props.enterNumber}/>
-              </div>
-          );
-        }
+        return (
+          <div style={boxStyle}>
+            <div style={spacerStyle} />
+            <Display number={this.props.number} />
+            <div style={spacerStyle} />
+            <InputButtons newDigit={this.props.newDigit} deleteDigit={this.props.deleteDigit} enterNumber={this.props.enterNumber} />
+          </div>
+        );
+      }
     }
 
     class Machine extends React.Component {
@@ -143,7 +144,7 @@
         super(props);
 
         this.state = {
-          number:9837812,
+          number: 9837812,
           numberIsFinal: false
         };
 
@@ -171,6 +172,7 @@
         var r = (this.state.number - m) / 10;
 
         this.setState({
+          numberIsFinal: false,
           number: r
         });
       }
@@ -207,15 +209,15 @@
         }
       }
 
-      componentDidMount () {
+      componentDidMount() {
         window.addEventListener('keydown', this.keyboardDigit);
       }
 
-      componentWillUnmount () {
+      componentWillUnmount() {
         window.removeEventListener('keydown', this.keyboardDigit);
       }
 
-      render () {
+      render() {
 
         var darkNo = "#700013";
         var brightNo = "#ff002b";
@@ -237,10 +239,10 @@
           noLight = <SingleLight color={darkYes} message={"Yes!"} />
         }
 
-        var lights = <div> 
-                      {yesLight}
-                      {noLight}
-                    </div> ;
+        var lights = <div>
+          {yesLight}
+          {noLight}
+        </div>;
 
         var machineStyle = {
           height: 550,
@@ -250,19 +252,19 @@
         return (
           <div style={machineStyle} onKeyPress={this.keyboardDigit}>
             {lights}
-            <Box number={this.state.number} newDigit={this.newDigit} deleteDigit={this.deleteDigit} enterNumber={this.enterNumber}/>
+            <Box number={this.state.number} newDigit={this.newDigit} deleteDigit={this.deleteDigit} enterNumber={this.enterNumber} />
           </div>
         );
       }
     }
 
     ReactDOM.render(
-        <div>
-            <Machine/>
-        </div>,
-        document.querySelector("#container")
+      <div>
+        <Machine />
+      </div>,
+      document.querySelector("#container")
     );
   </script>
 </body>
- 
+
 </html>

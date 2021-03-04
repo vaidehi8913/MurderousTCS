@@ -1,7 +1,6 @@
 {
     "key": "chapter1",
     "type": "chapter",
-
     "navigationBar": {
         "chapterNumber": 1,
         "chapterTitle": "The Unanswerable Question",
@@ -10,7 +9,7 @@
                 "key": "c1homeButton",
                 "type": "imageElement",
                 "basicImage": "navbar/home_dark.png",
-                "hoverImage": "navbar/home.png",
+                "hoverImage": "navbar/home_hover.png",
                 "hoverText": "Go to the home page",
                 "linkOnClick": "/",
                 "imageDescription": "Button to home page"
@@ -23,14 +22,14 @@
             {
                 "key": "c1chapter1Button",
                 "type": "imageElement",
-                "basicImage": "navbar/chapter1_crop.png",
+                "basicImage": "navbar/chapter1_hover.png",
                 "imageDescription": "Button to Chapter 1"
             },
             {
                 "key": "c1chapter2Button",
                 "type": "imageElement",
-                "basicImage": "navbar/chapter2_crop_dark.png",
-                "hoverImage": "navbar/chapter2_crop.png",
+                "basicImage": "navbar/chapter2_dark.png",
+                "hoverImage": "navbar/chapter2_hover.png",
                 "hoverText": "Go to Chapter 2",
                 "linkOnClick": "/chapter2",
                 "imageDescription": "Button to chapter 2"
@@ -38,8 +37,8 @@
             {
                 "key": "c1chapter3Button",
                 "type": "imageElement",
-                "basicImage": "navbar/chapter3_crop_dark.png",
-                "hoverImage": "navbar/chapter3_crop.png",
+                "basicImage": "navbar/chapter3_dark.png",
+                "hoverImage": "navbar/chapter3_hover.png",
                 "hoverText": "Go to Chapter 3",
                 "linkOnClick": "/chapter3",
                 "imageDescription": "Button to chapter 3"
@@ -47,8 +46,8 @@
             {
                 "key": "c1chapter4Button",
                 "type": "imageElement",
-                "basicImage": "navbar/chapter4_crop_dark.png",
-                "hoverImage": "navbar/chapter4_crop.png",
+                "basicImage": "navbar/chapter4_dark.png",
+                "hoverImage": "navbar/chapter4_hover.png",
                 "hoverText": "Go to Chapter 4",
                 "linkOnClick": "/chapter4",
                 "imageDescription": "Button to chapter 4"
@@ -56,15 +55,14 @@
             {
                 "key": "c1chapter5Button",
                 "type": "imageElement",
-                "basicImage": "navbar/chapter5_crop_dark.png",
-                "hoverImage": "navbar/chapter5_crop.png",
+                "basicImage": "navbar/chapter5_dark.png",
+                "hoverImage": "navbar/chapter5_hover.png",
                 "hoverText": "Go to Chapter 5",
                 "linkOnClick": "/chapter5",
                 "imageDescription": "Button to chapter 5"
             }
         ]
     },
-
     "content": [
         {
             "key": "chapter1Heading",
@@ -104,7 +102,6 @@
             "source": "comic/003.png",
             "description": "Octopus scans Vaidehi and Parmita with its goggles."
         },
-        
         {
             "key": "chap1dialogue2line1",
             "type": "dialogue",
@@ -191,7 +188,6 @@
                     }
                 ]
             }
-                
         },
         {
             "key": "chap1dialogue3line2",
@@ -241,14 +237,14 @@
             "key": "chap1image6",
             "type": "image",
             "source": "comic/006.png",
-            "description": "Octopus rapidly types into the computer terminal.  \"Swamp ooze and Lavendar\" shows up on the display. Vaidehi and Parmita are wowed."
+            "description": "Octopus rapidly types into the computer terminal.  \"Swamp ooze and Lavender\" shows up on the display. Vaidehi and Parmita are wowed."
         },
         {
             "key": "chap1dialogue5line1",
             "type": "dialogue",
             "chibiImage": "sprites/vaidehi_XP.png",
             "chibiDescription": "smug octopus",
-            "line": "There you have it, it's \"swamp ooze and lavendar.\""
+            "line": "There you have it, it's \"swamp ooze and lavender.\""
         },
         {
             "key": "chap1dialogue5line2",
@@ -262,7 +258,7 @@
             "type": "dialogue",
             "chibiImage": "sprites/vaidehi_XP.png",
             "chibiDescription": "disgusted octopus",
-            "line": "I know! Lavendar seems like it would really take away from the swamp ooze..."
+            "line": "I know! Lavender seems like it would really take away from the swamp ooze..."
         },
         {
             "key": "chap1dialogue5line4",

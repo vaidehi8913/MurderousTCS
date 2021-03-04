@@ -1,7 +1,6 @@
 {
     "key": "homePage",
     "type": "home",
-
     "navigationBar": {
         "chapterNumber": 0,
         "chapterTitle": "Home Page",
@@ -20,8 +19,8 @@
             {
                 "key": "Hchapter1Button",
                 "type": "imageElement",
-                "basicImage": "navbar/chapter1_crop.png",
-                "hoverImage": "navbar/chapter1_crop_dark.png",
+                "basicImage": "navbar/chapter1.png",
+                "hoverImage": "navbar/chapter1_hover.png",
                 "hoverText": "Go to Chapter 1",
                 "linkOnClick": "/chapter1",
                 "imageDescription": "Button to Chapter 1"
@@ -29,8 +28,8 @@
             {
                 "key": "Hchapter2Button",
                 "type": "imageElement",
-                "basicImage": "navbar/chapter2_crop.png",
-                "hoverImage": "navbar/chapter2_crop_dark.png",
+                "basicImage": "navbar/chapter2.png",
+                "hoverImage": "navbar/chapter2_hover.png",
                 "hoverText": "Go to Chapter 2",
                 "linkOnClick": "/chapter2",
                 "imageDescription": "Button to chapter 2"
@@ -38,8 +37,8 @@
             {
                 "key": "Hchapter3Button",
                 "type": "imageElement",
-                "basicImage": "navbar/chapter3_crop.png",
-                "hoverImage": "navbar/chapter3_crop_dark.png",
+                "basicImage": "navbar/chapter3.png",
+                "hoverImage": "navbar/chapter3_hover.png",
                 "hoverText": "Go to Chapter 3",
                 "linkOnClick": "/chapter3",
                 "imageDescription": "Button to chapter 3"
@@ -47,8 +46,8 @@
             {
                 "key": "Hchapter4Button",
                 "type": "imageElement",
-                "basicImage": "navbar/chapter4_crop.png",
-                "hoverImage": "navbar/chapter4_crop_dark.png",
+                "basicImage": "navbar/chapter4.png",
+                "hoverImage": "navbar/chapter4_hover.png",
                 "hoverText": "Go to Chapter 4",
                 "linkOnClick": "/chapter4",
                 "imageDescription": "Button to chapter 4"
@@ -56,8 +55,8 @@
             {
                 "key": "Hchapter5Button",
                 "type": "imageElement",
-                "basicImage": "navbar/chapter5_crop.png",
-                "hoverImage": "navbar/chapter5_crop_dark.png",
+                "basicImage": "navbar/chapter5.png",
+                "hoverImage": "navbar/chapter5_hover.png",
                 "hoverText": "Go to Chapter 5",
                 "linkOnClick": "/chapter5",
                 "imageDescription": "Button to chapter 5"
