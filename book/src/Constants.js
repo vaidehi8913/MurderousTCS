@@ -2,7 +2,7 @@
 // https://medium.com/@austinpaley32/how-to-add-a-constants-file-to-your-react-project-6ce31c015774
 
 // Compilation constants
-export const DEBUG = 0; 
+export const DEBUG = 3; 
 // this can be set to 0, 1, 2, or 3
 // 0: no debug settings
 // 1: basic background colors for the different bars
@@ -38,8 +38,13 @@ export const FEEDBACK_BUTTON_WIDTH = 50;
         export const EXTRAS_FONT_SIZE = 18;
         export const EXTRAS_FONT_FAMILY = "sans-serif";
 
-        // feedback button constants
+        // feedback constants
 	export const FEEDBACK_FORM_BACKGROUND_COLOR = "#cbf2f5";
+	export const GOOGLE_FORMS_ACTION_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfFoxVonnTTQNp7Ye1nk8vu4lvZqUurVmr-ecTYCa5nM3rdYg/formResponse";
+	export const GOOGLE_FORMS_TIMESTAMP_ENTRY = "entry.930952375";
+	export const GOOGLE_FORMS_ELEMID_ENTRY = "entry.291245660";
+	export const GOOGLE_FORMS_EMAIL_ENTRY = "entry.1990975791";
+	export const GOOGLE_FORMS_COMMENT_ENTRY = "entry.1066525122";
 
     //Navigation bar formatting constants
     export const CHAPTER_NAVIGATOR_WIDTH = 300; 

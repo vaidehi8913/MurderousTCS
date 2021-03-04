@@ -198,7 +198,9 @@ class ContentBox extends Component {
 
     render () {
         var formattedChapterData = this.fromChapterData(this.props.contentInfo);
-        return(formattedChapterData);
+        
+	//return(<div style={{backgroundColor: "#edb2e1"}}> Here is some garbage </div>);    
+	return(formattedChapterData);
     }
 }
 

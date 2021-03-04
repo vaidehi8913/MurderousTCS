@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import {TouchableOpacity} from "react-native";
 import { Popover, ArrowContainer } from "react-tiny-popover";
 
@@ -21,12 +22,16 @@ class FeedbackForm extends Component {
 	this.handleSubmit = this.handleSubmit.bind(this);
 	this.handleEmailChange = this.handleEmailChange.bind(this);
 	this.handleCommentChange = this.handleCommentChange.bind(this);
+	this.postToGoogleForm = this.postToGoogleForm.bind(this);
     }
 
     handleSubmit(event) {
 	console.log("submitted feedback about ["
 		+ this.props.contentIdentifier + ", " + this.props.index 
 		+ "]: " + this.state.comment);
+
+	this.postToGoogleForm();
+
 	this.setState({
 	    email: "",
 	    comment: ""
@@ -48,12 +53,23 @@ class FeedbackForm extends Component {
 	});
     }
 
-    render() {
+    postToGoogleForm() {
+	const formData = new FormData()
 
+	formData.append(Constants.GOOGLE_FORMS_ELEMID_ENTRY, this.props.contentIdentifier);
+
+	formData.append(Constants.GOOGLE_FORMS_EMAIL_ENTRY, this.state.email);
+
+	formData.append(Constants.GOOGLE_FORMS_COMMENT_ENTRY, this.state.comment);
+
+	axios.post(Constants.GOOGLE_FORMS_ACTION_URL, formData).catch(()=> console.log("Post error"));
+    }
+
+    render() {
 	var emailInputStyle = {
 	    borderRadius: "4px",
 	    border: "2px solid",
-	    width: "90%",
+	    width: "95%",
 	    margin: "2px",
 	    padding: "5px"
 	};
@@ -61,14 +77,13 @@ class FeedbackForm extends Component {
 	var commentTextAreaStyle = {
 	    borderRadius: "4px",
 	    border: "2px solid",
-	    width: "90%",
+	    width: "95%",
 	    margin: "2px",
  	    padding: "5px"
 	};
 
 	var submitButtonStyle = {
 	    borderRadius: "4px",
-	    //backgroundColor: "blue",
 	    margin: "2px"
 	};
 
@@ -160,9 +175,10 @@ class FeedbackButton extends Component {
 	};
 
 	var arrowSize = 10; // should be moved to constants
+	var arrowPadding = 10;
 
 	var feedbackFormContainerStyle = {
-	    width: this.props.extrasWidth - arrowSize - 10,
+	    width: this.props.extrasWidth - arrowSize - 20,
 	    backgroundColor: Constants.FEEDBACK_FORM_BACKGROUND_COLOR,
 	    borderRadius: "8px",
 	    padding: "5px"
@@ -173,7 +189,7 @@ class FeedbackButton extends Component {
 		     positions={["right"]}
 		     content={<div>Hi! I am popover content.</div>} 
 		     onClickOutside={this.onClickOutside}
-		     padding={10}
+		     padding={arrowPadding}
 		     content={({ position, childRect, popoverRect }) => (
 			<ArrowContainer 
 			    position={position}

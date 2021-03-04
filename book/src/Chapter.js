@@ -74,11 +74,11 @@ class Chapter extends Component {
 
         return (
             <div style={this.chapterStyle} key={this.props.chapterInfo.key}> 
-                <NavigationBar width={sideBarWidth} 
+		<NavigationBar width={sideBarWidth} 
                                navBarInfo={navBarInfo}/>
 		<ScrollBox contentInfo={contentBoxInfo}
                            height={this.props.windowHeight}
-                           extrasWidth={sideBarWidth} />}
+                           extrasWidth={sideBarWidth} />
             </div>
         );
     }
