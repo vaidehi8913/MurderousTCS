@@ -27,6 +27,10 @@ class FeedbackForm extends Component {
 	console.log("submitted feedback about ["
 		+ this.props.contentIdentifier + ", " + this.props.index 
 		+ "]: " + this.state.comment);
+	this.setState({
+	    email: "",
+	    comment: ""
+	});
 
 	event.preventDefault();
     }
@@ -45,19 +49,43 @@ class FeedbackForm extends Component {
     }
 
     render() {
+
+	var emailInputStyle = {
+	    borderRadius: "4px",
+	    border: "2px solid",
+	    width: "90%",
+	    margin: "2px",
+	    padding: "5px"
+	};
+
+	var commentTextAreaStyle = {
+	    borderRadius: "4px",
+	    border: "2px solid",
+	    width: "90%",
+	    margin: "2px",
+ 	    padding: "5px"
+	};
+
+	var submitButtonStyle = {
+	    borderRadius: "4px",
+	    //backgroundColor: "blue",
+	    margin: "2px"
+	};
+
 	return(
 	    <form onSubmit={this.handleSubmit}>
-		<label>
-		    Email (optional):
-		    <input type="text" 
-			   value={this.state.email}
-		           onChange={this.handleEmailChange}/>
-		</label>
-		<label>
-		    Comments:
-		    <textarea value={this.state.comment}
-			      onChange={this.handleCommentChange}/>
-		</label>
+		<input type="text"
+		       style={emailInputStyle}
+		       value={this.state.email}
+		       onChange={this.handleEmailChange}
+		       placeholder="Email (optional)"/>
+		<textarea value={this.state.comment}
+			  onChange={this.handleCommentChange}
+			  placeholder="Comment"
+		          style={commentTextAreaStyle}/>
+		<input type="submit"
+		       value="Submit"
+		       style={submitButtonStyle}/>
 	    </form>
 	);
     }
@@ -135,7 +163,9 @@ class FeedbackButton extends Component {
 
 	var feedbackFormContainerStyle = {
 	    width: this.props.extrasWidth - arrowSize - 10,
-	    backgroundColor: (Constants.DEBUG > 2) ? "#f58442" : "none"
+	    backgroundColor: Constants.FEEDBACK_FORM_BACKGROUND_COLOR,
+	    borderRadius: "8px",
+	    padding: "5px"
 	};
 
 	return(
@@ -149,9 +179,9 @@ class FeedbackButton extends Component {
 			    position={position}
 			    childRect={childRect}
 			    popoverRect={popoverRect}
-			    arrowColor={"green"}
+			    arrowColor={Constants.FEEDBACK_FORM_BACKGROUND_COLOR}
 			    arrowSize={arrowSize}
-			    arrowStyle={{ opacity: 0.7 }}
+			    arrowStyle={{ opacity: 1 }}
 			    className="popover-arrow-container"
 			    arrowClassName="popover-arrow">
 				
@@ -167,7 +197,9 @@ class FeedbackButton extends Component {
 	    	<TouchableOpacity style={feedbackButtonStyle}
 			      	  onPress={this.onClick}
 			      	  onMouseEnter={this.onMouseEnter}
-			      	  onMouseLeave={this.onMouseLeave}/>
+			      	  onMouseLeave={this.onMouseLeave}>
+		    !!!
+		</TouchableOpacity>
 
 	    </Popover>
 	);
