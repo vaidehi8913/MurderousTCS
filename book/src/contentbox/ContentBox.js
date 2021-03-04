@@ -6,6 +6,7 @@ import Dialogue from "contentbox/Dialogue";
 import ComicImage from "contentbox/ComicImage";
 import ChapterHeading from "contentbox/ChapterHeading";
 import ExtraList from "contentbox/ExtraList";
+import FeedbackButton from "contentbox/FeedbackButton";
 
 import * as Constants from "Constants";
 
@@ -160,23 +161,10 @@ class ContentBox extends Component {
 	    placeSelf: "center"
 	}
 
-	var feedbackButtonStyle = {
-	    width: Constants.FEEDBACK_BUTTON_WIDTH,
-	    height: Constants.FEEDBACK_BUTTON_WIDTH,
-	    justifyContent: "center",
-	    alignItems: "center",
-	    padding: 10,
-	    borderRadius: 100,
-	    backgroundColor: "orange"
-	}
-
 	return(
 	    <div style={feedbackButtonContainerStyle}>
-	        <TouchableOpacity style={feedbackButtonStyle}
-				  onPress={() => console.log("Feedback button "
-				  	+ index + " clicked")}>
-		    !!!
-	        </TouchableOpacity>
+		<FeedbackButton contentInfo={contentData}
+				index={index}/>
 	    </div>
 	);
     }
