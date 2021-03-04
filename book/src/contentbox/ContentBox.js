@@ -164,7 +164,8 @@ class ContentBox extends Component {
 	return(
 	    <div style={feedbackButtonContainerStyle}>
 		<FeedbackButton contentInfo={contentData}
-				index={index}/>
+				index={index}
+				extrasWidth={this.props.extrasWidth}/>
 	    </div>
 	);
     }

@@ -1,7 +1,69 @@
 import React, { Component } from "react";
 import {TouchableOpacity} from "react-native";
+import { Popover, ArrowContainer } from "react-tiny-popover";
 
 import * as Constants from "Constants";
+
+/*
+ * PROPS
+ * contentIdentifier
+ * index
+ */
+class FeedbackForm extends Component {
+    constructor(props) {
+	super(props);
+
+        this.state = {
+	    email: "",
+	    comment: ""
+	};
+
+	this.handleSubmit = this.handleSubmit.bind(this);
+	this.handleEmailChange = this.handleEmailChange.bind(this);
+	this.handleCommentChange = this.handleCommentChange.bind(this);
+    }
+
+    handleSubmit(event) {
+	console.log("submitted feedback about ["
+		+ this.props.contentIdentifier + ", " + this.props.index 
+		+ "]: " + this.state.comment);
+
+	event.preventDefault();
+    }
+
+
+    handleEmailChange(event) {
+	this.setState({
+	    email: event.target.value
+	});
+    }
+
+    handleCommentChange(event) {
+	this.setState({
+	    comment: event.target.value
+	});
+    }
+
+    render() {
+	return(
+	    <form onSubmit={this.handleSubmit}>
+		<label>
+		    Email (optional):
+		    <input type="text" 
+			   value={this.state.email}
+		           onChange={this.handleEmailChange}/>
+		</label>
+		<label>
+		    Comments:
+		    <textarea value={this.state.comment}
+			      onChange={this.handleCommentChange}/>
+		</label>
+	    </form>
+	);
+    }
+
+}
+
 
 /*
  * This is a button that can be used to give 
@@ -12,6 +74,7 @@ import * as Constants from "Constants";
  * 		with a reference back to the 
  * 		element)
  * index
+ * extrasWidth
  */
 class FeedbackButton extends Component {
 
@@ -22,12 +85,14 @@ class FeedbackButton extends Component {
 	this.hoverColor = "red";
 
 	this.state = {
-	    color : "orange"
+	    color : "orange",
+	    isPopoverOpen: false
 	};
 
 	this.onMouseEnter = this.onMouseEnter.bind(this);
 	this.onMouseLeave = this.onMouseLeave.bind(this);
 	this.onClick = this.onClick.bind(this);
+	this.onClickOutside = this.onClickOutside.bind(this);
     }
 
     onMouseEnter() {
@@ -43,7 +108,15 @@ class FeedbackButton extends Component {
     }
 
     onClick() {
-	console.log("Feedback button " + this.props.index + " clicked");
+	this.setState({
+	    isPopoverOpen: !this.state.isPopoverOpen
+	});
+    }
+
+    onClickOutside() {
+	this.setState({
+	    isPopoverOpen: false
+	});
     }
 
     render() {
@@ -58,11 +131,45 @@ class FeedbackButton extends Component {
 	    backgroundColor: this.state.color
 	};
 
+	var arrowSize = 10; // should be moved to constants
+
+	var feedbackFormContainerStyle = {
+	    width: this.props.extrasWidth - arrowSize - 10,
+	    backgroundColor: (Constants.DEBUG > 2) ? "#f58442" : "none"
+	};
+
 	return(
-	    <TouchableOpacity style={feedbackButtonStyle}
-			      onPress={this.onClick}
-			      onMouseEnter={this.onMouseEnter}
-			      onMouseLeave={this.onMouseLeave}/>
+	    <Popover isOpen={this.state.isPopoverOpen}
+		     positions={["right"]}
+		     content={<div>Hi! I am popover content.</div>} 
+		     onClickOutside={this.onClickOutside}
+		     padding={10}
+		     content={({ position, childRect, popoverRect }) => (
+			<ArrowContainer 
+			    position={position}
+			    childRect={childRect}
+			    popoverRect={popoverRect}
+			    arrowColor={"green"}
+			    arrowSize={arrowSize}
+			    arrowStyle={{ opacity: 0.7 }}
+			    className="popover-arrow-container"
+			    arrowClassName="popover-arrow">
+				
+			    <div style={feedbackFormContainerStyle}>
+			        <FeedbackForm index={this.props.index}
+			     	       	      contentIdentifier={this.props.contentInfo.key}/>
+			    </div>
+
+			</ArrowContainer>
+		     )}
+		>
+
+	    	<TouchableOpacity style={feedbackButtonStyle}
+			      	  onPress={this.onClick}
+			      	  onMouseEnter={this.onMouseEnter}
+			      	  onMouseLeave={this.onMouseLeave}/>
+
+	    </Popover>
 	);
     }
 }

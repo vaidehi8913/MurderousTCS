@@ -12,7 +12,8 @@
     "react-native-web": "^0.15.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "react-scroll-sync": "^0.8.0"
+    "react-scroll-sync": "^0.8.0",
+    "react-tiny-popover": "^6.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
