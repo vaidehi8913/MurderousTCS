@@ -60,6 +60,15 @@ whether the extras make the dialogue pause
 until they are over, or the dialogue continues
 even if the extras are too tall.
 
+https://stackoverflow.com/questions/34660385/how-to-position-a-react-component-relative-to-its-parent
+(might have to go back to the old way of doing 
+things, let's see...)
+
+The only way to do this might be to pass forward
+functions to pass refs back o_o
+
+should learn how to push back lists I guess
+
 ## New Feature: Line numbers in debug mode
 Content should have line numbers
 

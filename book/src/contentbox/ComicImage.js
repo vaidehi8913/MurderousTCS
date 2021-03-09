@@ -6,6 +6,7 @@ import * as Constants from "Constants";
    
    PROPS
    contentInfo: a JSON format object
+   index
 */
 class ComicImage extends Component {
     constructor(props) {
@@ -23,7 +24,7 @@ class ComicImage extends Component {
 
         this.comicImageStyle = {
             width: "100%", 
-            height: "auto"
+            height: "auto" 
         };
     }
     

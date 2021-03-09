@@ -201,7 +201,17 @@
             "type": "dialogue",
             "chibiImage": "sprites/vaidehi_XP.png",
             "chibiDescription": "indignant octopus",
-            "line": "HIS octopus? I am my OWN octopus, ma'am!"
+            "line": "HIS octopus? I am my OWN octopus, ma'am!",
+            "extras": {
+                "pauseForExtras": "false",
+                "list": [
+                    {
+                        "key": "chap1dialogue3line3extra1",
+                        "type": "text",
+                        "text": "< This is the third extra!"
+                    }
+                ]
+            }
         },
         {
             "key": "chap1image5",

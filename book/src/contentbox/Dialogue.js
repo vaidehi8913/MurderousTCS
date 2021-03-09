@@ -26,15 +26,7 @@ class ChibiSprite extends Component {
 
     fromDialogueInfo(dialogueInfo) {
 
-        if (Constants.DEBUG > 2) {
-            console.log("WOAHHHH");
-        }
-        
         var chibiImageSource = require ("images/" + dialogueInfo.chibiImage);
-
-        if (Constants.DEBUG > 2) {
-            console.log("HEYYYY");
-        }
 
         var chibiSpriteComponent = 
             <div style={this.chibiSpriteStyle}>
@@ -83,7 +75,6 @@ class SpeakerLine extends Component {
     }
 
     fromDialogueInfo(dialogueInfo) {
-        console.log("text width: " + this.state.width);
 
         var speakerLineComponent = 
             <div style={this.speakerLineStyle}>
@@ -94,12 +85,6 @@ class SpeakerLine extends Component {
     }
 
     render () {
-
-        if (Constants.DEBUG > 2) {
-            console.log("SpeakerLine state width: " + this.state.width);
-            console.log("SpeakerLine style width: " + this.speakerLineStyle.width);
-        }
-
         return this.fromDialogueInfo(this.props.dialogueInfo);
     }
 }

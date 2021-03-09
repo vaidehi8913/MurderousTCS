@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from 'react-dom';
 
 import Dialogue from "contentbox/Dialogue";
 import ComicImage from "contentbox/ComicImage";
@@ -7,6 +8,47 @@ import ExtraList from "contentbox/ExtraList";
 
 import * as Constants from "Constants";
 
+/*
+ * Wraps the ExtraList component with the sole purpose of 
+ * assiging it to the correct grid cell
+ *
+ * PROPS
+ * contentInfo
+ * index
+ * extrasWidth
+ *
+ */
+class ExtraElement extends Component {
+    constructor(props){
+	super(props);
+
+	this.extraElementStyle = {
+	    backgroundColor: (Constants.DEBUG > 2) ? "#ebe134" : "none",
+	    gridColumnStart: "extras-start",
+	    gridRowStart: "row-start " + (this.props.index + 1),
+	    gridRowEnd: "rows-end",
+	    width: this.props.extrasWidth
+	}
+    }
+
+    render() {
+	var contentInfo = this.props.contentInfo;
+	var extraComponent = null;
+  
+	if (contentInfo.hasOwnProperty("extras")) {
+	    extraComponent = 
+	        <div style={this.extraElementStyle}
+		     key={contentInfo.key}>
+		    <ExtraList extraListInfo={contentInfo.extras}
+			       extrasWidth={this.props.extrasWidth} />
+		</div>;
+	}
+
+	return extraComponent;
+    }    
+}
+
+
 /*  This formats the content to sit inside 
     Constants.CONTENT_WIDTH, and to place the extras
     correctly.
@@ -14,6 +56,7 @@ import * as Constants from "Constants";
     PROPS
     extrasWidth
     contentInfo
+    index
 */
 class ContentElement extends Component {
     constructor(props) {
@@ -27,34 +70,30 @@ class ContentElement extends Component {
 
         this.contentContainerStyle = {
             backgroundColor: (Constants.DEBUG > 2) ? "#11b8b5" : "none",
-            width: Constants.CONTENT_WIDTH
+	    gridColumnStart: "content-start",
+	    gridRowStart: "row-start " + (this.props.index + 1)
         }; 
 
         this.extrasContainerStyle = {
             backgroundColor: (Constants.DEBUG > 2) ? "#e31bbe" : "none",
             width: this.props.extrasWidth - Constants.CONTENT_MARGIN
         };
-
-        this.contentComponentFromInfo = this.contentComponentFromInfo.bind(this);
-        this.extrasComponentFromInfo = this.extrasComponentFromInfo.bind(this);
     }
+  
 
-    contentComponentFromInfo() {
+    render() {
         var contentInfo = this.props.contentInfo;
         var contentComponent; 
 
-        if (Constants.DEBUG > 2) {
-            console.log(contentInfo);
-        }
-
-        if (contentInfo.type === "image") {
+	if (contentInfo.type === "image") {
             contentComponent =  <ComicImage contentInfo={contentInfo} 
-                                            key={contentInfo.key} />;
+                                            key={contentInfo.key}/>;
 
         } else if (contentInfo.type === "dialogue") {
             contentComponent =  <Dialogue dialogueInfo={contentInfo} 
                                           parentWidth={Constants.CONTENT_WIDTH}
                                           key={contentInfo.key}/>;
+
         } else if (contentInfo.type === "heading") {
             contentComponent =  <ChapterHeading headingInfo={contentInfo}
                                                 parentWidth={Constants.CONTENT_WIDTH}
@@ -62,41 +101,12 @@ class ContentElement extends Component {
         }
 
         return (
-            <div style={this.contentContainerStyle}>
+            <div style={this.contentContainerStyle}
+		 key={contentInfo.key}>
                 {contentComponent}
             </div>
         );
     }
-
-    extrasComponentFromInfo() {
-        var contentInfo = this.props.contentInfo;
-
-        if (contentInfo.hasOwnProperty("extras")) {
-            return (
-                <div style={this.extrasContainerStyle}>
-                    <ExtraList extraListInfo={contentInfo.extras}
-                               extrasWidth={this.props.extrasWidth} />
-                </div>
-            );
-        } else {
-            return (
-                <div style={this.extrasContainerStyle} />
-            );
-        }
-    }
-
-    render() {
-        var contentComponent = this.contentComponentFromInfo();
-        var extrasComponent = this.extrasComponentFromInfo();
-
-        return (
-            <div style={this.contentElementStyle}>
-                {contentComponent}
-                {extrasComponent}
-            </div>
-        );
-    }
-
 }
 
 /* The ContentBox contains the "middle bar" of our layout.
@@ -119,34 +129,45 @@ class ContentBox extends Component {
         super(props);
 
         this.fromContentData = this.fromContentData.bind(this);
+	this.extrasFromContentData = this.extrasFromContentData.bind(this);
+   }
 
-        this.contentBoxStyle = {
-            backgroundColor: (Constants.DEBUG > 0) ? "#a8caff" : "none",
-            width: Constants.CONTENT_WIDTH + this.props.extrasWidth, 
-            display: "flex",
-            flexDirection: "column",
-            height: this.props.height, 
-            overflow: "auto"
-        };
-    }
-
-    fromContentData(contentData) {
+    fromContentData(contentData, index) {
         return(
             <ContentElement contentInfo={contentData}
-                            extrasWidth={this.props.extrasWidth}/>
+                            extrasWidth={this.props.extrasWidth}
+                            registerExtra={this.props.registerExtra}
+		            index={index}/>
         );
     }
 
-    fromChapterData(contentInfo) {
-        var contentComponents = contentInfo.map(this.fromContentData);
+    extrasFromContentData(contentData, index) {
+	return(
+	    <ExtraElement contentInfo={contentData}
+		          extrasWidth={this.props.extrasWidth}
+			  index={index}/>
+	);
+    }
 
-        if (Constants.DEBUG > 2) {
-            console.log("ContentBox width:" + this.contentBoxStyle.width);
-        }
+    fromChapterData(contentInfo) {
+
+        var contentComponents = contentInfo.map(this.fromContentData);
+        var extraComponents = contentInfo.map(this.extrasFromContentData);
+
+	var contentBoxStyle = {
+	    backgroundColor: (Constants.DEBUG > 0) ? "#a8caff" : "none",
+	    display: "grid",
+	    gridTemplateColumns: "[content-start] " + Constants.CONTENT_WIDTH + "px "
+	        + "[content-end extras-start] " + this.props.extrasWidth + "px " 
+		+ " [extras-end]",
+	    gridTemplateRows: "repeat(" + contentInfo.length + ", [row-start] auto)"
+	        + " [rows-end]"
+	};
 
         return(
-            <div style={this.contentBoxStyle}>
+            <div style={contentBoxStyle}>
                 {contentComponents}
+		{extraComponents}
             </div>
         );
     }
