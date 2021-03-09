@@ -21,7 +21,8 @@ class ScrollBox extends Component {
 
        this.scrollBoxStyle = {
            backgroundColor: (Constants.DEBUG > 0) ? "#6ae6c7" : "none",
-           width: Constants.CONTENT_WIDTH + props.extrasWidth,   
+           width: Constants.CONTENT_WIDTH + Constants.FEEDBACK_BUTTON_WIDTH 
+	       + props.extrasWidth,   
            height: this.props.height,
            overflow: "auto"
        };
@@ -66,17 +67,18 @@ class Chapter extends Component {
     }
 
     render() {
-        var sideBarWidth = (this.props.windowWidth - Constants.CONTENT_WIDTH) / 2;
+        var sideBarWidth = (this.props.windowWidth - Constants.CONTENT_WIDTH
+				- Constants.FEEDBACK_BUTTON_WIDTH) / 2;
         var contentBoxInfo = this.props.chapterInfo.content;
         var navBarInfo = this.props.chapterInfo.navigationBar;
 
         return (
             <div style={this.chapterStyle} key={this.props.chapterInfo.key}> 
-                <NavigationBar width={sideBarWidth} 
+		<NavigationBar width={sideBarWidth} 
                                navBarInfo={navBarInfo}/>
 		<ScrollBox contentInfo={contentBoxInfo}
                            height={this.props.windowHeight}
-                           extrasWidth={sideBarWidth} />}
+                           extrasWidth={sideBarWidth} />
             </div>
         );
     }

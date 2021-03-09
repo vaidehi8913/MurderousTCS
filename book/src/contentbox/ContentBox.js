@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
+import {TouchableOpacity} from 'react-native';
 
 import Dialogue from "contentbox/Dialogue";
 import ComicImage from "contentbox/ComicImage";
 import ChapterHeading from "contentbox/ChapterHeading";
 import ExtraList from "contentbox/ExtraList";
+import FeedbackButton from "contentbox/FeedbackButton";
 
 import * as Constants from "Constants";
 
@@ -130,6 +132,7 @@ class ContentBox extends Component {
 
         this.fromContentData = this.fromContentData.bind(this);
 	this.extrasFromContentData = this.extrasFromContentData.bind(this);
+	this.buttonsFromContentData = this.buttonsFromContentData.bind(this);
    }
 
     fromContentData(contentData, index) {
@@ -149,16 +152,36 @@ class ContentBox extends Component {
 	);
     }
 
+    buttonsFromContentData(contentData, index) {
+
+	var feedbackButtonContainerStyle = {
+	    backgroundColor: (Constants.DEBUG > 0) ? "#03fc30" : "none",
+	    gridColumnStart: "button-start",
+	    gridRowStart: "row-start " + (index + 1),
+	    placeSelf: "center"
+	}
+
+	return(
+	    <div style={feedbackButtonContainerStyle}>
+		<FeedbackButton contentInfo={contentData}
+				index={index}
+				extrasWidth={this.props.extrasWidth}/>
+	    </div>
+	);
+    }
+
     fromChapterData(contentInfo) {
 
         var contentComponents = contentInfo.map(this.fromContentData);
         var extraComponents = contentInfo.map(this.extrasFromContentData);
+	var buttonComponents = contentInfo.map(this.buttonsFromContentData);
 
 	var contentBoxStyle = {
 	    backgroundColor: (Constants.DEBUG > 0) ? "#a8caff" : "none",
 	    display: "grid",
 	    gridTemplateColumns: "[content-start] " + Constants.CONTENT_WIDTH + "px "
-	        + "[content-end extras-start] " + this.props.extrasWidth + "px " 
+	        + "[content-end button-start] " + Constants.FEEDBACK_BUTTON_WIDTH + "px "
+		+ "[button-end extras-start] " + this.props.extrasWidth + "px " 
 		+ " [extras-end]",
 	    gridTemplateRows: "repeat(" + contentInfo.length + ", [row-start] auto)"
 	        + " [rows-end]"
@@ -168,13 +191,16 @@ class ContentBox extends Component {
             <div style={contentBoxStyle}>
                 {contentComponents}
 		{extraComponents}
+		{buttonComponents}
             </div>
         );
     }
 
     render () {
         var formattedChapterData = this.fromChapterData(this.props.contentInfo);
-        return(formattedChapterData);
+        
+	//return(<div style={{backgroundColor: "#edb2e1"}}> Here is some garbage </div>);    
+	return(formattedChapterData);
     }
 }
 
