@@ -9,14 +9,18 @@ import * as Constants from "Constants";
  * PROPS
  * contentIdentifier
  * index
+ * prefillComment
+ * passUpComment
+ * setEmail
+ * getEmail
  */
 class FeedbackForm extends Component {
     constructor(props) {
 	super(props);
 
         this.state = {
-	    email: "",
-	    comment: ""
+	    email: this.props.getEmail(),
+	    comment: this.props.prefillComment
 	};
 
 	this.handleSubmit = this.handleSubmit.bind(this);
@@ -45,12 +49,16 @@ class FeedbackForm extends Component {
 	this.setState({
 	    email: event.target.value
 	});
+
+	this.props.setEmail(event.target.value);
     }
 
     handleCommentChange(event) {
 	this.setState({
 	    comment: event.target.value
 	});
+
+	this.props.passUpComment(event.target.value);
     }
 
     postToGoogleForm() {
@@ -118,6 +126,8 @@ class FeedbackForm extends Component {
  * 		element)
  * index
  * extrasWidth
+ * setEmail
+ * getEmail
  */
 class FeedbackButton extends Component {
 
@@ -136,6 +146,13 @@ class FeedbackButton extends Component {
 	this.onMouseLeave = this.onMouseLeave.bind(this);
 	this.onClick = this.onClick.bind(this);
 	this.onClickOutside = this.onClickOutside.bind(this);
+
+	this.comment = "";
+	this.passComment = this.passComment.bind(this);
+    }
+
+    passComment(c) {
+	this.comment = c;
     }
 
     onMouseEnter() {
@@ -203,7 +220,11 @@ class FeedbackButton extends Component {
 				
 			    <div style={feedbackFormContainerStyle}>
 			        <FeedbackForm index={this.props.index}
-			     	       	      contentIdentifier={this.props.contentInfo.key}/>
+			     	       	      contentIdentifier={this.props.contentInfo.key}
+			     		      passUpComment={this.passComment}
+			     		      prefillComment={this.comment}
+			     		      setEmail={this.props.setEmail}
+			     		      getEmail={this.props.getEmail}/>
 			    </div>
 
 			</ArrowContainer>

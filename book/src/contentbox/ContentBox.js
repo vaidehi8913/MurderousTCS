@@ -133,7 +133,20 @@ class ContentBox extends Component {
         this.fromContentData = this.fromContentData.bind(this);
 	this.extrasFromContentData = this.extrasFromContentData.bind(this);
 	this.buttonsFromContentData = this.buttonsFromContentData.bind(this);
-   }
+
+	// state to store the user email
+	this.email = "";
+	this.getEmail = this.getEmail.bind(this);
+	this.setEmail = this.setEmail.bind(this);
+    }
+
+    getEmail() {
+	return this.email;
+    }
+
+    setEmail(e) {
+	this.email = e;
+    }
 
     fromContentData(contentData, index) {
         return(
@@ -165,7 +178,9 @@ class ContentBox extends Component {
 	    <div style={feedbackButtonContainerStyle}>
 		<FeedbackButton contentInfo={contentData}
 				index={index}
-				extrasWidth={this.props.extrasWidth}/>
+				extrasWidth={this.props.extrasWidth}
+				getEmail={this.getEmail}
+				setEmail={this.setEmail}/>
 	    </div>
 	);
     }
