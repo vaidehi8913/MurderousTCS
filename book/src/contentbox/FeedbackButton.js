@@ -37,9 +37,10 @@ class FeedbackForm extends Component {
 	this.postToGoogleForm();
 
 	this.setState({
-	    email: "",
 	    comment: ""
 	});
+
+	this.props.passUpComment("");
 
 	event.preventDefault();
     }

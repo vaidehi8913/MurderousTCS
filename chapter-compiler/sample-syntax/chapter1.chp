@@ -1,0 +1,362 @@
+// supporting single line comments should be easy
+
+// I think if we require new lines or semicolons
+// then we can ignore other whitespace
+
+// since looking at the tag should tell us the type 
+// we expect, we should be able to get away without 
+// quotation marks
+
+Chapter: 
+
+NavigationBar: 
+    chapterNumber: 1;
+    chapterTitle: The Unanswerable Question    
+
+    navBarElements: 
+     
+        imageElement: 
+            basicImage: navbar/home_dark.png
+            hoverImage: navbar/home_hover.png
+		    hoverText: Go to the home page!
+            linkOnClick: /
+		    imageDescription: Button to home page
+
+    	spacerElement:
+			size: medium
+
+    	imageElement:
+			basicImage: navbar/chapter1_hover.png
+	 		imageDescript: Button to Chapter 1
+
+     	imageElement: 
+     		basicImage: navbar/chapter2_dark.png
+            hoverImage: navbar/chapter2_hover.png
+            hoverText: Go to Chapter 2
+            linkOnClick: /chapter2
+            imageDescription: Button to chapter 2
+
+		imageElement:
+            {
+                "key": "c1chapter3Button",
+                "type": "imageElement",
+                "basicImage": "navbar/chapter3_dark.png",
+                "hoverImage": "navbar/chapter3_hover.png",
+                "hoverText": "Go to Chapter 3",
+                "linkOnClick": "/chapter3",
+                "imageDescription": "Button to chapter 3"
+            },
+            {
+                "key": "c1chapter4Button",
+                "type": "imageElement",
+                "basicImage": "navbar/chapter4_dark.png",
+                "hoverImage": "navbar/chapter4_hover.png",
+                "hoverText": "Go to Chapter 4",
+                "linkOnClick": "/chapter4",
+                "imageDescription": "Button to chapter 4"
+            },
+            {
+                "key": "c1chapter5Button",
+                "type": "imageElement",
+                "basicImage": "navbar/chapter5_dark.png",
+                "hoverImage": "navbar/chapter5_hover.png",
+                "hoverText": "Go to Chapter 5",
+                "linkOnClick": "/chapter5",
+                "imageDescription": "Button to chapter 5"
+            }
+        ]
+    },
+
+ 
+    content: 
+
+	    heading:
+			number: 1
+			title: The Unanswerable Question
+
+		image:
+			source: comic/001.png
+			description: Vaidehi and Parmita are flying a kit, but the kite hets looks and floats into a nearby cave!
+
+		// there should also be shorthand keywords
+
+		img:
+			src: comic/002.png
+			desc: They enter the cave, to find it occupied by a crazy inventor, and his sidekick octopus. Vaidehi and Parmita sneak in to try to recover the kite that is stuck in the back of the laboratory, when the inventor notices them angrily."
+
+		line:
+			text: Hey! Who on earth are you?
+			chibiImage: sprites/inventor_angry.png
+			chibiDescription: angry inventor
+
+		line: 
+			txt: I'm Vaidehi, and she's Parmita!
+			chi: sprites/vaidehi_basic.png
+			chidsc: happy Vaidehi
+
+		indentline:
+			txt: sample text
+			chi: 
+			chidsc: 
+
+    "content": [
+        {
+            "key": "chapter1Heading",
+            "type": "heading",
+            "number": 1,
+            "title": "The Unanswerable Question"
+        },
+        {
+            "key": "chap1image1",
+            "type": "image",
+            "source": "comic/001.png",
+            "description": "Vaidehi and Parmita are flying a kite, but the kite gets loose and floats into a nearby cave!"
+        },
+        {
+            "key": "chap1image2",
+            "type": "image",
+            "source": "comic/002.png",
+            "description": "They enter the cave, to find it occupied by a crazy inventor, and his sidekick octopus. Vaidehi and Parmita sneak in to try to recover the kite that is stuck in the back of the laboratory, when the inventor notices them angrily."
+        },
+        {
+            "key": "chap1dialogue1line1",
+            "type": "dialogue",
+            "chibiImage": "sprites/inventor_angry.png",
+            "chibiDescription": "angry inventor",
+            "line": "Hey! Who on earth are you?"
+        },
+        {
+            "key": "chap1dialogue1line2",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_basic.png",
+            "chibiDescription": "happy Vaidehi",
+            "line": "I'm Vaidehi, and she's Parmita!"
+        },
+        {
+            "key": "chap1image3",
+            "type": "image",
+            "source": "comic/003.png",
+            "description": "Octopus scans Vaidehi and Parmita with its goggles."
+        },
+        {
+            "key": "chap1dialogue2line1",
+            "type": "dialogue",
+            "chibiImage": "sprites/inventor_angry.png",
+            "chibiDescription": "angry inventor",
+            "line": "Never mind, I don't care! Why are you bothering us while I work on my greatest invention?",
+            "extras": {
+                "list": [
+                    {
+                        "key": "chap1dialogue2line1extra1",
+                        "type": "text",
+                        "text": "< Hear ye, hear ye! Basic extra behaviour has been implemented!"
+                    },
+                    {
+                        "key": "chap1dialogue2line1extra2",
+                        "type": "image",
+                        "imgSource": "debug/pikachu.jpg",
+                        "description": "wow pikachu"
+                    }
+                ]
+            }
+        },
+        {
+            "key": "chap1dialogue2line2",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_XP.png",
+            "chibiDescription": "indignant octopus",
+            "line": "I believe you mean \"our\" greatest invention, sir."
+        },
+        {
+            "key": "chap1dialogue2line3",
+            "type": "dialogue",
+            "chibiImage": "sprites/inventor_angry.png",
+            "chibiDescription": "flippant inventor",
+            "line": "Whatever. What are you two doing here?"
+        },
+        {
+            "key": "chap1dialogue2line4",
+            "type": "dialogue",
+            "chibiImage": "sprites/parmita_sweat.png",
+            "chibiDescription": "nervous Parmita",
+            "line": "We're just here to get our kite. One moment and we'll be out of your hair!"
+        },
+        {
+            "key": "chap1dialogue2line5",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_very_3.png",
+            "chibiDescription": "sassy Vaidehi",
+            "line": "Which is probably a good thing... it looks like he hasn't washed his hair in months!"
+        },
+        {
+            "key": "chap1dialogue2line6",
+            "type": "dialogue",
+            "chibiImage": "sprites/inventor_inform.png",
+            "chibiDescription": "indignant inventor",
+            "line": "So you being here has nothing to do with me putting the finishing touches on a computer that can answer... ANY QUESTION!?"
+        },
+        {
+            "key": "chap1image4",
+            "type": "image",
+            "source": "comic/005.png",
+            "description": "Vaidehi and Parmita share a glance."
+        },
+        {
+            "key": "chap1dialogue3line1",
+            "type": "dialogue",
+            "chibiImage": "sprites/inventor_angry.png",
+            "chibiDescription": "indignant inventor",
+            "line": "Oh really. You don't think I can do it!",
+            "extras": {
+                "pauseForExtras": "false",
+                "list": [
+                    {
+                        "key": "chap1dialogue2line1extra1",
+                        "type": "text",
+                        "text": "< Can the pikachu be a more reasonable size? Sure!"
+                    },
+                    {
+                        "key": "chap1dialogue2line1extra2",
+                        "type": "image",
+                        "imgSource": "debug/pikachu.jpg",
+                        "description": "wow pikachu",
+                        "widthMultiplier": 0.5
+                    }
+                ]
+            }
+        },
+        {
+            "key": "chap1dialogue3line2",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_slight_3.png",
+            "chibiDescription": "sassy Vaidehi",
+            "line": "We didn't say that... but that's between you and your octopus.  We'll just take our kite and get out of here."
+        },
+        {
+            "key": "chap1dialogue3line3",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_XP.png",
+            "chibiDescription": "indignant octopus",
+            "line": "HIS octopus? I am my OWN octopus, ma'am!",
+            "extras": {
+                "pauseForExtras": "false",
+                "list": [
+                    {
+                        "key": "chap1dialogue3line3extra1",
+                        "type": "text",
+                        "text": "< This is the third extra!"
+                    }
+                ]
+            }
+        },
+        {
+            "key": "chap1image5",
+            "type": "image",
+            "source": "comic/004.png",
+            "description": "Octopus pulls the kite away from Vaidehi and Parmita."
+        },
+        {
+            "key": "chap1dialogue4line1",
+            "type": "dialogue",
+            "chibiImage": "sprites/inventor_angry.png",
+            "chibiDescription": "angry inventor",
+            "line": "If you are so smart, then go ahead and come up with a question that my computer can't answer.  Then you can have your kite back."
+        },
+        {
+            "key": "chap1dialogue4line2",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_slight_3.png",
+            "chibiDescription": "sassy Vaidehi",
+            "line": "Uhhh... what is the flavor of the day at Flora's Fancy Fragrances?"
+        },
+        {
+            "key": "chap1image6",
+            "type": "image",
+            "source": "comic/006.png",
+            "description": "Octopus rapidly types into the computer terminal.  \"Swamp ooze and Lavender\" shows up on the display. Vaidehi and Parmita are wowed."
+        },
+        {
+            "key": "chap1dialogue5line1",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_XP.png",
+            "chibiDescription": "smug octopus",
+            "line": "There you have it, it's \"swamp ooze and lavender.\""
+        },
+        {
+            "key": "chap1dialogue5line2",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_XP.png",
+            "chibiDescription": "disgusted Vaidehi",
+            "line": "What? Ew!"
+        },
+        {
+            "key": "chap1dialogue5line3",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_XP.png",
+            "chibiDescription": "disgusted octopus",
+            "line": "I know! Lavender seems like it would really take away from the swamp ooze..."
+        },
+        {
+            "key": "chap1dialogue5line4",
+            "type": "dialogue",
+            "chibiImage": "sprites/parmita_XE.png",
+            "chibiDescription": "matter of fact Parmita",
+            "line": "That's even worse than the one that my aunt got me: Orange, Peach, and Gasoline."
+        },
+        {
+            "key": "chap1dialogue5line5",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_ask_left.png",
+            "chibiDescription": "confused Vaidehi",
+            "line": "How does that store even stay in business?"
+        },
+        {
+            "key": "chap1dialogue5line6",
+            "type": "dialogue",
+            "chibiImage": "sprites/inventor_inform.png",
+            "chibiDescription": "smug inventor",
+            "line": "Nice try, but I told you. This computer can answer any question."
+        },
+        {
+            "key": "chap1dialogue5line7",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_very_3.png",
+            "chibiDescription": "sassy Vaidehi",
+            "line": "What is... tomorrow's flavor of the day at Flora's Fancy Fragrances?"
+        },
+        {
+            "key": "chap1dialogue5line8",
+            "type": "dialogue",
+            "chibiImage": "sprites/inventor_angry.png",
+            "chibiDescription": "angry inventor",
+            "line": "If you don't have any serious suggestions, then you can get out! And don't bother coming back for your kite unless you can find a question this computer can't answer. See you never!"
+        },
+        {
+            "key": "chap1dialogue5line9",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_slight_3.png",
+            "chibiDescription": "matter of fact octopus",
+            "line": "The computer says that the fragrance is \"Flower Market\", by the way."
+        },
+        {
+            "key": "chap1dialogue5line10",
+            "type": "dialogue",
+            "chibiImage": "sprites/parmita_happy.png",
+            "chibiDescription": "intrigued Parmita",
+            "line": "That doesn't sound half bad!"
+        },
+        {
+            "key": "chap1dialogue5line11",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_slight_3.png",
+            "chibiDescription": "matter of fact octopus",
+            "line": "Oh, but the flower market that it's based off of is right next to a fish market, so it's not great..."
+        },
+        {
+            "key": "chap1image7",
+            "type": "image",
+            "source": "comic/007.png",
+            "description": "Vaidehi and Parmita get kicked out of the cave.  The inventor and the octopus hatch a plan."
+        }
+    ]
+}

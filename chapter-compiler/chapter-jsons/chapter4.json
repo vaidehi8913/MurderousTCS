@@ -1,0 +1,81 @@
+{
+    "key": "chapter4",
+    "type": "chapter",
+    "navigationBar": {
+        "chapterNumber": 4,
+        "chapterTitle": "Inconfuddlible Ernie and the Discrete Finite Automata!",
+        "navBarElements": [
+            {
+                "key": "c4homeButton",
+                "type": "imageElement",
+                "basicImage": "navbar/home_dark.png",
+                "hoverImage": "navbar/home_hover.png",
+                "hoverText": "Go to the home page",
+                "linkOnClick": "/",
+                "imageDescription": "Button to home page"
+            },
+            {
+                "key": "c4space1",
+                "type": "spacer",
+                "size": "medium"
+            },
+            {
+                "key": "c4chapter1Button",
+                "type": "imageElement",
+                "basicImage": "navbar/chapter1_dark.png",
+                "hoverImage": "navbar/chapter1_hover.png",
+                "hoverText": "Go to Chapter 1",
+                "linkOnClick": "/chapter1",
+                "imageDescription": "Button to chapter 1"
+            },
+            {
+                "key": "c4chapter2Button",
+                "type": "imageElement",
+                "basicImage": "navbar/chapter2_dark.png",
+                "hoverImage": "navbar/chapter2_hover.png",
+                "hoverText": "Go to Chapter 2",
+                "linkOnClick": "/chapter2",
+                "imageDescription": "Button to chapter 2"
+            },
+            {
+                "key": "c4chapter3Button",
+                "type": "imageElement",
+                "basicImage": "navbar/chapter3_dark.png",
+                "hoverImage": "navbar/chapter3_hover.png",
+                "hoverText": "Go to Chapter 3",
+                "linkOnClick": "/chapter3",
+                "imageDescription": "Button to chapter 3"
+            },
+            {
+                "key": "c4chapter4Button",
+                "type": "imageElement",
+                "basicImage": "navbar/chapter4_hover.png",
+                "imageDescription": "Button to Chapter 4"
+            },
+            {
+                "key": "c4chapter5Button",
+                "type": "imageElement",
+                "basicImage": "navbar/chapter5_dark.png",
+                "hoverImage": "navbar/chapter5_hover.png",
+                "hoverText": "Go to Chapter 5",
+                "linkOnClick": "/chapter5",
+                "imageDescription": "Button to chapter 5"
+            }
+        ]
+    },
+    "content": [
+        {
+            "key": "chapter4Heading",
+            "type": "heading",
+            "number": 4,
+            "title": "Inconfuddlible Ernie and the Discrete Finite Automata!"
+        },
+        {
+            "key": "chap4dial1line1",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_wink.png",
+            "chibiDescription": "Vaidehi winking",
+            "line": "Chapter 4 coming soon!"
+        }
+    ]
+}
