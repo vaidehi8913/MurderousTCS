@@ -125,6 +125,8 @@ class ContentElement extends Component {
            (Chapter)
    extrasWidth: width of the extras bar, calculated at 
                 the Chapter level
+   setEmail
+   getEmail
 */
 class ContentBox extends Component {
     constructor(props) {
@@ -133,19 +135,6 @@ class ContentBox extends Component {
         this.fromContentData = this.fromContentData.bind(this);
 	this.extrasFromContentData = this.extrasFromContentData.bind(this);
 	this.buttonsFromContentData = this.buttonsFromContentData.bind(this);
-
-	// state to store the user email
-	this.email = "";
-	this.getEmail = this.getEmail.bind(this);
-	this.setEmail = this.setEmail.bind(this);
-    }
-
-    getEmail() {
-	return this.email;
-    }
-
-    setEmail(e) {
-	this.email = e;
     }
 
     fromContentData(contentData, index) {
@@ -179,8 +168,8 @@ class ContentBox extends Component {
 		<FeedbackButton contentInfo={contentData}
 				index={index}
 				extrasWidth={this.props.extrasWidth}
-				getEmail={this.getEmail}
-				setEmail={this.setEmail}/>
+				getEmail={this.props.getEmail}
+				setEmail={this.props.setEmail}/>
 	    </div>
 	);
     }

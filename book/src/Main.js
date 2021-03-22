@@ -25,6 +25,19 @@ class Main extends Component {
         }
 
         this.updateDimensions = this.updateDimensions.bind(this);
+
+	// state for feedback email
+	this.email = "";
+	this.getEmail = this.getEmail.bind(this);
+	this.setEmail = this.setEmail.bind(this);
+    }
+
+    getEmail() {
+	return this.email;
+    }
+
+    setEmail(e) {
+	this.email = e;
     }
 
     updateDimensions() {
@@ -52,19 +65,29 @@ class Main extends Component {
                             stop displaying the links on every page */}
                         <Route path="/chapter1" component={() => <Chapter chapterInfo={chapter1Info}
                                                                           windowWidth={this.state.windowWidth}
-                                                                          windowHeight={this.state.windowHeight}/>}/>
+                                                                          windowHeight={this.state.windowHeight}
+									  setEmail={this.setEmail}
+									  getEmail={this.getEmail}/>}/>
                         <Route path="/chapter2" component={() => <Chapter chapterInfo={chapter2Info}
                                                                           windowWidth={this.state.windowWidth}
-                                                                          windowHeight={this.state.windowHeight}/>}/>
+                                                                          windowHeight={this.state.windowHeight}
+									  setEmail={this.setEmail}
+									  getEmail={this.getEmail}/>}/>
                         <Route path="/chapter3" component={() => <Chapter chapterInfo={chapter3Info}
                                                                           windowWidth={this.state.windowWidth}
-                                                                          windowHeight={this.state.windowHeight}/>}/>
+                                                                          windowHeight={this.state.windowHeight}
+									  setEmail={this.setEmail}
+									  getEmail={this.getEmail}/>}/>
                         <Route path="/chapter4" component={() => <Chapter chapterInfo={chapter4Info}
                                                                           windowWidth={this.state.windowWidth}
-                                                                          windowHeight={this.state.windowHeight}/>}/>
+                                                                          windowHeight={this.state.windowHeight}
+									  setEmail={this.setEmail}
+									  getEmail={this.getEmail}/>}/>
                         <Route path="/chapter5" component={() => <Chapter chapterInfo={chapter5Info}
                                                                           windowWidth={this.state.windowWidth}
-                                                                          windowHeight={this.state.windowHeight}/>}/>
+                                                                          windowHeight={this.state.windowHeight}
+									  setEmail={this.setEmail}
+									  getEmail={this.getEmail}/>}/>
                     </div>
                 </div>
             </HashRouter>  

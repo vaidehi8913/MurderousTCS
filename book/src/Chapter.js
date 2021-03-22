@@ -13,6 +13,8 @@ import { ScrollSync, ScrollSyncPane } from 'react-scroll-sync';
     contentInfo
     windowHeight
     extrasWidth
+    getEmail
+    setEmail
 */
 class ScrollBox extends Component {
 
@@ -37,7 +39,8 @@ class ScrollBox extends Component {
 	               <ContentBox contentInfo={this.props.contentInfo}
 	       	           height={this.props.windowHeight}
 	                   extrasWidth={this.props.extrasWidth}
-	       	           registerExtra={this.registerExtra} />
+	       	           getEmail={this.props.getEmail}
+	       		   setEmail={this.props.setEmail}/>
        		   </ScrollSyncPane>
 	       </div>
 	   </ScrollSync>
@@ -54,7 +57,10 @@ class ScrollBox extends Component {
    PROPS: 
    chapterInfo: json object specifying chapter details and content
    windowHeight: Main can find this
-   windowWidth: Main can get this                                   */
+   windowWidth: Main can get this
+   setEmail
+   getEmail
+*/
 class Chapter extends Component {
 
     constructor(props) {
@@ -78,7 +84,9 @@ class Chapter extends Component {
                                navBarInfo={navBarInfo}/>
 		<ScrollBox contentInfo={contentBoxInfo}
                            height={this.props.windowHeight}
-                           extrasWidth={sideBarWidth} />
+                           extrasWidth={sideBarWidth} 
+			   setEmail={this.props.setEmail}
+			   getEmail={this.props.getEmail}/>
             </div>
         );
     }
