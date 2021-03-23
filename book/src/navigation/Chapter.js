@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavigationBar } from "navigationbar/NavigationBar";
+import { NavigationBar } from "navigation/NavigationBar";
 import ContentBox from "contentbox/ContentBox";
 import * as Constants from "Constants";
 

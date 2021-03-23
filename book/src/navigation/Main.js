@@ -5,8 +5,8 @@ import {
     HashRouter
 } from "react-router-dom";
 
-import Chapter from "Chapter";
-import HomePage from "HomePage";
+import Chapter from "navigation/Chapter";
+import HomePage from "navigation/HomePage";
 
 import chapter1Info from "chapter-jsons/chapter1.json";
 import chapter2Info from "chapter-jsons/chapter2.json";

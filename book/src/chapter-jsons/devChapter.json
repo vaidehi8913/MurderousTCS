@@ -79,6 +79,30 @@
             "chibiImage": "sprites/vaidehi_wink.png",
             "chibiDescription": "Vaidehi winking",
             "line": "We're glad you are here!"
+        },
+ 		{
+            "key": "devChapInter1",
+            "type": "interactive",
+            "interactionID": "sample"
+        },
+        {
+            "key": "devChapdial1line2",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_wink.png",
+            "chibiDescription": "Vaidehi winking",
+            "line": "Here's another line of dialogue"
+        },
+ 		{
+            "key": "devChapInter2",
+            "type": "interactive",
+            "interactionID": "invalid"
+        },
+        {
+            "key": "devChapdial1line3",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_wink.png",
+            "chibiDescription": "Vaidehi winking",
+            "line": "That's it for this chapter, see you next week!"
         }
     ]
 }

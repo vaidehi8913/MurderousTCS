@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import * as Constants from "Constants";
-import { ChapterNavigator } from "navigationbar/NavigationBar";
+import { ChapterNavigator } from "navigation/NavigationBar";
 
 /*  The component that shows up at the path "/"
 
