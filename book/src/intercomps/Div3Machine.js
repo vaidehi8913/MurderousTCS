@@ -153,9 +153,9 @@ class Div3Machine extends React.Component {
             <td><button onClick={() => { this.newDigit(9) }} style={buttonStyle}> 9 </button></td>
           </tr>
           <tr>
-            <td><button onClick={this.deleteDigit} style={buttonStyle}> <i className="icon" class="fas fa-backspace" ></i> </button></td>
+            <td><button onClick={this.deleteDigit} style={buttonStyle}> <i className="icon" className="fas fa-backspace" ></i> </button></td>
             <td><button onClick={() => { this.newDigit(0) }} style={buttonStyle}> 0 </button></td>
-            <td><button onClick={this.enterNumber} style={buttonStyle} ref={x => this.enterButton = x}> <i className="icon" class="fas fa-arrow-circle-right"></i> </button></td>
+            <td><button onClick={this.enterNumber} style={buttonStyle} ref={x => this.enterButton = x}> <i className="icon" className="fas fa-arrow-circle-right"></i> </button></td>
           </tr>
         </table>;
 
@@ -171,13 +171,8 @@ class Div3Machine extends React.Component {
 		  baseImgFilePath = "div3machine/off.png";
         }
 
-		var baseImgStyle = {
-			width: "100%",
-			height: "auto"
-		};
-
 		var baseImgSrc = require ("images/" + baseImgFilePath);
-		var base = <img src={baseImgSrc} style={baseImgStyle} alt="div3 Machine Base"/>;
+		var base = <img src={baseImgSrc} alt="div3 Machine Base"/>;
 
         return (
           <div className="machineDiv">
