@@ -90,12 +90,7 @@ Looking for the source images that we use? You can find them under
 # Our To-Do List
 
 
-We used to use a to-do list.  Now we are moving to Git issues!
-
-In the past, this is where we would track issues and improvements 
-that we wanted to get to.  You can find this in 
-
-    src/implementation-to-do.md
+Check out our Git Issues to see what we're currently working on adding!
 
 
 # Debug mode
