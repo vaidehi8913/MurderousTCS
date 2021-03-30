@@ -1,0 +1,25 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "pwa-chrome",
+      "request": "launch",
+      "name": "Open div3machine.html",
+      "file": "/Users/parmita/Documents/GitHub/MurderousTCS/div3machine.html"
+    }
+    // {
+    //   "name": "Attach to Process",
+    //   "type": "node",
+    //   "protocol": "inspector",
+    //   "request": "attach",
+    //   "stopOnEntry": false,
+    //   "port": 5858,
+    //   "localRoot": "/Users/parmita/Documents/GitHub/MurderousTCS/",
+    //   "remoteRoot": "/Users/parmita/Documents/GitHub/MurderousTCS/",
+    //   "sourceMaps": true
+    // }
+  ]
+}
