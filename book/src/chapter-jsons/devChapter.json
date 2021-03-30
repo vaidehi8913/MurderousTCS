@@ -1,0 +1,108 @@
+{
+    "key": "devChapter",
+    "type": "chapter",
+    "navigationBar": {
+        "chapterNumber": 0,
+        "chapterTitle": "This Chapter is only for testing",
+        "navBarElements": [
+            {
+                "key": "dchomeButton",
+                "type": "imageElement",
+                "basicImage": "navbar/home_dark.png",
+                "hoverImage": "navbar/home_hover.png",
+                "hoverText": "Go to the home page",
+                "linkOnClick": "/",
+                "imageDescription": "Button to home page"
+            },
+            {
+                "key": "dcspace1",
+                "type": "spacer",
+                "size": "medium"
+            },
+            {
+                "key": "dcchapter1Button",
+                "type": "imageElement",
+                "basicImage": "navbar/chapter1_dark.png",
+                "hoverImage": "navbar/chapter1_hover.png",
+                "hoverText": "Go to Chapter 1",
+                "linkOnClick": "/chapter1",
+                "imageDescription": "Button to chapter 1"
+            },
+            {
+                "key": "dcchapter2Button",
+                "type": "imageElement",
+                "basicImage": "navbar/chapter2_dark.png",
+                "hoverImage": "navbar/chapter2_hover.png",
+                "hoverText": "Go to Chapter 2",
+                "linkOnClick": "/chapter2",
+                "imageDescription": "Button to chapter 2"
+            },
+            {
+                "key": "dcchapter3Button",
+                "type": "imageElement",
+                "basicImage": "navbar/chapter3_dark.png",
+                "hoverImage": "navbar/chapter3_hover.png",
+                "hoverText": "Go to Chapter 3",
+                "linkOnClick": "/chapter3",
+                "imageDescription": "Button to chapter 3"
+            },
+            {
+                "key": "dcchapter4Button",
+                "type": "imageElement",
+                "basicImage": "navbar/chapter4_dark.png",
+                "hoverImage": "navbar/chapter4_hover.png",
+                "hoverText": "Go to Chapter 4",
+                "linkOnClick": "/chapter4",
+                "imageDescription": "Button to chapter 4"
+            },
+            {
+                "key": "dcchapter5Button",
+                "type": "imageElement",
+                "basicImage": "navbar/chapter5_dark.png",
+                "hoverImage": "navbar/chapter5_hover.png",
+                "hoverText": "Go to Chapter 5",
+                "linkOnClick": "/chapter5",
+                "imageDescription": "Button to chapter 5"
+            }
+        ]
+    },
+    "content": [
+        {
+            "key": "devChapterHeading",
+            "type": "heading",
+            "number": 0,
+            "title": "Welcome to the development chapter!"
+        },
+        {
+            "key": "devChapdial1line1",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_wink.png",
+            "chibiDescription": "Vaidehi winking",
+            "line": "We're glad you are here!"
+        },
+ 		{
+            "key": "devChapInter1",
+            "type": "interactive",
+            "interactionID": "sample"
+        },
+        {
+            "key": "devChapdial1line2",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_wink.png",
+            "chibiDescription": "Vaidehi winking",
+            "line": "Here's another line of dialogue"
+        },
+ 		{
+            "key": "devChapInter2",
+            "type": "interactive",
+            "interactionID": "invalid"
+        },
+        {
+            "key": "devChapdial1line3",
+            "type": "dialogue",
+            "chibiImage": "sprites/vaidehi_wink.png",
+            "chibiDescription": "Vaidehi winking",
+            "line": "That's it for this chapter, see you next week!"
+        }
+    ]
+}

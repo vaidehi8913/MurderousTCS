@@ -7,6 +7,7 @@ import ComicImage from "contentbox/ComicImage";
 import ChapterHeading from "contentbox/ChapterHeading";
 import ExtraList from "contentbox/ExtraList";
 import FeedbackButton from "contentbox/FeedbackButton";
+import Interactive from "contentbox/Interactive";
 
 import * as Constants from "Constants";
 
@@ -22,31 +23,31 @@ import * as Constants from "Constants";
  */
 class ExtraElement extends Component {
     constructor(props){
-	super(props);
+		super(props);
 
-	this.extraElementStyle = {
-	    backgroundColor: (Constants.DEBUG > 2) ? "#ebe134" : "none",
-	    gridColumnStart: "extras-start",
-	    gridRowStart: "row-start " + (this.props.index + 1),
-	    gridRowEnd: "rows-end",
-	    width: this.props.extrasWidth
-	}
+		this.extraElementStyle = {
+	    	backgroundColor: (Constants.DEBUG > 2) ? "#ebe134" : "none",
+	    	gridColumnStart: "extras-start",
+	    	gridRowStart: "row-start " + (this.props.index + 1),
+	    	gridRowEnd: "rows-end",
+	    	width: this.props.extrasWidth
+		}
     }
 
     render() {
-	var contentInfo = this.props.contentInfo;
-	var extraComponent = null;
+		var contentInfo = this.props.contentInfo;
+		var extraComponent = null;
   
-	if (contentInfo.hasOwnProperty("extras")) {
-	    extraComponent = 
-	        <div style={this.extraElementStyle}
-		     key={contentInfo.key}>
-		    <ExtraList extraListInfo={contentInfo.extras}
-			       extrasWidth={this.props.extrasWidth} />
-		</div>;
-	}
+		if (contentInfo.hasOwnProperty("extras")) {
+	    	extraComponent = 
+	        	<div style={this.extraElementStyle}
+		     	key={contentInfo.key}>
+		    	<ExtraList extraListInfo={contentInfo.extras}
+			    	   extrasWidth={this.props.extrasWidth} />
+			</div>;
+		}
 
-	return extraComponent;
+		return extraComponent;
     }    
 }
 
@@ -76,10 +77,10 @@ class ContentElement extends Component {
 	    gridRowStart: "row-start " + (this.props.index + 1)
         }; 
 
-        this.extrasContainerStyle = {
-            backgroundColor: (Constants.DEBUG > 2) ? "#e31bbe" : "none",
-            width: this.props.extrasWidth - Constants.CONTENT_MARGIN
-        };
+        //this.extrasContainerStyle = {
+        //    backgroundColor: (Constants.DEBUG > 2) ? "#e31bbe" : "none",
+        //    width: this.props.extrasWidth - Constants.CONTENT_MARGIN
+        //};
     }
   
 
@@ -87,7 +88,7 @@ class ContentElement extends Component {
         var contentInfo = this.props.contentInfo;
         var contentComponent; 
 
-	if (contentInfo.type === "image") {
+		if (contentInfo.type === "image") {
             contentComponent =  <ComicImage contentInfo={contentInfo} 
                                             key={contentInfo.key}/>;
 
@@ -100,11 +101,15 @@ class ContentElement extends Component {
             contentComponent =  <ChapterHeading headingInfo={contentInfo}
                                                 parentWidth={Constants.CONTENT_WIDTH}
                                                 key={contentInfo.key}/>;
+
+        } else if (contentInfo.type === "interactive") {
+			contentComponent =  <Interactive contentInfo={contentInfo}
+											 key={contentInfo.key}/>;
         }
 
         return (
             <div style={this.contentContainerStyle}
-		 key={contentInfo.key}>
+		 		 key={contentInfo.key}>
                 {contentComponent}
             </div>
         );
@@ -133,25 +138,24 @@ class ContentBox extends Component {
         super(props);
 
         this.fromContentData = this.fromContentData.bind(this);
-	this.extrasFromContentData = this.extrasFromContentData.bind(this);
-	this.buttonsFromContentData = this.buttonsFromContentData.bind(this);
+		this.extrasFromContentData = this.extrasFromContentData.bind(this);
+		this.buttonsFromContentData = this.buttonsFromContentData.bind(this);
     }
 
     fromContentData(contentData, index) {
         return(
             <ContentElement contentInfo={contentData}
                             extrasWidth={this.props.extrasWidth}
-                            registerExtra={this.props.registerExtra}
-		            index={index}/>
+		            		index={index}/>
         );
     }
 
     extrasFromContentData(contentData, index) {
-	return(
-	    <ExtraElement contentInfo={contentData}
-		          extrasWidth={this.props.extrasWidth}
-			  index={index}/>
-	);
+		return(
+	    	<ExtraElement contentInfo={contentData}
+		          	      extrasWidth={this.props.extrasWidth}
+			  		      index={index}/>
+		);
     }
 
     buttonsFromContentData(contentData, index) {
