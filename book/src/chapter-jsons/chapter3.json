@@ -1,348 +1,356 @@
 {
-    "key": "chapter3",
-    "type": "chapter",
-    "navigationBar": {
-        "chapterNumber": 3,
-        "chapterTitle": "The Question Expert",
-        "navBarElements": [
-            {
-                "key": "c3homeButton",
-                "type": "imageElement",
-                "basicImage": "navbar/home_dark.png",
-                "hoverImage": "navbar/home_hover.png",
-                "hoverText": "Go to the home page",
-                "linkOnClick": "/",
-                "imageDescription": "Button to home page"
-            },
-            {
-                "key": "c3space1",
-                "type": "spacer",
-                "size": "medium"
-            },
-            {
-                "key": "c3chapter1Button",
-                "type": "imageElement",
-                "basicImage": "navbar/chapter1_dark.png",
-                "hoverImage": "navbar/chapter1_hover.png",
-                "hoverText": "Go to Chapter 1",
-                "linkOnClick": "/chapter1",
-                "imageDescription": "Button to chapter 1"
-            },
-            {
-                "key": "c3chapter2Button",
-                "type": "imageElement",
-                "basicImage": "navbar/chapter2_dark.png",
-                "hoverImage": "navbar/chapter2_hover.png",
-                "hoverText": "Go to Chapter 2",
-                "linkOnClick": "/chapter2",
-                "imageDescription": "Button to chapter 2"
-            },
-            {
-                "key": "c3chapter3Button",
-                "type": "imageElement",
-                "basicImage": "navbar/chapter3_hover.png",
-                "imageDescription": "Button to Chapter 3"
-            },
-            {
-                "key": "c3chapter4Button",
-                "type": "imageElement",
-                "basicImage": "navbar/chapter4_dark.png",
-                "hoverImage": "navbar/chapter4_hover.png",
-                "hoverText": "Go to Chapter 4",
-                "linkOnClick": "/chapter4",
-                "imageDescription": "Button to chapter 4"
-            },
-            {
-                "key": "c3chapter5Button",
-                "type": "imageElement",
-                "basicImage": "navbar/chapter5_dark.png",
-                "hoverImage": "navbar/chapter5_hover.png",
-                "hoverText": "Go to Chapter 5",
-                "linkOnClick": "/chapter5",
-                "imageDescription": "Button to chapter 5"
-            }
-        ]
-    },
-    "content": [
-        {
-            "key": "chapter3Heading",
-            "type": "heading",
-            "number": 3,
-            "title": "The Question Expert"
-        },
-        {
-            "key": "chap3image1",
-            "type": "image",
-            "source": "comic/013.png",
-            "description": "Vaidehi and Parmita use a cell phone to try to Moogle some results."
-        },
-        {
-            "key": "chap3image2",
-            "type": "image",
-            "source": "comic/014.png",
-            "description": "Vaidehi and Parmita walk to Moogle Inc."
-        },
-        {
-            "key": "chap3image3",
-            "type": "image",
-            "source": "comic/015.png",
-            "description": "Vaidehi and Parmita enter the Moogle office"
-        },
-        {
-            "key": "chap3image4",
-            "type": "image",
-            "source": "comic/016.png",
-            "description": "Vaidehi and Parmita find the CQE"
-        },
-        {
-            "key": "chap3dial1line1",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Expert happy",
-            "line": "Pumpkin Sandwiches, my favorite!"
-        },
-        {
-            "key": "chap3dial1line2",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Vaidehi grossed out",
-            "line": "Ugh, really?"
-        },
-        {
-            "key": "chap3dial1line3",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Expert questioning",
-            "line": "Hey, I’ve never seen you two around here before."
-        },
-        {
-            "key": "chap3dial1line4",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Parmita nervous",
-            "line": "Uh… We’re new hires."
-        },
-        {
-            "key": "chap3dial1line5",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Expert questioning",
-            "line": "What do you work on?"
-        },
-        {
-            "key": "chap3dial1line6",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Parmita more nervous",
-            "line": "We work on…uhhhhhhhh"
-        },
-        {
-            "key": "chap3image5",
-            "type": "image",
-            "source": "comic/017.png",
-            "description": "Vaidehi and Parmita confront the CQE"
-        },
-        {
-            "key": "chap3dial1line7",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Vaidehi excited",
-            "line": "lightbulb!"
-        },
-        {
-            "key": "chap3dial1line8",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Expert confused",
-            "line": "lightbulb?"
-        },
-        {
-            "key": "chap3dial1line9",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Vaidehi lying",
-            "line": "I mean, lighting. Like you know, when people leave the lights on by accident, we turn them off.  That kind of thing."
-        },
-        {
-            "key": "chap3dial1line10",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Vaidehi lying",
-            "line": "I mean, lighting. Like you know, when people leave the lights on by accident, we turn them off.  That kind of thing."
-        },
-        {
-            "key": "chap3dial1line11",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Expert neutral",
-            "line": "Oh I thought all that stuff was automatic in this building nowadays."
-        },
-        {
-            "key": "chap3dial1line12",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Parmita lying",
-            "line": "You’d think.  But nope.  We spend all day turning lights on and off.  Every time someone walks into a room, gotta sprint across the building to get the light."
-        },
-        {
-            "key": "chap3dial1line13",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Expert surprised",
-            "line": "Wow, I had no idea!  That sounds hard."
-        },
-        {
-            "key": "chap3dial1line14",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Vaidehi fake smile",
-            "line": "Well, you know, we’re pretty good at it.  That’s why you don’t notice that it’s not automatic."
-        },
-        {
-            "key": "chap3dial1line15",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Expert smiling",
-            "line": "Oh.  Well, nice to meet you."
-        },
-        {
-            "key": "chap3dial1line16",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Octopus surprised",
-            "line": "*whisper* Really? He fell for that?"
-        },
-        {
-            "key": "chap3dial1line17",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Parmita asking",
-            "line": "While we’ve got your attention, we had a question for you, since you are a Question Expert and all. Are there any questions that Moogle Inc. can’t answer?"
-        },
-        {
-            "key": "chap3image6",
-            "type": "image",
-            "source": "comic/018.png",
-            "description": "CQE hits the alarm"
-        },
-        {
-            "key": "chap3image7",
-            "type": "image",
-            "source": "comic/019.png",
-            "description": "Parmita and Vaidehi are escorted by security to a conference room."
-        },
-        {
-            "key": "chap3image8",
-            "type": "image",
-            "source": "comic/020.png",
-            "description": "The expert and Pam confront Vaidehi and Parmita"
-        },
-        {
-            "key": "chap3dial1line18",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Vaidehi yelling lying",
-            "line": "What? No! We work on the lighting crew!"
-        },
-        {
-            "key": "chap3dial1line19",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Expert angry",
-            "line": "Really? Because this is Pam from Human Resources..."
-        },
-        {
-            "key": "chap3dial1line20",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Pam angry",
-            "line": "And I’ve never seen you!--you guys definitely don’t work here."
-        },
-        {
-            "key": "chap3dial1line21",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Expert angry",
-            "line": "And you must really have done your spywork if you knew that our lights weren’t automatic.  Even I didn’t know that until Pam told me, and I started this company.  And it’s really quite a shock, this being a tech company and all..."
-        },
-        {
-            "key": "chap3dial1line22",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Parmita angry",
-            "line": "Look, you are right, we don’t work here.  But we aren’t paid spies!  Just let us explain!  It started yesterday, when we decided to spend the day flying our kite on the beach..."
-        },
-        {
-            "key": "chap3image9",
-            "type": "image",
-            "source": "comic/021.png",
-            "description": "Parmita explains what's happened so far"
-        },
-        {
-            "key": "chap3image10",
-            "type": "image",
-            "source": "comic/022.png",
-            "description": "The expert and Pam are now chill with the intruders."
-        },
-        {
-            "key": "chap3dial1line23",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Expert embarassed",
-            "line": "Though to be fair, you shouldn’t have broken into our building, what if I had sent you to the spy dungeon instead of this conference room?"
-        },
-        {
-            "key": "chap3dial1line24",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Parmita grateful",
-            "line": "Thanks for not locking us in the spy dungeon!"
-        },
-        {
-            "key": "chap3dial1line25",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Expert thoughtful",
-            "line": "Well, to be honest, I was a little disappointed that you weren’t spies.  We pay a lot in rent for that dungeon, and we barely ever get to use it.  But Pam said I shouldn’t -- I mean -- I would never lock innocent kids in a spy dungeon."
-        },
-        {
-            "key": "chap3dial1line26",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Pam neutral",
-            "line": "The security guard will see you out now."
-        },
-        {
-            "key": "chap3dial1line27",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Vaidehi asking",
-            "line": "Before we go, can you help us find a question that the scientist’s machine can’t answer?"
-        },
-        {
-            "key": "chap3dial1line28",
-            "type": "dialogue",
-            "chibiImage": "sprites/vaidehi_wink.png",
-            "chibiDescription": "Vaidehi asking",
-            "line": "Well, I guess I have some time before my next meeting. The first step of understanding questions, is asking the question, \"what is a question?\""
-        },
-        {
-            "key": "chap3image11",
-            "type": "image",
-            "source": "comic/023.png",
-            "description": "The expert tries to explain this to Parmita and Vaidehi"
-        },
-        {
-            "key": "chap3image12",
-            "type": "image",
-            "source": "comic/024.png",
-            "description": "The expert decides an example would help"
-        },
-        {
-            "key": "chap3image13",
-            "type": "image",
-            "source": "comic/025.png",
-            "description": "Pam brings out the machine"
-        }
+  "key": "chapter3",
+  "type": "chapter",
+  "navigationBar": {
+    "chapterNumber": 3,
+    "chapterTitle": "The Question Expert",
+    "navBarElements": [
+      {
+        "key": "c3homeButton",
+        "type": "imageElement",
+        "basicImage": "navbar/home_dark.png",
+        "hoverImage": "navbar/home_hover.png",
+        "hoverText": "Go to the home page",
+        "linkOnClick": "/",
+        "imageDescription": "Button to home page"
+      },
+      {
+        "key": "c3space1",
+        "type": "spacer",
+        "size": "medium"
+      },
+      {
+        "key": "c3chapter1Button",
+        "type": "imageElement",
+        "basicImage": "navbar/chapter1_dark.png",
+        "hoverImage": "navbar/chapter1_hover.png",
+        "hoverText": "Go to Chapter 1",
+        "linkOnClick": "/chapter1",
+        "imageDescription": "Button to chapter 1"
+      },
+      {
+        "key": "c3chapter2Button",
+        "type": "imageElement",
+        "basicImage": "navbar/chapter2_dark.png",
+        "hoverImage": "navbar/chapter2_hover.png",
+        "hoverText": "Go to Chapter 2",
+        "linkOnClick": "/chapter2",
+        "imageDescription": "Button to chapter 2"
+      },
+      {
+        "key": "c3chapter3Button",
+        "type": "imageElement",
+        "basicImage": "navbar/chapter3_hover.png",
+        "imageDescription": "Button to Chapter 3"
+      },
+      {
+        "key": "c3chapter4Button",
+        "type": "imageElement",
+        "basicImage": "navbar/chapter4_dark.png",
+        "hoverImage": "navbar/chapter4_hover.png",
+        "hoverText": "Go to Chapter 4",
+        "linkOnClick": "/chapter4",
+        "imageDescription": "Button to chapter 4"
+      },
+      {
+        "key": "c3chapter5Button",
+        "type": "imageElement",
+        "basicImage": "navbar/chapter5_dark.png",
+        "hoverImage": "navbar/chapter5_hover.png",
+        "hoverText": "Go to Chapter 5",
+        "linkOnClick": "/chapter5",
+        "imageDescription": "Button to chapter 5"
+      }
     ]
+  },
+  "content": [
+    {
+      "key": "chapter3Heading",
+      "type": "heading",
+      "number": 3,
+      "title": "The Question Expert"
+    },
+    {
+      "key": "chap3image1",
+      "type": "image",
+      "source": "comic/013.png",
+      "description": "Vaidehi and Parmita use a cell phone to try to Moogle some results."
+    },
+    {
+      "key": "chap3image2",
+      "type": "image",
+      "source": "comic/014.png",
+      "description": "Vaidehi and Parmita walk to Moogle Inc."
+    },
+    {
+      "key": "chap3image3",
+      "type": "image",
+      "source": "comic/015.png",
+      "description": "Vaidehi and Parmita enter the Moogle office"
+    },
+    {
+      "key": "chap3image4",
+      "type": "image",
+      "source": "comic/016.png",
+      "description": "Vaidehi and Parmita find the CQE"
+    },
+    {
+      "key": "chap3dial1line1",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Expert happy",
+      "line": "Pumpkin Sandwiches, my favorite!"
+    },
+    {
+      "key": "chap3dial1line2",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Vaidehi grossed out",
+      "line": "Ugh, really?"
+    },
+    {
+      "key": "chap3dial1line3",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Expert questioning",
+      "line": "Hey, I’ve never seen you two around here before."
+    },
+    {
+      "key": "chap3dial1line4",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Parmita nervous",
+      "line": "Uh… We’re new hires."
+    },
+    {
+      "key": "chap3dial1line5",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Expert questioning",
+      "line": "What do you work on?"
+    },
+    {
+      "key": "chap3dial1line6",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Parmita more nervous",
+      "line": "We work on…uhhhhhhhh"
+    },
+    {
+      "key": "chap3image5",
+      "type": "image",
+      "source": "comic/017.png",
+      "description": "Vaidehi and Parmita confront the CQE"
+    },
+    {
+      "key": "chap3dial1line7",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Vaidehi excited",
+      "line": "lightbulb!"
+    },
+    {
+      "key": "chap3dial1line8",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Expert confused",
+      "line": "lightbulb?"
+    },
+    {
+      "key": "chap3dial1line9",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Vaidehi lying",
+      "line": "I mean, lighting. Like you know, when people leave the lights on by accident, we turn them off.  That kind of thing."
+    },
+    {
+      "key": "chap3dial1line10",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Vaidehi lying",
+      "line": "I mean, lighting. Like you know, when people leave the lights on by accident, we turn them off.  That kind of thing."
+    },
+    {
+      "key": "chap3dial1line11",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Expert neutral",
+      "line": "Oh I thought all that stuff was automatic in this building nowadays."
+    },
+    {
+      "key": "chap3dial1line12",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Parmita lying",
+      "line": "You’d think.  But nope.  We spend all day turning lights on and off.  Every time someone walks into a room, gotta sprint across the building to get the light."
+    },
+    {
+      "key": "chap3dial1line13",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Expert surprised",
+      "line": "Wow, I had no idea!  That sounds hard."
+    },
+    {
+      "key": "chap3dial1line14",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Vaidehi fake smile",
+      "line": "Well, you know, we’re pretty good at it.  That’s why you don’t notice that it’s not automatic."
+    },
+    {
+      "key": "chap3dial1line15",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Expert smiling",
+      "line": "Oh.  Well, nice to meet you."
+    },
+    {
+      "key": "chap3dial1line16",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Octopus surprised",
+      "line": "*whisper* Really? He fell for that?"
+    },
+    {
+      "key": "chap3dial1line17",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Parmita asking",
+      "line": "While we’ve got your attention, we had a question for you, since you are a Question Expert and all. Are there any questions that Moogle Inc. can’t answer?"
+    },
+    {
+      "key": "chap3image6",
+      "type": "image",
+      "source": "comic/018.png",
+      "description": "CQE hits the alarm"
+    },
+    {
+      "key": "chap3image7",
+      "type": "image",
+      "source": "comic/019.png",
+      "description": "Parmita and Vaidehi are escorted by security to a conference room."
+    },
+    {
+      "key": "chap3image8",
+      "type": "image",
+      "source": "comic/020.png",
+      "description": "The expert and Pam confront Vaidehi and Parmita"
+    },
+    {
+      "key": "chap3dial1line18",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Vaidehi yelling lying",
+      "line": "What? No! We work on the lighting crew!"
+    },
+    {
+      "key": "chap3dial1line19",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Expert angry",
+      "line": "Really? Because this is Pam from Human Resources..."
+    },
+    {
+      "key": "chap3dial1line20",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Pam angry",
+      "line": "And I’ve never seen you!--you guys definitely don’t work here."
+    },
+    {
+      "key": "chap3dial1line21",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Expert angry",
+      "line": "And you must really have done your spywork if you knew that our lights weren’t automatic.  Even I didn’t know that until Pam told me, and I started this company.  And it’s really quite a shock, this being a tech company and all..."
+    },
+    {
+      "key": "chap3dial1line22",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Parmita angry",
+      "line": "Look, you are right, we don’t work here.  But we aren’t paid spies!  Just let us explain!  It started yesterday, when we decided to spend the day flying our kite on the beach..."
+    },
+    {
+      "key": "chap3image9",
+      "type": "image",
+      "source": "comic/021.png",
+      "description": "Parmita explains what's happened so far"
+    },
+    {
+      "key": "chap3image10",
+      "type": "image",
+      "source": "comic/022.png",
+      "description": "The expert and Pam are now chill with the intruders."
+    },
+    {
+      "key": "chap3dial1line23",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Expert embarassed",
+      "line": "Though to be fair, you shouldn’t have broken into our building, what if I had sent you to the spy dungeon instead of this conference room?"
+    },
+    {
+      "key": "chap3dial1line24",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Parmita grateful",
+      "line": "Thanks for not locking us in the spy dungeon!"
+    },
+    {
+      "key": "chap3dial1line25",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Expert thoughtful",
+      "line": "Well, to be honest, I was a little disappointed that you weren’t spies.  We pay a lot in rent for that dungeon, and we barely ever get to use it.  But Pam said I shouldn’t -- I mean -- I would never lock innocent kids in a spy dungeon."
+    },
+    {
+      "key": "chap3dial1line26",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Pam neutral",
+      "line": "The security guard will see you out now."
+    },
+    {
+      "key": "chap3dial1line27",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Vaidehi asking",
+      "line": "Before we go, can you help us find a question that the scientist’s machine can’t answer?"
+    },
+    {
+      "key": "chap3dial1line28",
+      "type": "dialogue",
+      "chibiImage": "sprites/vaidehi_wink.png",
+      "chibiDescription": "Vaidehi asking",
+      "line": "Well, I guess I have some time before my next meeting. The first step of understanding questions, is asking the question, \"what is a question?\""
+    },
+    {
+      "key": "chap3image11",
+      "type": "image",
+      "source": "comic/023.png",
+      "description": "The expert tries to explain this to Parmita and Vaidehi"
+    },
+    {
+      "key": "chap3image12",
+      "type": "image",
+      "source": "comic/024.png",
+      "description": "The expert decides an example would help"
+    },
+    {
+      "key": "chap3image13",
+      "type": "image",
+      "source": "comic/025.png",
+      "description": "Pam brings out the machine"
+    },
+    {
+      "key": "chap3nextbutton",
+      "type": "nextbutton",
+      "link": "/#/chapter4",
+      "bgColor": "#8E748D",
+      "textColor": "#FFFFFF",
+      "text": "Chapter 4"
+    }
+  ]
 }
