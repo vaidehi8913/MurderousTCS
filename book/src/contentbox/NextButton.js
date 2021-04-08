@@ -12,30 +12,29 @@ class NextButton extends Component {
   constructor(props) {
     super(props);
 
-    this.nextButtonStyle = {
-      width: Constants.CONTENT_WIDTH,
-      height: "auto",
-      backgroundColor: "#70C08B",
-      border: "none",
-      color: "white",
-      padding: "16px 32px"
-    };
-
     this.fromNextButtonInfo = this.fromNextButtonInfo.bind(this);
 
   }
 
   fromNextButtonInfo() {
-    // var nextButtonInfo = this.props.navImageElementInfo;
-    // var link = nextButtonInfo.link;
+    var nextButtonInfo = this.props.contentInfo;
 
-    var text = <i className="icon" className="fas fa-backspace" ></i>;
+    var nextButtonStyle = {
+      width: Constants.CONTENT_WIDTH - 7,
+      height: "auto",
+      backgroundColor: nextButtonInfo.bgColor,
+      border: "none",
+      color: nextButtonInfo.textColor,
+      padding: "16px 32px",
+      borderRadius: "10px"
+    };
 
     return (
-      <form action={"/#/chapter2"}>
+      <form action={nextButtonInfo.link}>
         <input type="submit"
-          value="-->"
-          style={this.nextButtonStyle} />
+          value={nextButtonInfo.text}
+          style={nextButtonStyle}
+        />
       </form>
     );
   }

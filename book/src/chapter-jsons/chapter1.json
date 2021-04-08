@@ -326,7 +326,9 @@
       "key": "chap1nextbutton",
       "type": "nextbutton",
       "link": "/#/chapter2",
-      "color": "#70C08B"
+      "bgColor": "#70C08B",
+      "textColor": "#FFFFFF",
+      "text": "Chapter 2"
     }
   ]
 }
