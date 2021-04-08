@@ -18,34 +18,34 @@ import { ScrollSync, ScrollSyncPane } from 'react-scroll-sync';
 */
 class ScrollBox extends Component {
 
-   constructor(props) {
-       super(props);
+  constructor(props) {
+    super(props);
 
-       this.scrollBoxStyle = {
-           backgroundColor: (Constants.DEBUG > 0) ? "#6ae6c7" : "none",
-           width: Constants.CONTENT_WIDTH + Constants.FEEDBACK_BUTTON_WIDTH 
-	       + props.extrasWidth,   
-           height: this.props.height,
-           overflow: "auto"
-       };
+    this.scrollBoxStyle = {
+      backgroundColor: (Constants.DEBUG > 0) ? "#6ae6c7" : "none",
+      width: Constants.CONTENT_WIDTH + Constants.FEEDBACK_BUTTON_WIDTH
+        + props.extrasWidth,
+      height: this.props.height,
+      overflow: "auto"
+    };
 
   }
 
-   render () {
-       return(
-	   <ScrollSync>
-	       <div style={this.scrollBoxStyle}>
-	           <ScrollSyncPane>
-	               <ContentBox contentInfo={this.props.contentInfo}
-	       	           height={this.props.windowHeight}
-	                   extrasWidth={this.props.extrasWidth}
-	       	           getEmail={this.props.getEmail}
-	       		   setEmail={this.props.setEmail}/>
-       		   </ScrollSyncPane>
-	       </div>
-	   </ScrollSync>
-       );
-   }
+  render() {
+    return (
+      <ScrollSync>
+        <div style={this.scrollBoxStyle}>
+          <ScrollSyncPane>
+            <ContentBox contentInfo={this.props.contentInfo}
+              height={this.props.windowHeight}
+              extrasWidth={this.props.extrasWidth}
+              getEmail={this.props.getEmail}
+              setEmail={this.props.setEmail} />
+          </ScrollSyncPane>
+        </div>
+      </ScrollSync>
+    );
+  }
 
 }
 
@@ -63,33 +63,33 @@ class ScrollBox extends Component {
 */
 class Chapter extends Component {
 
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.chapterStyle = {
-            display: "flex",
-            flexDirection: "row"
-        }
+    this.chapterStyle = {
+      display: "flex",
+      flexDirection: "row"
     }
+  }
 
-    render() {
-        var sideBarWidth = (this.props.windowWidth - Constants.CONTENT_WIDTH
-				- Constants.FEEDBACK_BUTTON_WIDTH) / 2;
-        var contentBoxInfo = this.props.chapterInfo.content;
-        var navBarInfo = this.props.chapterInfo.navigationBar;
+  render() {
+    var sideBarWidth = (this.props.windowWidth - Constants.CONTENT_WIDTH
+      - Constants.FEEDBACK_BUTTON_WIDTH) / 2;
+    var contentBoxInfo = this.props.chapterInfo.content;
+    var navBarInfo = this.props.chapterInfo.navigationBar;
 
-        return (
-            <div style={this.chapterStyle} key={this.props.chapterInfo.key}> 
-		<NavigationBar width={sideBarWidth} 
-                               navBarInfo={navBarInfo}/>
-		<ScrollBox contentInfo={contentBoxInfo}
-                           height={this.props.windowHeight}
-                           extrasWidth={sideBarWidth} 
-			   setEmail={this.props.setEmail}
-			   getEmail={this.props.getEmail}/>
-            </div>
-        );
-    }
+    return (
+      <div style={this.chapterStyle} key={this.props.chapterInfo.key}>
+        <NavigationBar width={sideBarWidth}
+          navBarInfo={navBarInfo} />
+        <ScrollBox contentInfo={contentBoxInfo}
+          height={this.props.windowHeight}
+          extrasWidth={sideBarWidth}
+          setEmail={this.props.setEmail}
+          getEmail={this.props.getEmail} />
+      </div>
+    );
+  }
 }
- 
+
 export default Chapter;
