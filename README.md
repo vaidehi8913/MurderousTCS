@@ -5,4 +5,4 @@ Expecting more from this README? Never fear! You may find what you are looking f
 book/README.md 
 
 That's because this top level folder has a lot of old junk from when we first started 
-using React.  The book directory is where the actual project is housed.
+using React.  The book directory is where the actual project is housed. :)
